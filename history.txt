@@ -1,0 +1,68 @@
+2013-09-04 v2.03
+- 更正了xeCJK-listings导致的代码列表格式错误
+- 12章插图中的巨搫更正为巨擘
+
+2013-08-17 v2.02
+- 第3页脚注4行首逗号 by huow005
+- 封面和封底巨搫更正为巨擘 by karlchen
+
+2013-06-08
+- 写完后记
+
+2013-06-07
+- 重新整理了索引
+
+2013-06-06
+- 更正了100和103页两处行首标点 by northwater
+- 更正了133页Wilhelm Ostwald的出生地 by northwater
+- 更正了134页德国标准化学会的拼写错误 by northwater
+
+2013-04-07
+- 更正了mtex.cmd中cv-casual的文件名拼写错误
+- 简历中C#改为C\#
+
+2012-12-23
+- 去掉了第7页最后一段多余的三个字母uth by Yiming
+- 更新了第7页脚注19 TAOCP的进程 by Yiming
+
+2012-08-20 更新至第12章
+- 17页例2.1标题拼写错误 by Sofoot
+- 40页例3.2去掉了已废弃的CJKaddspaces选项 by milksea
+- 167页少了一个“年”字 by jihongdong
+
+2012-01-17
+- 第1页行首句号 by zoho
+- 21页乱码 by primenumber
+- 163页乱码 by maming
+- 插图一章中的MetaPost, PSTricks, PGF拆分为三个独立章节
+
+2011-04-03 更新至第七章结构
+- 更正了22页表2.2, 2.3中的乱码字符 by IMB, tex
+- 112页例6.5中代码手工断了行 by milksea
+- 121页“例6.9中代码第14行”更正为“第12行” by IMB, jihongdong
+- 若干\footnote上标, \texttt, \verb与周围文字间距过窄
+
+2010-10-23 更新至第六章表格
+- 4.4.1节两个加号与前面字符间距过窄 by sesame
+
+2010-07-07 更新至第五章插图
+- 4.1节amsmath equation环境和LaTeX版本的区别是次环境 by sesame
+- 4.4节三个等号后间距过窄 by sesame
+- 增加4.4.4小节分支公式 by sesame
+
+2010-06-01 更新至第四章数学
+- 第三章字体结构内容略作调整 by milksea
+- 1、2页多了两个顿号，5页一个错别字 by jihongdong
+- 校对了脚注和索引
+
+2010-05-16 更新至第三章字体
+- 2.3.2小节宏包ulem拼写错误 by tex
+- 第三章第二段多了字符两字 by jiapeng
+- 29页表2.7罗马数字 by gaozhch
+
+2010-05-01 更新至第二章入门
+- 关于字体的建议 by shenshou246, milksea, PaladinHL
+- ConTeXt版权信息 by garfileo
+- 错别字：亲历亲为 by tex
+
+2010-04-16 完成第一章简介和附录B印刷简史

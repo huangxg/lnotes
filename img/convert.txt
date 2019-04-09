@@ -1,0 +1,10 @@
+convert dscf6030.jpg -crop 900x1350+640+150 -resize 100x150 -density 100x100 anna.jpg
+
+convert anna.jpg anna.png
+convert anna.jpg -colors 256 png8:anna8.png
+convert anna.jpg -colorspace gray png8:anna8g.png
+convert anna.jpg -colors 16 png8:anna4.png
+convert anna.jpg -colors 4 png8:anna2.png
+convert anna.jpg -monochrome anna1.png
+
+convert leftfoot.jpg -monochrome -fill silver -opaque black leftfoot.png

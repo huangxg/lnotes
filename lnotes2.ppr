@@ -1,0 +1,142 @@
+[Config]
+Compilator.FileName=ctex.cmd
+Compilator.PSPar=-x %ProjectName%
+Compilator.DefaultDir=%ProjectDir%
+Compilator.SaveAll=1
+Compilator.Capture=1
+Compilator.HideOutput=1
+Compilator.LogType=0
+DefaultDir=E:\users\hxg\tech\note\latex\lnotes2
+DefaultCPIndex=7
+LogtoEnd=0
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+Extensions=*.tex
+[Project tree]
+lnotes2
+	+lnotes2
+		-graph
+			-src
+				graph\src\mini.tex
+				graph\src\pgf.tex
+				graph\src\pst.tex
+		+src
+			-texlet
+				src\texlet\box_make.tex
+				src\texlet\box_make_esc.tex
+				src\texlet\box_par.tex
+				src\texlet\box_par_esc.tex
+				src\texlet\color_text.tex
+				src\texlet\color_text_esc.tex
+				src\texlet\fig_better_subfig.tex
+				src\texlet\fig_better_subfig_esc.tex
+				src\texlet\fig_rotate.tex
+				src\texlet\fig_rotate_esc.tex
+				src\texlet\fig_subfig.tex
+				src\texlet\fig_subfig_esc.tex
+				src\texlet\fig_title.tex
+				src\texlet\fig_title_esc.tex
+				src\texlet\fig_titles.tex
+				src\texlet\fig_titles_esc.tex
+				src\texlet\fig_zoom.tex
+				src\texlet\fig_zoom_esc.tex
+				src\texlet\hello_world.tex
+				src\texlet\href.tex
+				src\texlet\href_esc.tex
+				src\texlet\hyperref.tex
+				src\texlet\hyperref_esc.tex
+				src\texlet\layout_chaptermark.tex
+				src\texlet\layout_chaptermark_a.tex
+				src\texlet\layout_chaptermark_esc.tex
+				src\texlet\layout_cols.tex
+				src\texlet\layout_cols_esc.tex
+				src\texlet\layout_fancyhdr.tex
+				src\texlet\layout_fancyhdr_esc.tex
+				src\texlet\layout_macro.tex
+				src\texlet\layout_markboth.tex
+				src\texlet\layout_markboth_a.tex
+				src\texlet\layout_markboth_esc.tex
+				src\texlet\layout_pagestyle.tex
+				src\texlet\layout_pagestyle_a.tex
+				src\texlet\layout_pagestyle_esc.tex
+				src\texlet\list_description.tex
+				src\texlet\list_enumerate.tex
+				src\texlet\list_itemize.tex
+				src\texlet\note_footnote.tex
+				src\texlet\note_footnote_esc.tex
+				src\texlet\par_center.tex
+				src\texlet\par_center_esc.tex
+				src\texlet\par_left.tex
+				src\texlet\par_left_esc.tex
+				src\texlet\par_right.tex
+				src\texlet\par_right_esc.tex
+				src\texlet\quote_quotation.tex
+				src\texlet\quote_quotation_esc.tex
+				src\texlet\quote_quote.tex
+				src\texlet\quote_quote_esc.tex
+				src\texlet\quote_verse.tex
+				src\texlet\quote_verse_esc.tex
+				src\texlet\ref.tex
+				src\texlet\ref_esc.tex
+				src\texlet\tab_color.tex
+				src\texlet\tab_color_alt.tex
+				src\texlet\tab_color_alt_esc.tex
+				src\texlet\tab_color_esc.tex
+				src\texlet\tab_long.tex
+				src\texlet\tab_long_esc.tex
+				src\texlet\tab_multicol.tex
+				src\texlet\tab_multicol_esc.tex
+				src\texlet\tab_num.tex
+				src\texlet\tab_num_esc.tex
+				src\texlet\tab_rotate.tex
+				src\texlet\tab_rotate_esc.tex
+				src\texlet\tab_simple.tex
+				src\texlet\tab_simple_esc.tex
+				src\texlet\tab_tabularx.tex
+				src\texlet\tab_tabularx_esc.tex
+				src\texlet\tab_threesome.tex
+				src\texlet\tab_threesome_esc.tex
+				src\texlet\tab_width.tex
+				src\texlet\tab_width_aligned.tex
+				src\texlet\tab_width_aligned_esc.tex
+				src\texlet\tab_width_esc.tex
+				src\texlet\theorem_cor.tex
+				src\texlet\theorem_cor_esc.tex
+				src\texlet\theorem_def.tex
+				src\texlet\theorem_def_esc.tex
+				src\texlet\theorem_lem.tex
+				src\texlet\theorem_lem_esc.tex
+				src\texlet\theorem_proof.tex
+				src\texlet\theorem_proof_esc.tex
+				src\texlet\theorem_the.tex
+				src\texlet\theorem_the_esc.tex
+			src\acknowledgements.tex
+			src\apps.tex
+			src\back.tex
+			src\basics.tex
+			src\copyright.tex
+			src\dedication.tex
+			src\fonts.tex
+			src\forward.tex
+			src\front.tex
+			src\gra_mp.tex
+			src\gra_pgf.tex
+			src\gra_pst.tex
+			src\graphics.tex
+			src\introduction.tex
+			src\layout.tex
+			src\lnotes2.tex
+			src\math.tex
+			src\oldpostscript.tex
+			src\oldpreface.tex
+			src\postscript.tex
+			src\preface.tex
+			src\printing.tex
+			src\software.tex
+			src\structure.tex
+			src\tables.tex
+[Open project files]
+[Selected Project Files]
+Main=

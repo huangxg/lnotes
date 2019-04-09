@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+
+\usepackage[CJKchecksingle,CJKnumber]{xeCJK}
+\punctstyle{hangmobanjiao}
+\setmainfont[Mapping=tex-text]{Adobe Garamond Pro}
+%Mapping fixes endash & emdash
+\setCJKmainfont[BoldFont={Adobe Heiti Std},
+    ItalicFont={Adobe Kaiti Std}]{Adobe Song Std}%
+\setCJKsansfont{Adobe Heiti Std}
+\setCJKmonofont{Adobe Fangsong Std}
+
+\usepackage{simpsons}
+\usepackage{igo}
+
+%\usepackage{graphicx}
+\usepackage[percent]{overpic}
+\usepackage[active,tightpage]{preview}
+
+\begin{document}
+
+\begin{preview}
+\Homer
+\end{preview}
+
+\begin{preview}
+\begin{overpic}[scale=.3]{../../img/leftfoot.png}
+\put(21,54){\textit{清}}
+\put(6,24){\textit{明}}
+\end{overpic}
+\end{preview}
+
+\begin{preview}
+\begin{overpic}[scale=.3]{../../img/rightfoot.png}
+\put(31,54){\textit{反}}
+\put(44,24){\textit{复}}
+\end{overpic}
+\end{preview}
+
+\begin{preview}
+\title{雷人的传说}
+\author{包太雷$^*$\quad 包巨雷$^\dagger$\quad 包最雷$^\ddagger$\\[10pt]
+$*$Barrington University, Burlington, VT\\
+$\dagger$Pacific Western University, San Diego, CA\\
+$\ddagger$Preston University, Los Angeles, CA}
+\date{2011年1月11日}
+\maketitle
+\end{preview}
+
+\begin{preview}
+\black{d4,f3,c4,e3,b4,f2}
+\white{c3,d3,b3,e2,d1}
+\black[1]{a3,a2,b1}
+\copytogoban{2}
+\white[4]{c2,f1}
+\showgoban
+\quad
+\usegoban{2}
+\white[4]{c1,f1,b2,d2}
+\showgoban
+\end{preview}
+
+\end{document}

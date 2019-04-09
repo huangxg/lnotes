@@ -1,0 +1,348 @@
+\chapter{PSTricks}
+\label{sec:pstricks}
+
+PSTricks是一个基于PostScript的宏包，有了它用户就可以直接在 \LaTeX 文档中插入绘图命令。PSTricks早期的作者是van Zandt\indexVanZandt ，初始开发年月不详，1997年之后Denis Girou\indexGirou{} \footnote{供职于法国国家科学研究中心 (National Centre for Scientific Research, CNSR) 。} 和Herbert Voß\indexVoss{} \footnote{电力工程博士，高中数学、物理、电脑教师，柏林自由大学 (Free University of Berlin) 讲师。\LaTeX{}3项目成员，十几本书的作者。} 接管了维护工作。
+
+\autoref{tab:pst_add} 列出了一些可以和PSTricks配合使用的辅助宏包。
+
+\begin{table}[htbp]
+\caption{PSTricks 辅助宏包}
+\label{tab:pst_add}
+\centering
+\begin{tabular}{llll}
+    \toprule
+    multido & 循环      & pst-3dplot & 三维绘图 \\
+    pst-node & 示意图   & pst-solides3d & 三维实体 \\
+    pst-tree & 树状图   & pst-circ & 电路 \\
+    pst-plot & 函数绘图 & pst-labo & 化学 \\
+    pst-func & 数学函数 & pst-geo & 地理 \\
+    pst-eucl & 几何函数 & pstricks-add & 杂项 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\section{准备工作}
+\label{sec:pst_setup}
+
+PSTricks中缺省长度单位是1cm，我们也可以设置自己的单位。绘图命令一般要放在 \texttt{pspicture} 环境里，其参数是一个矩形的左下角和右上角，如果左下从原点开始可以省略该点坐标。这样 \LaTeX 就会给它预留空间，注意这个矩形要能容纳所有图形对象。
+
+\begin{Code}[]
+\psset{unit=10pt}
+\begin{pspicture}(0,0)(4,2)
+...
+\end{pspicture}
+\end{Code}
+
+另外需要注意的是，嵌入 \LaTeX 的PSTricks生成的是PostScript，\texttt{dvips} 认得自家人，\texttt{xdvipdfmx} 也可以处理。\texttt{dvipdfm} 和 \texttt{pdflatex} 则不能；如果使用后两种驱动，需要先行生成EPS或PDF。
+
+ \texttt{pst-eps} 宏包能够在线处理PSTricks代码并生成EPS，这样用户就可以在同一 \LaTeX 源文件中插入该EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的EPS，它和 \verb|\rput、\uput、\psaxes| 等命令都不兼容。
+
+\begin{example}[h]
+\begin{Code}[numbers=left]
+%fig.tex
+\documentclass{article}
+\usepackage{pst-pdf}
+\begin{document}
+\begin{pspicture}(0,0)(4,2)
+...
+\end{pspicture}
+\end{document}
+\end{Code}
+\caption{ \texttt{pst-pdf} 宏包}
+\label{exa:pst-pdf}
+\end{example}
+
+较好的方法是用 \texttt{pst-pdf} 宏包生成包含PSTricks图形的EPS，然后再根据需要转为PDF。每个 \texttt{pspicture} 环境中的内容会自成一页，方便插入文档。下面 \texttt{dvips} 命令的 \texttt{-E} 参数指示生成EPS。
+
+\begin{Code}[]
+latex fig(.tex)
+dvips fig(.dvi) -E fig.eps
+ps2pdf fig.eps fig.pdf
+\end{Code}
+
+\begin{example}[h]
+\begin{Code}[numbers=left]
+\documentclass{article}
+\usepackage[active,tightpage,xetex]{preview}
+\usepackage{pstricks}
+\begin{document}
+\begin{preview}
+\begin{pspicture}(0,0)(4,2)
+...
+\end{pspicture}
+\end{preview}
+\end{document}
+\end{Code}
+\caption{ \texttt{preview} 宏包}
+\label{exa:preview}
+\end{example}
+
+使用 \texttt{dvips} 或 \texttt{xdvipdfmx} 时也可以考虑这种生成独立图形的方法，因为直接在 \LaTeX 源文件中使用绘图命令，编译时间会比较长。使用 \texttt{pst-pdf} 宏包时的编译命令较繁琐，用两个命令生成EPS，第三个命令才得到PDF。如果使用 \texttt{xdvipdfmx}，可以改用 \texttt{preview} 宏包 (见 \autoref{exa:preview}) ，这样直接生成PDF，而且文件体积较小。每个 \texttt{preview} 环境中的内容也会自成一页。
+
+\section{基本图形对象}
+\subsection{点和直线}
+
+\verb|\dot| 命令画一个点，\verb|\dots| 命令画多个点。因为点是有直径的，\texttt{pspicture} 的尺寸需要稍大一点。\verb|\psline| 命令把多个点用直线段连接起来，线段之间的连接缺省为尖角，也可以设置为圆角。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics{pst.pdf}}
+\begin{pspicture}(-.2,-.2)(14,2.2)
+\psdot(0,0)
+\psdots(4,0)(2,2)
+\psline(5,0)(7,2)(9,0)
+\psline[linearc=.3](10,0)(12,2)(14,0)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 点和直线}
+\label{exa:pst_dot}
+\end{example}
+
+\subsection{矩形和多边形}
+
+矩形用 \verb|\psframe| 命令，其参数就是矩形左下角和右上角的坐标。多边形用 \verb|\pspolygon| 命令，语法和 \verb|\psline| 类似，但是它会形成封闭路径。矩形和多边形都可以设置圆角。
+
+\begin{Code}[numbers=left]
+\begin{pspicture}(19,3)
+\psframe(0,0)(4,3)
+\psframe[framearc=.3](5,0)(9,3)
+\pspolygon(10,0)(14,0)(12,3)
+\pspolygon[linearc=.3](15,0)(19,0)(17,3)
+\end{pspicture}
+\end{Code}
+
+\begin{example}[h]
+\begin{Demo}
+\includegraphics[page=2]{pst.pdf}
+\end{Demo}
+\caption{PStricks 矩形和多边形}
+\label{exa:pst_frame}
+\end{example}
+
+\subsection{圆、椭圆、圆弧、扇形}
+
+圆形用 \verb|\pscircle| 命令，参数是圆心和半径。椭圆用 \verb|\psellipse| 命令，参数是中心、长径、短径。注意这两个命令的半径参数用不同的括号，可能是作者的笔误。圆弧用 \verb|\psarc| 命令，其参数是圆心、半径、起止角度，逆时针作图。\verb|\psarcn| 类似，只是顺时针作图。扇形用 \verb|\pswedge| 命令。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=3]{pst.pdf}}
+\begin{pspicture}(19,2)
+\pscircle(1,1){1}
+\psellipse(5,1)(2,1)
+\psarc(9,0){2}{0}{120}
+\psarcn(13,0){2}{120}{0}
+\pswedge(17,0){2}{0}{120}
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 圆、椭圆、圆弧、扇形}
+\label{exa:pst_circle}
+\end{example}
+
+\subsection{曲线}
+
+\verb|\pscurve| 命令把一系列点用平滑曲线连接起来；\verb|\psecurve| 命令不显示曲线的两个端点；\verb|\psccurve| 命令则把曲线封闭起来。\verb|showpoints| 参数用来指示是否显示曲线的构成点，它也可用于其它绘图命令。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=4]{pst.pdf}}
+\begin{pspicture}(-0.2,-0.2)(25.2,2.2)
+\pscurve[showpoints=true](0,1)(1,2)(3,0)(4,2)(1,0)
+\psecurve[showpoints=true](5,1)(6,2)(8,0)(9,2)(5,0)
+\psccurve[showpoints=true](11,1)(12,2)(14,0)(15,2)(12,0)
+\psbezier[showpoints=true](16,0)(18,2)(20,0)(22,2)
+\psparabola[showpoints=true](25,2)(24,0)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 曲线}
+\label{exa:pst_curve}
+\end{example}
+
+贝塞尔曲线用 \verb|\psbezier| 命令，其参数就是曲线的控制点。抛物线用 \verb|\psparabola| 命令，它有两个参数，一个是抛物线通过的某点，另一个是抛物线的顶点。
+
+\subsection{网格和坐标轴}
+
+科技制图通常会用到坐标和网格。\verb|\psgrid| 命令输出一个矩形网格，它有三个参数点。网格坐标标注在通过第一个点的两条直线上，第二和第三个点是矩形的两个对角顶点。当第一个参数省略时，坐标标注在通过第一个顶点的两条矩形边上。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=5]{pst.pdf}}
+\psset{unit=20pt}
+\begin{pspicture}(-1,-1)(13.5,2.5)
+\psgrid(0,0)(-1,-1)(3,2)
+\psgrid(5,0)(8,2)
+\psgrid(13,2)(10,0)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 网格}
+\label{exa:pst_grid}
+\end{example}
+
+坐标轴可以用 \texttt{pst-plot} 宏包的 \verb|\psaxes| 命令。它的参数和 \verb|\psgrid| 的类似，刻度和标注的设置都很方便，也可以把坐标轴改成矩形框。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=6]{pst.pdf}}
+\psset{unit=20pt}
+\begin{pspicture}(-1,-1)(13.4,2.4)
+\psaxes{<->}(0,0)(-1,-1)(3,2)
+\psaxes[tickstyle=top,labels=none]{->}(5,0)(8,2)
+\psaxes[axesstyle=frame,tickstyle=top]{->}(10,0)(13,2)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 坐标轴}
+\label{exa:pst_axis}
+\end{example}
+
+\section{图形控制}
+\subsection{线宽和线型}
+
+PSTricks中缺省线条是0.8pt的实线。线宽和线型参数使用方法如下，
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=7]{pst.pdf}}
+\begin{pspicture}(0,-0.1)(9,2.1)
+\psline[linewidth=1.5pt](0,0)(9,0)
+\psline[linestyle=dotted](0,1)(9,1)
+\psline[linestyle=dashed](0,2)(9,2)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 线宽和线型}
+\label{exa:pst_linestyle}
+\end{example}
+
+\subsection{箭头}
+
+以下参数可以控制绘图命令的箭头。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=8]{pst.pdf}}
+\begin{pspicture}(-0.2,-0.2)(9.2,6.2)
+\psline{->}(0,0)(9,0)
+\psline{<-}(0,1)(9,1)
+\psline{<->}(0,2)(9,2)
+\psline{>-<}(0,3)(9,3)
+\psline{|-|}(0,4)(9,4)
+\psline{o-o}(0,5)(9,5)
+\psline{*-*}(0,6)(9,6)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 箭头}
+\label{exa:pst_arrow}
+\end{example}
+
+\subsection{颜色和填充}
+
+PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和red, green, blue, cyan, magenta, yellow等彩色。它可以使用 \texttt{xcolor} 宏包。设置线条颜色的方法如 \autoref{exa:pst_color} 所示，
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=9]{pst.pdf}}
+\begin{pspicture}(0,-0.1)(9,2.1)
+\psline[linecolor=red](0,0)(9,0)
+\psline[linecolor=green](0,1)(9,1)
+\psline[linecolor=blue](0,2)(9,2)
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 彩色}
+\label{exa:pst_color}
+\end{example}
+
+设置填充模式和填充颜色的方法如 \autoref{exa:pst_fill}。注意只有封闭路径才可以填充。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=10]{pst.pdf}}
+\begin{pspicture}(11,2)
+\pscircle[fillstyle=solid,fillcolor=RoyalBlue](1,1){1}
+\pscircle[fillstyle=vlines](4,1){1}
+\pscircle[fillstyle=hlines](7,1){1}
+\pscircle[fillstyle=crosshatch](10,1){1}
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 填充}
+\label{exa:pst_fill}
+\end{example}
+
+\subsection{全局设置}
+
+前文提到过用 \verb|\pseset| 命令设置长度单位，它还可以用来设置线宽、线型、颜色等全局参数。
+
+\begin{Code}[]
+\psset{linewidth=1pt, linestyle=dashed, linecolor=Silver, fillcolor=Lavender, fillstyle=crosshatch}
+\end{Code}
+
+\section{图形变换}
+
+ \texttt{origin} 参数让一个图形对象平移到指定的位置。\verb|\rput| 命令可以对一个图形对象同时进行旋转和平移操作。它有四个参数：
+
+\verb|语法: \rput[参考点]{旋转角度}{平移坐标}{操作对象}|
+
+\begin{enumerate}
+    \item 参考点，可选。其取值见 \autoref{tab:rput}，缺省是左下。
+    \item 旋转角度，可以取任意角度，也可以用U、L、D、R分别代表0$^\circ$、90$^\circ$、180$^\circ$、270$^\circ$ 。
+    \item 平移到的位置。
+    \item 操作对象。
+\end{enumerate}
+
+\begin{table}[h]
+\centering
+\caption{ \texttt{\char`\\rput} 命令的参考点}
+\label{tab:rput}
+\begin{tabular}{cccc}
+    \toprule
+    \multicolumn{2}{c}{水平方向} & \multicolumn{2}{c}{垂直方向} \\
+    \midrule
+    l & 左 & t & 上 \\
+    r & 右 & b & 下 \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=11]{pst.pdf}}
+\begin{pspicture}(12,3.2)
+\psframe(0,0)(3,2)
+\psframe[origin={4,0}](0,0)(3,2)
+\rput{30}(9,0){\psframe(0,0)(3,2)}
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 平移和旋转}
+\label{exa:pst_transform}
+\end{example}
+
+如果要进行全局坐标变换，可以考虑使用 \verb|translate|, \verb|scale|, \verb|rotate|, \verb|swapaxes| 等命令。
+
+\section{标注}
+
+\verb|\rput| 命令还可以在指定的坐标点标注文字，\autoref{exa:pst_label} 中的参考点参数指示把文字分别标注在某点的左边、右边、上边。它生成的标注就在坐标点上，有时会感觉离图形太近。
+
+\begin{example}[h]
+\begin{FBTDemo}[numbers=left]{\includegraphics[page=12]{pst.pdf}}
+\begin{pspicture}(-0.8,-0.4)(12.3,3.3)
+\pspolygon(0,0)(4,0)(2,2)
+\rput[r](0,0){A}
+\rput[l](4,0){B}
+\rput[b](2,2){C}
+\pspolygon(7,0)(11,0)(9,2)
+\uput[l](7,0){A}
+\uput[r](11,0){B}
+\uput[u](9,2){C}
+\end{pspicture}
+\end{FBTDemo}
+\caption{PStricks 标注}
+\label{exa:pst_label}
+\end{example}
+
+另一个命令 \verb|\uput| 则生成缺省距离指定坐标点5pt的标注。它的第一个参数是标注相对于坐标点的角度，取值可以是角度或字母 (见 \autoref{tab:uput}) 。注意 \verb|\uput| 的角度参数和 \verb|\rput| 命令的参考点位置参数的定义几乎正好相反，比较容易混淆。
+
+\begin{table}[h]
+\centering
+\caption{ \texttt{\char`\\uput} 命令的角度参数}
+\label{tab:uput}
+\begin{tabular}{lrlr}
+    \toprule
+    r &   0$^\circ$ & ur &  45$^\circ$ \\
+    u &  90$^\circ$ & ul & 135$^\circ$ \\
+    l & 180$^\circ$ & dl & 225$^\circ$ \\
+    d & 270$^\circ$ & dr & 315$^\circ$ \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+若想深入了解PSTricks，可以参阅其用户手册\citep{Zandt_2007}。
+
+\bibliographystyle{unsrtnat}
+\bibliography{lnotes2}

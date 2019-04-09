@@ -1,0 +1,268 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ldemo}[2010/04/27 Standard LaTeX package]
+
+\RequirePackage{listings,verbatim}
+
+\lstset{escapechar=`, extendedchars=false,
+    backgroundcolor=\color{Lavender}, basicstyle=\small\ttfamily, 
+    language=[LaTeX]TeX, keywordstyle=\color{blue},
+    frame=single, rulecolor=\color{Silver}, 
+    firstnumber=1, stepnumber=2, breaklines=true
+}
+
+\let\oldfboxsep=\fboxsep
+\newlength{\demosep}
+\setlength{\demosep}{3pt}
+\newsavebox{\mybox}
+\newwrite{\file}
+
+\newcommand{\demo@start}[0]{
+    \begingroup% keep the changes local
+    \@bsphack
+    \immediate\openout\file=\jobname.exa
+    \let\do\@makeother\dospecials
+    \catcode`\^^M\active
+    \def\verbatim@processline{
+        \immediate\write\file{\the\verbatim@line}
+    }
+    \verbatim@start
+}
+
+\newcommand{\demo@end}[0]{
+    \immediate\closeout\file 
+    \@esphack
+    \endgroup
+}
+
+\newcommand{\demo@code}[2][\jobname.exa]{% file, width
+    \makebox[#2]{%
+    \begin{minipage}[c]{#2-6pt-.8pt}% listings framesep=3pt, framerule=0.4pt
+        \vspace{6pt}%
+        \lstinputlisting{#1}
+    \end{minipage}%
+    }%
+}
+
+\newcommand{\demo@out}[2][\jobname.exa]{% file, width
+    \setlength{\fboxsep}{5pt}%
+    \framebox[#2]{%
+        \begin{minipage}[c]{#2-2\fboxsep-2\fboxrule}
+            \input{#1}
+        \end{minipage}%
+    }%
+    \setlength{\fboxsep}{\oldfboxsep}%
+}
+
+\newcommand{\fdemo@out}[2]{% real code, width
+    \setlength{\fboxsep}{5pt}%
+    \begin{lrbox}{\mybox}
+    \fbox{%
+        \begin{minipage}[c]{#2-2\fboxsep-2\fboxrule}
+            #1
+        \end{minipage}%
+    }%
+    \end{lrbox}
+    \setlength{\fboxsep}{\oldfboxsep}%
+}
+
+\newenvironment{Code}[1][numbers=none]{%
+    \ignorespaces
+    \lstset{#1}% endgroup of newenvironment doesn't accept arguments
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@code{\textwidth}
+    \ignorespacesafterend
+}
+
+\newenvironment{Demo}{
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@out{\textwidth}%
+}
+
+\newenvironment{TBDemo}[1][numbers=none]{
+    \ignorespaces
+    \lstset{#1}%
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@out{\textwidth}%
+    \\[5pt]
+    \demo@code{\textwidth}%
+    \ignorespacesafterend
+}
+
+\newenvironment{FTBDemo}[2][numbers=none]{% lstset argument, real code
+    \ignorespaces
+    \lstset{#1}%
+    \fdemo@out{#2}{\textwidth}% save to \mybox
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \usebox{\mybox}%
+    \\[\demosep]
+    \demo@code{\textwidth}%
+    \ignorespacesafterend
+}
+
+\newenvironment{BTDemo}[1][numbers=none]{
+    \ignorespaces
+    \lstset{#1}%
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@code{\textwidth}%
+    \\[\demosep]
+    \demo@out{\textwidth}%
+    \ignorespacesafterend
+}
+
+\newenvironment{FBTDemo}[2][numbers=none]{% lstset argument, real code
+    \ignorespaces
+    \lstset{#1}%
+    \fdemo@out{#2}{\textwidth}% save to \mybox
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@code{\textwidth}%
+    \\[\demosep]
+    \usebox{\mybox}%
+    \ignorespacesafterend
+}
+
+\newenvironment{LRDemo}[1][numbers=none]{% lstset argument
+    \ignorespaces
+    \lstset{#1}%
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@out{.47\textwidth}
+    \hfill
+    \demo@code{.47\textwidth}
+    \ignorespacesafterend
+}
+
+\newenvironment{FLRDemo}[2][numbers=none]{% lstset argument, real code
+    \ignorespaces
+    \lstset{#1}%
+    \fdemo@out{#2}{.47\textwidth}% save to \mybox
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \usebox{\mybox}%
+    \hfill
+    \demo@code{.47\textwidth}%
+    \ignorespacesafterend
+}
+
+\newenvironment{RLDemo}[1][numbers=none]{% lstset argument
+    \ignorespaces
+    \lstset{#1}%
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@code{.49\textwidth}
+    \hfill
+    \demo@out{.49\textwidth}
+    \ignorespacesafterend
+}
+
+\newenvironment{FRLDemo}[2][numbers=none]{% lstset argument, real code
+    \ignorespaces
+    \lstset{#1}%
+    \fdemo@out{#2}{.49\textwidth}% save to \mybox
+    \demo@start
+}{
+    \demo@end
+    \noindent
+    \demo@code{.49\textwidth}%
+    \hfill
+    \usebox{\mybox}%
+    \ignorespacesafterend
+}
+
+\newcommand{\LoadCode}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@code[#2.tex]{\textwidth}%
+}
+
+\newcommand{\LoadDemo}[1]{% file
+    \noindent
+    \demo@out[#1.tex]{\textwidth}%
+}
+
+\newcommand{\LoadTBDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@out[#2.tex]{\textwidth}%
+    \\[\demosep]
+    \demo@code[#2.tex]{\textwidth}%
+}
+
+\newcommand{\LoadFTBDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@out[#2.tex]{\textwidth}%
+    \\[\demosep]
+    \demo@code[#2-esc.tex]{\textwidth}%
+}
+
+\newcommand{\LoadBTDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@code[#2.tex]{\textwidth}%
+    \\[\demosep]
+    \demo@out[#2.tex]{\textwidth}%
+}
+
+\newcommand{\LoadFBTDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@code[#2-esc.tex]{\textwidth}%
+    \\[\demosep]
+    \demo@out[#2.tex]{\textwidth}%
+}
+
+\newcommand{\LoadLRDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@out[#2.tex]{0.47\textwidth}%
+    \hfill
+    \demo@code[#2.tex]{.47\textwidth}%
+}
+
+\newcommand{\LoadFLRDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@out[#2.tex]{0.47\textwidth}%
+    \hfill
+    \demo@code[#2-esc.tex]{.47\textwidth}%
+}
+
+\newcommand{\LoadRLDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@code[#2.tex]{.49\textwidth}%
+    \hfill
+    \demo@out[#2.tex]{0.49\textwidth}%
+}
+
+\newcommand{\LoadFRLDemo}[2][numbers=none]{% lstset argument, file
+    \lstset{#1}%
+    \noindent
+    \demo@code[#2-esc.tex]{.49\textwidth}%
+    \hfill
+    \demo@out[#2.tex]{0.49\textwidth}%
+}

@@ -1,0 +1,484 @@
+\chapter{数学}
+
+\begin{quotation}
+今有上禾三秉，中禾二秉，下禾一秉，实三十九斗；上禾二秉，中禾三秉，下禾一秉，实三十四斗；上禾一秉，中禾二秉，下禾三秉，实二十六斗。问上、中、下禾实一秉各几何？
+\begin{gather*}
+\begin{split}
+    3x+2y+z &= 39 \\
+    2x+3y+z &= 34 \\
+    x+2y+3z &= 26 \\
+\end{split}
+\end{gather*}
+\begin{flushright}
+--- 《九章算术》
+\end{flushright}
+\end{quotation}
+
+为了使用 \AmSLaTeX 提供的数学功能，我们需要在文档的序言部分加载 \texttt{amsmath} 宏包，其详细用法可参阅其用户手册\citep{AMS_2002}。更全面的数学内容排版可参阅George Grätzer\indexGratzer{} \footnote{匈牙利厄特沃什·罗兰大学 (Eötvös Loránd University) 1960年数学博士，John von Neumann的校友。现任加拿大曼尼托巴大学 (University of Manitoba) 教授。} 的 \emph{More Math into \LaTeX}\citep{Gratzer_2007}。
+
+\begin{Code}[]
+\usepackage{amsmath}
+\end{Code}
+
+\section{数学模式}
+
+\LaTeX 的数学模式有两种形式：行间 (inline) 模式和独立 (display) 模式。前者是指在正文中插入数学内容；后者独立排列，可以有或没有编号。简单数学公式的输入方法见 \autoref{tab:simplemath}。
+
+\begin{table}[htbp]
+\caption{简单数学公式的输入}
+\label{tab:simplemath}
+\centering
+\begin{tabular}{ccccc}
+    \toprule
+    & \TeX{}命令 & \LaTeX 命令 & \LaTeX 环境 & \texttt{amsmath} 环境\\
+    \midrule
+    行间公式       & \verb|$...$|   & \verb|\(...\)| & \texttt{math} & \\
+    无编号独立公式 & \verb|$$...$$| & \verb|\[...\]| & \texttt{displaymath} & 
+        \texttt{equation*}\\
+    有编号独立公式  & & & \texttt{equation} & \texttt{equation} \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+行间公式和无编号独立公式都有多种输入方法，新手也许会看花了眼。懒人包老师的秘诀是用最短的：行间公式用 \verb|$...$|，无编号独立公式用 \verb|\[...\]|。建议不要用 \verb|$$...$$|，因为它和 \AmSLaTeX 有冲突。\texttt{amsmath} 版本的 \texttt{equation} 环境可以嵌入次环境 (见 \ref{sec:longeq} 节) 。
+
+\ref{sec:box} 节提到的 \verb|\fbox| 命令可以给文本内容加个方框，数学模式下也有个类似的命令 \verb|\boxed|。
+
+\begin{example}[h]
+\begin{RLDemo}[numbers=left]
+Einstein's $E=mc^2$
+\[ E=mc^2 \]
+\[ \boxed{E=mc^2} \]
+\begin{equation} 
+    E=mc^2 
+\end{equation}
+\end{RLDemo}
+\caption{数学模式}
+\end{example}
+
+\section{基本元素}
+
+\subsection{希腊字母}
+
+英文字母在数学模式下可以直接输入，希腊字母则需要用 \autoref{tab:greek} 中的命令输入，注意大写希腊字母的命令首字母也是大写。
+
+\begin{table}[htbp]
+\caption{希腊字母}
+\label{tab:greek}
+\centering
+\begin{tabular}{llllllll}
+    \toprule
+    $\alpha$      & \verb|\alpha|      & $\theta$    & \verb|\theta|    & 
+        $o$         & \verb|o|        & $\tau$     & \verb|\tau| \\
+    $\beta$       & \verb|\beta|       & $\vartheta$ & \verb|\vartheta| & 
+        $\pi$       & \verb|\pi|      & $\upsilon$ & \verb|\upsilon| \\
+    $\gamma$      & \verb|\gamma|      & $\iota$     & \verb|\iota|     & 
+        $\varpi$    & \verb|\varpi|   & $\phi$     & \verb|\phi| \\
+    $\delta$      & \verb|\delta|      & $\kappa$    & \verb|\kappa|    & 
+        $\rho$      & \verb|\rho|     & $\varphi$  & \verb|\varphi| \\
+    $\epsilon$    & \verb|\epsilon|    & $\lambda$   & \verb|\lambda|   & 
+        $\varrho$   & \verb|\varrho|  & $\chi$     & \verb|\chi| \\
+    $\varepsilon$ & \verb|\varepsilon| & $\mu$       & \verb|\mu|       & 
+        $\sigma$    & \verb|\sigma|   & $\psi$     & \verb|\psi| \\
+    $\zeta$       & \verb|\zeta|       & $\nu$       & \verb|\nu|       & 
+        $\varsigma$ & \verb|\varsigma|   & $\omega$   & \verb|\omega| \\
+    $\eta$        & \verb|\eta|        & $\xi$       & \verb|\xi|       & 
+        &                 &            & \\
+    $\Gamma$      & \verb|\Gamma|      & $\Lambda$   & \verb|\Lambda|   & 
+        $\Sigma$    & \verb|\Sigma|   & $\Psi$     & \verb|\Psi| \\
+    $\Delta$      & \verb|\Delta|      & $\Xi$       & \verb|\Xi|       & 
+        $\Upsilon$  & \verb|\Upsilon| & $\Omega$   & \verb|\Omega| \\
+    $\Theta$      & \verb|\Theta|      & $\Pi$       & \verb|\Pi|       & 
+        $\Phi$      & \verb|\Phi|     &            & \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{上下标和根号}
+
+指数或上标用 \verb|^| 表示，下标用 \verb|_| 表示，根号用 \verb|\sqrt| 表示。上下标如果多于一个字母或符号，需要用一对 \verb|{}| 括起来。
+
+\begin{example}[h]
+\begin{BTDemo}[]
+\[ x_{ij}^2\quad \sqrt{x}\quad \sqrt[3]{x} \]
+\end{BTDemo}
+\caption{上下标和根号}
+\end{example}
+
+\subsection{分数}
+
+分数用 \verb|\frac| 命令表示，它会根据环境自动调整字号，比如在行间公式中小一点，在独立公式中则大一点。我们可以人工设置分数字号，比如 \verb|\dfrac| 命令把分数的字号设置为独立公式中的大小，而 \verb|\tfrac| 命令则把字号设为行间公式中的大小。
+
+\begin{example}[h]
+\begin{RLDemo}[]
+$ \frac{1}{2} \dfrac{1}{2} $
+\[ \frac{1}{2} 
+    \tfrac{1}{2} \]
+\end{RLDemo}
+\caption{分数}
+\end{example}
+
+\subsection{运算符}
+
+有些小运算符例如 \verb|+ - * / =| 等可以直接输入，另一些则需要特殊命令 (见 \autoref{exa:smallop}) 。更多的数学符号可参考Pakin\indexPakin 的符号列表\citep{Pakin_2008}。
+
+\begin{example}[h]
+\begin{BTDemo}[]
+\[ \pm\; \times\; \div\; \cdot\; \cap\; \cup\; 
+    \geq\; \leq\; \neq\; \approx\; \equiv \]
+\end{BTDemo}
+\caption{小运算符}
+\label{exa:smallop}
+\end{example}
+
+和、积、极限、积分等大运算符用 \verb|\sum \prod \lim \int| 等命令表示 (见 \autoref{exa:bigop}) ，它们的上下标在行间公式中被压缩，以适应行高。我们也可以用 \verb|\limits| 和 \verb|\nolimits| 命令显式指定是否压缩上下标。
+
+\begin{example}[h]
+\LoadBTDemo[numbers=left]{texlet/big-ops}
+\caption{大运算符}
+\label{exa:bigop}
+\end{example}
+
+部分追求完美的同学可能会觉得积分公式末尾的积分变量$dx$改成$\mathrm{d}x$比较好看；另外积分函数和积分变量之间需要拉开点距离。那么我们可以用 \autoref{exa:intvar} 中的方法自己定义一个积分变量命令。
+
+\begin{example}[h]
+\begin{BTDemo}[]
+\newcommand{\myd}{\;\mathrm{d}}
+\[ \int x dx\quad \int x \myd x \]
+\end{BTDemo}
+\caption{积分变量}
+\label{exa:intvar}
+\end{example}
+
+多重积分如果用多个 \verb|\int| 来输入的话，积分号之间的距离会过宽。正确的方法是用 \verb|\iint|, \verb|\iiint|, \verb|\iiiint|, \verb|\idotsint| 等命令输入。从 \autoref{exa:multint} 中我们可以看到两种方法的差异。
+
+\begin{Code}[]
+\[ \int\int\quad \int\int\int\quad 
+    \int\int\int\int\quad \int\dots\int \]
+\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
+\end{Code}
+
+\begin{example}[h]
+\begin{Demo}
+\[ \int\int\quad \int\int\int\quad 
+    \int\int\int\int\quad \int\dots\int \]
+\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
+\end{Demo}
+\caption{多重积分}
+\label{exa:multint}
+\end{example}
+
+\subsection{箭头}
+
+\autoref{tab:arrow} 给出了一些箭头的输入方法。\verb|\xleftarrow| 和 \verb|\xrightarrow| 命令生成的箭头可以根据内容自动调整长度（见 \autoref{exa:xarrow}）。
+
+\begin{table}[htbp]
+\caption{箭头}
+\label{tab:arrow}
+\centering
+\begin{tabular}{llll}
+    \toprule
+    $\leftarrow$       & \verb|\leftarrow|      & 
+        $\longleftarrow$       & \verb|\longleftarrow| \\
+    $\rightarrow$      & \verb|\rightarrow|     & 
+        $\longrightarrow$      & \verb|\longrightarrow| \\
+    $\leftrightarrow$  & \verb|\leftrightarrow| & 
+        $\longleftrightarrow$  & \verb|\longleftrightarrow| \\
+    $\Leftarrow$       & \verb|\Leftarrow|      & 
+        $\Longleftarrow$       & \verb|\Longleftarrow| \\
+    $\Rightarrow$      & \verb|\Rightarrow|     & 
+        $\Longrightarrow$      & \verb|\Longrightarrow| \\
+    $\Leftrightarrow$  & \verb|\Leftrightarrow| & 
+        $\Longleftrightarrow$  & \verb|\Longleftrightarrow| \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{example}[h]
+\begin{RLDemo}[]
+\[ \xleftarrow{x+y+z}\quad
+\xrightarrow[x<y]{a*b*c} \]
+\end{RLDemo}
+\caption{可扩展箭头}
+\label{exa:xarrow}
+\end{example}
+
+\subsection{注音和标注}
+
+\autoref{tab:mathaccent} 列出一些数学注音符号 (accent) ，\autoref{tab:notation} 列出一些长的标注符号。
+
+\begin{table}[!htbp]
+\caption{数学注音符号}
+\label{tab:mathaccent}
+\centering
+\begin{tabular}{llllllll}
+    \toprule
+    $\bar{x}$  & \verb|\bar{x}| & $\acute{x}$ & \verb|\acute{x}| &
+        $\mathring{x}$ & \verb|\mathring{x}| \\
+    $\vec{x}$ & \verb|\vec{x}| & $\grave{x}$ & \verb|\grave{x}| &
+        $\dot{x}$  & \verb|\dot{x}| \\
+    $\hat{x}$ & \verb|\hat{x}| & $\tilde{x}$ & \verb|\tilde{x}| &
+        $\ddot{x}$  & \verb|\ddot{x}| \\
+    $\check{x}$ & \verb|\check{x}| & $\breve{x}$ & \verb|\breve{x}| & 
+        $\dddot{x}$ & \verb|\dddot{x}| \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\caption{长标注符号}
+\label{tab:notation}
+\centering
+\begin{tabular}{llll}
+    \toprule
+    $\overline{xxx}$        & \verb|\overline{xxx}|        & $\overleftrightarrow{xxx}$ & \verb|\overleftrightarrow{xxx}| \\
+    $\underline{xxx}$       & \verb|\underline{xxx}|       & $\underleftrightarrow{xxx}$ & \verb|\underleftrightarrow{xxx}| \\
+    $\overleftarrow{xxx}$   & \verb|\overleftarrow{xxx}|   & 
+        $\overbrace{xxx}$   & \verb|\overbrace{xxx}| \\
+    $\underleftarrow{xxx}$  & \verb|\underleftarrow{xxx}|  & 
+        $\underbrace{xxx}$  & \verb|\underbrace{xxx}| \\
+    $\overrightarrow{xxx}$  & \verb|\overrightarrow{xxx}|  & 
+        $\widehat{xxx}$     & \verb|\widehat{xxx}| \\
+    $\underrightarrow{xxx}$ & \verb|\underrightarrow{xxx}| & 
+        $\widetilde{xxx}$   & \verb|\widetilde{xxx}| \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{分隔符}
+
+各种括号用 \verb|() [] \{\} \langle\rangle| 等命令表示；注意花括号通常用来输入命令和环境的参数，所以在数学公式中它们前面要加 \verb|\|。因为 \LaTeX 中 \verb+|和\|+ 的应用过于随意，\texttt{amsmath} 宏包推荐用 \verb|\lvert\rvert| 和 \verb|\lVert\rVert| 取而代之。
+
+我们可以在上述分隔符前面加 \verb|\big \Big \bigg \Bigg| 等命令来调整其大小。\LaTeX 原有的方法是在分隔符前面加 \verb|\left \right| 来自动调整大小，但是效果不佳，所以\texttt{amsmath} 不推荐用这种方法。
+
+\begin{example}[h]
+\LoadBTDemo[numbers=left]{texlet/delimiters}
+\caption{分隔符}
+\label{exa:delimiters}
+\end{example}
+
+\subsection{省略号}
+
+省略号用 \verb|\dots \cdots \vdots \ddots| 等命令表示。\verb|\dots| 和 \verb|\cdots| 的纵向位置不同；前者一般用于有下标的序列。
+
+\begin{Code}[]
+\[ x_1,x_2,\dots,x_n\quad 1,2,\cdots,n\quad 
+    \vdots\quad \ddots \]
+\end{Code}
+
+\begin{example}[h]
+\begin{Demo}
+\[ x_1,x_2,\dots,x_n\quad 1,2,\cdots,n\quad 
+    \vdots\quad \ddots \]
+\end{Demo}
+\caption{省略号}
+\label{exa:dots}
+\end{example}
+
+\subsection{空白间距}
+
+在数学模式中，我们可以用 \autoref{tab:quad} 中的命令生成合适的空白间距，注意负间距命令 \verb|\!| 可以用来减小间距。
+
+\begin{table}[htbp]
+\caption{空白间距}
+\label{tab:quad}
+\centering
+\begin{tabular}{llllll}
+    \toprule
+    \verb|\,| & 3/18em & $|\,|$ & 
+        \verb|\quad| & 1em & $|\quad|$ \\
+    \verb|\:| & 4/18em & $|\:|$ & 
+        \verb|\qquad| & 2em & $|\qquad|$ \\
+    \verb|\;| & 5/18em & $|\;|$ & 
+        \verb|\!| & -3/18em & $|\!|$ \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\section{矩阵}
+
+数学模式下可以用 \texttt{array} 环境（见 \autoref{exa:array}）来生成矩阵，它提供了外部对齐和列对齐的控制参数。外部对齐是指整个矩阵和周围对象的纵向关系，有三种方式：居顶、居中 (缺省) 、居底，分别用 \texttt{t}, \texttt{c}, \texttt{b} 来表示；列对齐也有三种方式：居左、居中、居右，分别用 \texttt{l}, \texttt{c}, \texttt{r} 表示。\verb|\\| 和 \verb|&| 用来分隔行和列。
+
+其语法如下：
+
+\begin{Code}[]
+\begin{array}[`外部对齐`]{`列对齐`}
+    `行列内容`
+\end{array}
+\end{Code}
+
+\begin{example}[h]
+\begin{RLDemo}[numbers=left]
+\[ \begin{array}{ccc}
+x_1 & x_2 & \dots \\
+x_3 & x_4 & \dots \\
+\vdots & \vdots & \ddots
+\end{array} \]
+\end{RLDemo}
+\caption{矩阵}
+\label{exa:array}
+\end{example}
+
+\texttt{amsmath} 的 \texttt{pmatrix}, \texttt{bmatrix}, \texttt{Bmatrix}, \texttt{vmatrix}, \texttt{Vmatrix} 等环境可以在矩阵两边加上各种分隔符，但是它们没有对齐方式参数（见 \autoref{exa:matrix}）。
+
+\begin{example}[h]
+\LoadBTDemo[numbers=left]{texlet/matrix}
+\caption{更多矩阵}
+\label{exa:matrix}
+\end{example}
+
+\verb|\smallmatrix| 命令可以生成行间矩阵（见 \autoref{exa:smallmatrix}）。
+
+\begin{example}[h]
+\begin{BTDemo}[]
+Marry has a little matrix $ ( \begin{smallmatrix} 
+a&b\\c&d \end{smallmatrix} ) $.
+\end{BTDemo}
+\caption{行间矩阵}
+\label{exa:smallmatrix}
+\end{example}
+
+\section{多行公式}
+
+有时一个公式太长一行放不下，或几个公式需要写成一组，这时我们就要用到\texttt{amsmath} 提供的一些多行公式环境。
+
+\subsection{长公式}
+\label{sec:longeq}
+
+无须对齐的长公式可以使用 \texttt{multline} 环境（见 \autoref{exa:multline}）。需要对齐的长公式可以使用 \texttt{split} 环境（见 \autoref{exa:split}），它本身不能独立使用，必须包含在其它数学环境内，因此也称作次环境。它用 \verb|\\| 和 \verb|&| 来分行和设置对齐的位置。
+
+\begin{example}[h]
+\begin{RLDemo}[]
+\begin{multline}
+x = a+b+c+{} \\
+    d+e+f+g
+\end{multline}
+\end{RLDemo}
+\caption{无对齐长公式}
+\label{exa:multline}
+\end{example}
+
+\begin{example}[h]
+\begin{RLDemo}[]
+\[ \begin{split}
+x ={} &a+b+c+{} \\
+      &d+e+f+g
+\end{split} \]
+\end{RLDemo}
+\caption{对齐长公式}
+\label{exa:split}
+\end{example}
+
+\subsection{公式组}
+
+不需要对齐的公式组可以使用 \texttt{gather} 环境（见 \autoref{exa:gather}），需要对齐的公式组用 \texttt{align} 环境（见 \autoref{exa:align}）。
+
+\begin{example}[h]
+\begin{RLDemo}[]
+\begin{gather}
+a = b+c+d \\
+x = y+z
+\end{gather}
+\end{RLDemo}
+\caption{无对齐公式组}
+\label{exa:gather}
+\end{example}
+
+\begin{example}[h]
+\begin{RLDemo}[]
+\begin{align}
+a &= b+c+d \\
+x &= y+z
+\end{align}
+\end{RLDemo}
+\caption{对齐公式组}
+\label{exa:align}
+\end{example}
+
+\texttt{multline}, \texttt{gather}, \texttt{align} 等环境都有带 \texttt{*} 的版本，不生成公式编号。
+
+\subsection{分支公式}
+
+分段函数通常用 \texttt{cases} 次环境写成分支公式（见 \autoref{exa:cases}）。
+
+\begin{example}[!h]
+\begin{RLDemo}[]
+\[ y=\begin{cases}
+    -x,\quad x\leq 0 \\
+    x,\quad x>0
+\end{cases} \]
+\end{RLDemo}
+\caption{分支公式}
+\label{exa:cases}
+\end{example}
+
+\section{定理和证明}
+
+\verb|\newtheorem| 命令可以用来定义定理之类的环境，其语法如下。
+
+\verb|语法：{环境名}[编号延续]{显示名}[编号层次]|
+
+下面的代码定制了四个环境：定义、定理、引理和推论，它们都在一个 \texttt{section} 内统一编号，而引理和推论会延续定理的编号。我们在 \autoref{exa:def_theorem} 中定制了一些环境后，可以像 \autoref{exa:use_theorem} 那样使用它们。
+
+\begin{example}[h]
+\begin{Code}[]
+\newtheorem{definition}{`定义`}[section]
+\newtheorem{theorem}{`定理`}[section]
+\newtheorem{lemma}[theorem]{`引理`}
+\newtheorem{corollary}[theorem]{`推论`}
+\end{Code}
+\caption{定制定理类环境}
+\label{exa:def_theorem}
+\end{example}
+
+\newtheorem{definition}{定义}[section]
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+
+\begin{example}[h]
+\LoadFRLDemo[]{texlet/theorem-def}
+\LoadFRLDemo[]{texlet/theorem-the}
+\LoadFRLDemo[]{texlet/theorem-lem}
+\LoadFRLDemo[]{texlet/theorem-cor}
+\caption{使用定理类环境}
+\label{exa:use_theorem}
+\end{example}
+
+\texttt{amsthm} 宏包提供的 \texttt{proof} 环境（见 \autoref{exa:proof}）可以用来输入证明，它会在证明结尾加一个QED符号 \footnote{拉丁语quod erat demonstrandum的缩写。}。
+
+\LoadCode[]{texlet/theorem-proof-esc}
+
+\begin{example}[h]
+\LoadDemo{texlet/theorem-proof}
+\caption{证明}
+\label{exa:proof}
+\end{example}
+
+\section{数学字体}
+
+和文本模式类似，我们在数学模式下也可以选用不同的字体样式 (见 \autoref{tab:mathfont}) 
+。\verb|\mathbb| 和 \verb|\mathfrak| 需要 \texttt{amsfonts} 宏包，\verb|\mathscr| 需要 \texttt{mathrsfs} 宏包。
+
+\begin{table}[htbp]
+\caption{数学字体}
+\label{tab:mathfont}
+\centering
+\begin{tabular}{llll}
+    \toprule
+    缺省 & $ABCXYZ$ & 
+    \verb|\mathbf| & $\mathbf{ABCXYZ}$ \\
+    \verb|\mathrm| & $\mathrm{ABCXYZ}$ & 
+    \verb|\mathit| & $\mathit{ABCXYZ}$ \\
+    \verb|\mathsf| & $\mathsf{ABCXYZ}$ & 
+    \verb|\mathbb| & $\mathbb{ABCXYZ}$ \\
+    \verb|\mathtt| & $\mathtt{ABCXYZ}$ & 
+    \verb|\mathfrak| & $\mathfrak{ABCXYZ}$ \\
+    \verb|\mathcal| & $\mathcal{ABCXYZ}$ & 
+    \verb|\mathscr| & $\mathscr{ABCXYZ}$ \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\bibliographystyle{unsrtnat}
+\bibliography{lnotes2}

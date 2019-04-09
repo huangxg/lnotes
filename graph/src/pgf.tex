@@ -1,0 +1,343 @@
+\documentclass[11pt]{article}
+%\pdfminorversion=4
+
+\usepackage[active,tightpage]{preview}
+\usepackage[svgnames]{xcolor}           % put before tikz
+%\def\pgfsysdriver{pgfsys-xetex.def}    % put before tikz
+\usepackage{tikz}
+
+\usetikzlibrary{arrows,backgrounds,calc,decorations,patterns,positioning,shapes.geometric,through}
+\pgfsetxvec{\pgfpoint{10pt}{0}}
+\pgfsetyvec{\pgfpoint{0}{10pt}}
+\tikzset{
+    every picture/.style={line width=.8pt},
+    box/.style={rectangle, rounded corners=5pt, 
+        minimum width=50pt, minimum height=20pt, inner sep=5pt,
+        draw=Silver,thick, fill=Lavender},
+    arrow/.style={->, shorten <=1pt, shorten >=1pt, >=stealth'},
+    larrow/.style={<-, shorten <=1pt, shorten >=1pt, >=stealth'},
+    bloop/.style={to path={-- ++(0,-35pt) -| (\tikztotarget)}},
+    rloop/.style={to path={-- ++(10pt,0) |- (\tikztotarget)}}
+}
+
+\begin{document}
+
+\begin{preview} % compile
+\begin{tikzpicture}
+    \node[box] (tex) {.tex};
+    \node[box, right=19 of tex] (pdf) {.pdf};
+    \node[box, above=3 of pdf] (ps) {.ps};
+    \node[box, left=7 of ps] (dvi) {.dvi};
+    \path (tex.north) edge[arrow] node[above,sloped] {latex} (dvi.west)
+        (dvi) edge[arrow] node[auto] {dvips} (ps)
+        (dvi.east) edge[arrow] node[above,sloped] {dvipdfmx} (pdf.west)
+        (ps) edge[arrow] node[right] {ps2pdf} (pdf)
+        (tex) edge[arrow] node[auto] {xelatex} (pdf)
+        (tex) edge[arrow,bloop] (pdf);
+    \node[below=6 of dvi] {pdflatex};
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % RGB
+\begin{tikzpicture}[background rectangle/.style={fill=black}, show background rectangle]
+\coordinate (G) at (0,0);% point green
+\coordinate (B) at (4,0);% point blue
+\node[circle through=(B), fill, green] (CG) at (G) {};% circle green
+\node[circle through=(G), fill, blue] (CB) at (B) {};% circle blue
+\coordinate (R) at (intersection 2 of CG and CB);% point red
+\node[circle through=(G), fill, red] (CR) at (R) {};% circle red
+\coordinate (Y) at (intersection 1 of CR and CG);% point yellow
+\coordinate (C) at (intersection 1 of CG and CB);% point cyan
+\coordinate (M) at (intersection 1 of CB and CR);% point magenta
+\fill[Yellow] (R) arc (60:120:4) arc (180:240:4) arc (180:120:4);
+\fill[Cyan] (G) arc (180:240:4) arc (300:360:4) arc (300:240:4);
+\fill[Magenta] (B) arc (300:360:4) arc (60:120:4) arc (60:0:4);
+\fill[White] (R) arc (120:180:4) arc (240:300:4) arc (0:60:4);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % CMYK
+\begin{tikzpicture}[background rectangle/.style={draw=Silver, fill=white}, show background rectangle]
+\coordinate (M) at (0,0);% point magenta
+\coordinate (Y) at (4,0);% point yellow
+\node[circle through=(Y), fill, Magenta] (CM) at (M) {};% circle magenta
+\node[circle through=(M), fill, Yellow] (CY) at (Y) {};% circle yellow
+\coordinate (C) at (intersection 2 of CM and CY);% point cyan
+\node[circle through=(M), fill, Cyan] (CC) at (C) {};% circle cyan
+\coordinate (B) at (intersection 1 of CC and CM);% point blue
+\coordinate (R) at (intersection 1 of CM and CY);% point red
+\coordinate (G) at (intersection 1 of CY and CC);% point green
+\fill[blue] (C) arc (60:120:4) arc (180:240:4) arc (180:120:4);
+\fill[red] (M) arc (180:240:4) arc (300:360:4) arc (300:240:4);
+\fill[green] (Y) arc (300:360:4) arc (60:120:4) arc (60:0:4);
+\fill[Black] (C) arc (120:180:4) arc (240:300:4) arc (0:60:4);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % line & rectangle
+\begin{tikzpicture}
+\draw (0,0)--(4,0)--(2,2)--(0,0);
+\draw (5,0)--(9,0)--(7,2)--cycle;
+\draw[rounded corners] (10,0)--(14,0)--(12,2)--cycle;
+\draw (15,0) rectangle (19,2);
+\draw[rounded corners] (20,0) rectangle (24,2);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % circle
+\begin{tikzpicture}
+\draw (1,1) circle (1);
+\draw (5,1) ellipse (2 and 1);
+\draw (10,1) arc (0:270:1);
+\draw (15,1) arc (0:270:2 and 1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % curve
+\begin{tikzpicture}
+\draw (0,0)..controls (2,2) and (4,2)..(4,0);
+\filldraw (0,0) circle (.1)
+    (2,2) circle (.1)
+    (4,2) circle (.1)
+    (4,0) circle (.1);
+\draw (5,1) parabola bend (6,0) (7.414,2);
+\filldraw (5,1) circle (.1)
+    (6,0) circle (.1)
+    (7.414,2) circle (.1);
+\draw (8,0) sin (10,2) cos (12,0);
+\filldraw (8,0) circle(.1)
+    (10,2) circle(.1)
+    (12,0) circle(.1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % grid
+\begin{tikzpicture}
+\draw[step=5pt] (0,0) grid (3,2);
+\draw[help lines,step=5pt] (4,0) grid (7,2);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % line width & type
+\begin{tikzpicture}
+\draw[line width=2pt] (0,0)--(9,0);
+\draw[dotted] (0,1)--(9,1);
+\draw[densely dotted] (0,2)--(9,2);
+\draw[loosely dotted] (0,3)--(9,3);
+\draw[dashed] (0,4)--(9,4);
+\draw[densely dashed] (0,5)--(9,5);
+\draw[loosely dashed] (0,6)--(9,6);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % arrow
+\begin{tikzpicture}
+\draw[white] (0,-0.2)--(1,-0.2);
+\draw[->] (0,0)--(9,0);
+\draw[<-] (0,1)--(9,1);
+\draw[<->] (0,2)--(9,2);
+\draw[>->>] (0,3)--(9,3);
+\draw[|<->|] (0,4)--(9,4);
+\draw[white] (0,4.4)--(1,4.4);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % color & fill
+\begin{tikzpicture}
+\draw[Red] (0,0)--(9,0);
+\draw[Green] (0,1)--(9,1);
+\draw[Blue] (0,2)--(9,2);
+\fill[Wheat] (11,1) circle (1);
+\filldraw[draw=Silver, fill=Lavender] (14,1) circle (1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % pattern
+\begin{tikzpicture}
+\draw[pattern=dots] (1,1) circle (1);
+\draw[pattern=horizontal lines] (4,1) circle (1);
+\draw[pattern=vertical lines] (7,1) circle (1);
+\draw[pattern=north east lines] (10,1) circle (1);
+\draw[pattern=crosshatch] (13,1) circle (1);
+\draw[pattern=fivepointed stars] (16,1) circle (1);
+\draw[pattern=bricks] (19,1) circle (1);
+\draw[pattern=checkerboard] (22,1) circle (1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % shading
+\begin{tikzpicture}
+\shade (0,0) rectangle (2,2);
+\shade[left color=Red,right color=Orange] (3,0) rectangle (5,2);
+\shade[inner color=Red,outer color=Orange] (6,0) rectangle (8,2);
+\shade[ball color=Blue] (10,1) circle (1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % style
+\tikzset{
+    myline/.style={line width=2pt},
+    myblueline/.style={myline,Blue}
+}
+\begin{tikzpicture}
+\draw[myline] (0,0)--(9,0);
+\draw[myblueline] (0,1)--(9,1);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % transform
+\begin{tikzpicture}
+\draw (0,0) rectangle (2,2);
+\draw[shift={(3,0)},scale=1.5] (0,0) rectangle (2,2);
+\draw[xshift=70pt,xscale=1.5] (0,0) rectangle (2,2);
+\draw[xshift=125pt,rotate=45] (0,0) rectangle (2,2);
+\draw[xshift=140pt,xslant=1] (0,0) rectangle (2,2);
+\draw[xshift=175pt,rotate around={45:(2,2)}] (0,0) rectangle (2,2);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % flowchart
+\begin{tikzpicture}
+\node[box] (tex) at(0,0) {.tex};
+\node[box] (xdv) at(12,0) {.xdv};
+\node[box] (pdf) at(24,0) {.pdf};
+\draw[->] (tex)--(xdv);
+\draw[->] (xdv)--(pdf);
+\node at (6,1) {xelatex};
+\node at (18,1) {dvipdfmx};
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % better flowchart
+\begin{tikzpicture}
+\node[box] (tex) {.tex};
+\node[box,right=7 of tex] (xdv) {.xdv};
+\node[box,right=7 of xdv] (pdf) {.pdf};
+\path (tex) edge[->]  node[auto] {xelatex} (xdv)
+    (xdv) edge[->] node[auto] {xdvipdfmx} (pdf);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % tree
+\begin{tikzpicture}[sibling distance=80pt]
+\node[box] {TeX}
+    child {node[box] {Plain\TeX}}
+    child {node[box] {\LaTeX}
+        child {node[box] {amsmath}}
+        child {node[box] {graphicx}}
+        child {node[box] {hyperref}}
+    };
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % shape
+\begin{tikzpicture}
+\node[diamond,draw] at(0,0) {};
+\node[trapezium,draw] at(2,0) {};
+\node[semicircle,draw] at(4,0) {};
+\node[star,draw] at(6,0) {};
+\node[isosceles triangle,draw] at(8,0) {};
+\node[circular sector,draw] at(10,0) {};
+\node[cylinder,draw] at(12,0) {};
+cylinder
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % polygon
+\begin{tikzpicture}[every node/.style={regular polygon}]
+\node[regular polygon sides=3,draw] at(2,0) {};
+\node[regular polygon sides=4,draw] at(4,0) {};
+\node[regular polygon sides=5,draw] at(6,0) {};
+\node[regular polygon sides=6,draw] at(8,0) {};
+\node[regular polygon sides=7,draw] at(10,0) {};
+\node[regular polygon sides=8,draw] at(12,0) {};
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % loop
+\begin{tikzpicture}[every node/.style={regular polygon}]
+\foreach \x in {3,4,5,6,7,8}{
+    \node[regular polygon sides=\x, draw] at(\x*2,0) {};
+}
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % plot
+\begin{tikzpicture}
+\draw[->] (-0.2,0)--(6,0) node[right] {$x$};
+\draw[->] (0,-0.2)--(0,6) node[above] {$f(x)$};
+\draw[domain=0:4] plot (\x,{0.1*exp(\x)}) node[right] {$f(x)=\frac{1}{10}e^x$};
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % bibtex
+\begin{tikzpicture}
+\node[box] (tex) {.tex};
+\node[box, right=6 of tex] (aux) {.aux};
+\node[box, right=7 of aux] (bbl) {.bbl};
+\node[box, above=1.5 of aux] (bib) {.bib};
+\node[box, below=1.5 of aux] (bst) {.bst};
+\path (tex) edge [arrow] node[auto] {xelatex} (aux)
+    (aux) edge [arrow] node[auto] {bibtex} (bbl)
+    (bib.east) edge [rloop] (bst);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % index
+\begin{tikzpicture}
+\node[box] (tex) {.tex};
+\node[box, right=4.2 of tex] (idx) {.idx};
+\node[box, right=5.6 of idx] (ind) {.ind};
+\node[box, right=6 of ind] (pdf) {.pdf};
+\node[box, above=1.5 of ind] (tex1) {.tex};
+\node[right=1 of ind] (point) {};
+\path (tex) edge [arrow] node[auto] {xelatex} (idx)
+    (idx) edge [arrow] node[auto] {makeindex} (ind)
+    (ind) edge [arrow] node[auto] {xelatex} (pdf)
+    (tex1.east) edge [rloop] (point);
+\end{tikzpicture}
+\end{preview}
+
+\begin{preview} % page layout
+\scriptsize
+\pgfsetxvec{\pgfpoint{.54pt}{0}}
+\pgfsetyvec{\pgfpoint{0}{.54pt}}
+\begin{tikzpicture}[
+    cir/.style={draw,circle,thin,minimum width=10pt,inner sep=0pt},
+    cira/.style={cir,above=3pt},
+    cirr/.style={cir,right=3pt}
+]
+\draw (0,0) rectangle (597,845);    %paper 597x845
+\draw[dashed] (0,773)--(597,773);   %1in
+\draw[dashed] (72,0)--(72,845);     %1in
+\draw (118,755) rectangle (478,743);%header 360x12
+\node at(228,749) {Header};
+\draw (118,718) rectangle (478,122);%body 360x596
+\node at(228,420) {Body};
+\draw (118,104) rectangle (478,92); %footer 360x12
+\node at(228,98) {Footer};
+\path (0,522) edge[<->,thin] node[cira] {1} (72,522)
+    (72,522) edge[<->,thin] node[cira] {2} (118,522)
+    (118,522) edge[<->,thin] node[cira] {3} (478,522)
+    (478,522) edge[<->,thin] node[cira] {4} (597,522);
+\path (369,845) edge[<->,thin] node[cirr] {5} (369,773)
+    (369,743) edge[<->,thin] node[cirr] {8} (369,718)
+    (369,718) edge[<->,thin] node[cirr] {9} (369,122)
+    (369,92) edge[<->,thin] node[cirr] {11} (369,0);
+\path node[cira] at(309,793) {6}
+    (309,793) edge[->,thin] (309,773)
+    (309,755) edge[<-,thin] (309,735);
+\path node[cira] at(429,775) {7}
+    (429,775) edge[->,thin] (429,755)
+    (429,743) edge[<-,thin] (429,723);
+\path node[cira] at(429,142) {10}
+    (429,142) edge[->,thin] (429,122)
+    (429,92) edge[<-,thin] (429,72);
+\end{tikzpicture}
+\normalsize
+\pgfsetxvec{\pgfpoint{10pt}{0}}
+\pgfsetyvec{\pgfpoint{0}{10pt}}
+\end{preview}
+
+
+\end{document}

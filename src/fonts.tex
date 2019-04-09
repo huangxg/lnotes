@@ -1,0 +1,202 @@
+\chapter{字体}
+
+英文中的typeface和font一般都被翻译为字体，传统印刷业通常使用typeface，电脑字体通常使用font；当然也有很多人混用这两个词。包老师认为电脑字体的诸多相关概念可以划分为三个层次：
+
+\begin{compactenum}
+    \item 编码层，字符 (包括字母、数字、符号、控制码等) 的索引和编码，也就是字符集 (character set) 和字符编码 (character encoding) 。
+    \item 格式层，字形 (glyph) 的定义描述方法，以及字体的文件存储格式。
+    \item 显示层，字体的外在表现形式，比如字体的样式，或具体的字体。
+\end{compactenum}
+
+看到这里好奇的读者可能会问，为什么微软\indexMSFT{} Word和其他所见即所得软件可以直接用下拉菜单设置字体，同样是标记语言的HTML也可以方便地设置字体，而 \LaTeX 就要牵扯这么多概念？我们不得不承认，这是 \LaTeX 的历史局限性之一。Knuth\indexKnuth 当初设计 \TeX 时，既没有Unicode字符集和UTF-8编码，也没有TrueType和OpenType字体格式。
+
+包老师语重心长地说，道路是曲折的，前途是光明的。这不马上就要侃到 \XeTeX 了，这些困难只是黎明前的黑暗。
+
+\section{字符集和编码}
+\label{sec:encoding}
+
+众所周知电脑内部采用二进制编码，因为它易于用电子电路实现。所有字符在电脑内部都是用二进制表示的，字符集的二进制编码被称为字符编码，有时人们也会混用这两个术语。
+
+1963年ANSI\indexANSI 发布了基于电报码的ASCII，这就是最早的字符编码，它用7位 (bit) 表示了$2^7=128$个字符，只能勉强覆盖英文字符。
+
+美国人发明了电脑，他们优先考虑英语是可以理解的。后来随着电脑技术的传播，人们呼吁把字符编码扩充到8位也就是一个字节 (byte) ，可以涵盖$2^8=256$个字符。
+
+于是ISO\indexISO 在1980年代中期推出了ISO 8859，256个字符显然也不能满足需要，所以8859被分为十几个部分：从8859-1 (西欧语言) 、8859-2 (中欧语言) ，直到8859-16 (东南欧语言) ，覆盖了大部分使用拉丁字母的语言文字。
+
+在ISO标准完全定型之前，IBM就有一系列自己的字符编码，也就是代码页 (code page) ，比如437 (扩展ASCII) 、850 (西欧语言) 、852 (东欧语言) 。IBM\indexIBM 代码页通常被用于控制台 (console) 环境，也就是MS-DOS或Unix Shell那样的命令行环境。
+
+微软\indexMSFT 将IBM代码页称为OEM代码页，自己定义的称为ANSI代码页，比如1252 (西欧语言) 、1250 (东欧语言) 、936 (GBK简体中文) 、950 (Big5繁体中文) 、932 (SJIS日文) 、949 (EUC-KR韩文) 等。
+
+1981年，中国大陆推出了第一个自己的字符集标准GB2312，它是一个94×94的表，包括7445个字符。GB2312通常采用双字节的EUC-CN编码，所以后者也常常被称为GB2312编码；其实GB2312还有另一种编码方式HZ，只是不常用。
+
+GB2312中没有朱镕基的“镕”字，于是它在1993年被扩展为GBK，包含21886个字符。GBK不是正式标准。2000年发布的GB18030包含70244个字符，采用四字节编码。GB18030之前还出现过一个GB13000，但是没有形成气候。
+
+1990年ISO推出了通用字符集 (universal character set，UCS) ，即ISO 10646，意图一统江湖。它的容量是一百多万个字符，目前实际使用的有十万个左右。UCS有两种编码：双字节的UCS-2 和四字节的UCS-4。
+
+ISO之外还有个希望一统江湖的组织：统一码联盟 (The Unicode Consortium)\indexUnicode ，它于1991 年推出了Unicode 1.0。后来两家组织意识到没必要做重复工作，于是双方开始合并成果，携手奔小康。Unicode从2.0版开始采用与ISO 10646-1相同的编码。
+
+Unicode主要有三种编码：UTF-8、UTF-16、UTF-32。UTF-8使用一至四个8位编码。UTF-16用一或两个16位编码，基本上是UCS-2的超集，和ASCII不兼容。UTF-32用一个32位编码，它是UCS-4的一个子集。
+
+IETF\indexIETF 要求所有网络协议都支持UTF-8，互联网电子邮件联盟 (Internet Mail Consortium, IMC)\indexIMC 也建议所有电子邮件软件都支持UTF-8，所以它已成为互联网上的事实标准。
+
+\section{字体格式}
+
+\subsection{点阵和矢量字体}
+
+电脑字体的数据格式可以分为三大类：点阵 (bitmap) 字体、轮廓 (outline) 字体和笔画 (stroke-based) 字体。
+
+点阵字体通过点阵来描述字形。早期的电脑受到容量和绘图速度的限制，多采用点阵字体。点阵字体后来渐渐被轮廓字体所取代，但是很多小字号字体仍然使用它，因为这种情况下轮廓字体缩放太多会导致笔画不清晰。
+
+轮廓字体又称作矢量字体，它通过一组直线段和曲线来描述字形。轮廓字体易于通过数学函数进行缩放等变换，形成平滑的轮廓。轮廓字体的主要缺陷在于它所采用的贝塞尔曲线 (Bézier curves) 在光栅设备 (比如显示器和打印机) 上不能精确渲染，因而需要额外的补偿处理比如字体微调 (font hinting) 。但是随着电脑硬件的发展，人们一般不在意它比点阵字体多出的处理时间。
+
+笔画字体其实也是轮廓字体，不过它描述的不是完整的字形，而是笔画。它多用于东亚文字。
+
+\subsection{常见字体格式}
+
+当前常见的轮廓字体格式有：Type 1、TrueType、OpenType。
+
+1984年Adobe\indexAdobe 推出PostScript时，同时支持两种字体格式：Type 1和Type 3，它们都采用三次贝塞尔曲线。Type 1支持微调，它使用一个简化的PostScript子集；Type 3不支持微调，但它可以使用全部PostScript功能，因此既可包含轮廓字体也可包含点阵字体信息。
+    
+1991年Apple\indexApple 发布了TrueType，它采用二次贝塞尔曲线。二次曲线处理起来比三次曲线快，但是需要更多的点来描述。所以从TrueType到Type 1的转换是无损的，反之是有损的。1994年Apple开始研究TrueType的下一代技术：TrueType GX，它后来演变为Apple advanced typography (AAT) 。
+
+1996年微软和Adobe联合发布了OpenType，它可以被认为是Type 1和TrueType的超集，既可使用二次曲线，也可使用三次曲线。它比起TrueType和AAT的优势还有：平台独立、开放、易于开发，并且支持更多的语言比如阿拉伯语。
+
+早在1984年Knuth就发布了 \MF ，它与TrueType和OpenType的区别是，不直接描述字形轮廓，而描述生成轮廓的笔的轨迹。笔的形状可以是椭圆形或多边形，尺寸缩放自如，字形边缘也柔和一些。两种字体可以用同一个 \MF 文件，当然还有不同的参数。\MF 技术如此先进，却没有流行开来。对此Knuth解释道，要求一位设计字体的艺术家掌握60个参数太变态了，那是用来折磨数学家的。
+
+Type 1和Type 3把字体的尺寸 (metrics) 信息和字形 (glyph) 信息分别存储。字体尺寸文件有AFM (Adobe font metrics) 和PFM (printer font metrics) ，字形文件有PFA (printer font ASCII) 和PFB (printer font binary) 。\LaTeX 使用的尺寸格式是TFM (TeX font metrics) 。
+
+TrueType和OpenType则将字体数据都存在一个文件里，它们的文件后缀分别是是.ttf和.otf。\MF{}虽然用矢量图形来定义字形，实际输出的却是一种点阵格式：PK (packed raster) 。
+
+这些字体格式按照技术先进性，从高到低依次为：OpenType、TrueType、Type 1、Type 3、PK，所以我们要优先选用OpenType和TrueType。
+
+PostScript文件可以包含Type 1和Type 3字体，而PDF除了这两种还支持TrueType和OpenType字体。
+
+\subsection{合纵连横}
+
+当年Adobe\indexAdobe{}推出Type 1和Type 3时，前者收费，后者是公开的自由规范。Type 1专利许可费十分昂贵，穷人们只好用免费的Type 3。为了打破这种垄断，Apple开发了TrueType。1991年TrueType发布之后，Adobe随即公开了Type 1的规范，它从贵族堕落为平民，因而流行开来。
+
+1980年代中后期，Adobe的大部分盈利来自于PostScript解释器的许可费。面对这种垄断局面，微软和Apple联合了起来。微软把买来的PostScript解释器TrueImage授权给Apple，Apple则把TrueType授权给微软。
+
+微软得陇望蜀，又企图获得AAT的许可证，未遂。为了打破Apple的垄断，微软联合Adobe在1996年发布了OpenType。Adobe在2002年末将其字体库全面转向OpenType。
+
+上面这几出精彩好戏充分展示了商场上的勾心斗角、尔虞我诈，没有永恒的伙伴，只有永恒的利益。但它同时也告诉我们，市场竞争中受益的还是广大的消费者。
+
+\section{常见字体}
+
+在 \ref{sec:font_style} 节中我们提到每种字体样式可以包含很多种具体的字体。为了方便读者，\autoref{tab:font} 列出一些最常见的字体。\TeX 的缺省字体是Knuth用 \MF 生成的Computer Modern；\XeTeX 的缺省字体是1997年 \AmS 发布的Latin Modern，它基于Computer Modern，但是扩展了其字符集，其封装格式有Type 1和OpenType。
+
+\begin{table}[htbp]
+\caption{常见字体}
+\label{tab:font}
+\centering
+\begin{tabular}{llll}
+    \toprule
+    操作系统 & 衬线字体        & 无衬线字体 & 等宽字体 \\
+    \midrule
+    \multirow{3}{*}{Windows}   
+             & Times New Roman & Tahoma     & Courier New \\
+             & Georgia         & Verdana    & Lucida Console \\
+             & Palatino Linotype & Arial    & Consolas \\
+    \midrule
+    \multirow{3}{*}{Mac OS}   
+             & Times           & Helvetica  & Monaco \\
+             & Georgia         & Lucida Grande & Courier \\
+             & Times New Roman & Geneva     & Courier New \\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\section{字体的应用}
+
+从理论上讲，任何电脑字体只要有TFM，\TeX 就可以使用它。然而早期的 \TeX 只能使用 \MF 生成的字体。直到 \LaTeXe 时代NFSS的出现后，Type 1和Type 3才在 \LaTeX 中得到广泛应用。后起之秀 \XeTeX 则极大程度地简化了TrueType和OpenType的配置，而且它还支持Unicode。
+
+\texttt{latex}, \texttt{pdflatex}, \texttt{xelatex} 编译程序，\texttt{dvips} 和 \texttt{dvipdfmx} 驱动，DVI浏览器等分别采用不同的字体技术路线。本文主推 \XeLaTeX ，对其他早期技术只作简要介绍，聊以忆苦思甜。
+
+\subsection{早期技术}
+
+\subsubsection{latex和DVI}
+
+我们用 \texttt{latex} 生成DVI时只需要TFM文件，因为DVI并不包含字形信息，而只包含对字体的引用。DVI浏览器显示DVI时一般使用PK，它在系统中查找相应的 \texttt{.pk} 文件，若找不到就调用 \MF 在后台自动生成。
+
+\subsubsection{dvips}
+
+缺省情况下，\texttt{dvips} 也会查找 \texttt{.pk}，或调用 \MF 自动生成；然后把PK转换成包含点阵字体的Type 3，它的参数 \texttt{-D} 可以用来控制该点阵字体的分辨率。用 \texttt{ps2pdf} 处理含Type 3的PostScript时，输出的自然是含Type 3的PDF。
+
+GSview在低分辨率下可以很好地渲染Type 3，Adobe Reader或Acrobat却不能，因为它们使用的Adobe Type Manager不支持包含完整PostScript的Type 3。因此含Type 3的PDF看起来会有些模糊，所以应尽量避免使用。
+
+\texttt{dvips} 的另一个参数 \texttt{-Ppdf} 把Type 1嵌入生成的PostScript，这样再 \texttt{ps2pdf} 就能生成含Type 1的PDF。
+
+\texttt{dvips} 不支持真正的 (native) TrueType，用户只能把TrueType先转成PK或Type 1，这样绕了个弯效果总会打些折扣。
+
+\texttt{dvips} 的字体详细使用方法可查阅其手册\citep{Rokicki_2005}第六章，此处不赘述。
+
+\subsubsection{dvipdfm(x)和pdflatex}
+
+\texttt{dvipdfm} 支持PK和Type 1，它可以用一个 \texttt{t1fonts.map} 文件建立PK文件和Type 1文件之间的映射，这样生成的PDF用的就是Type 1。\texttt{dvipdfm} 也不支持真正的TrueType。\texttt{dvipdfmx} 通过正确的设置可以使用真正的TrueType，它对中日韩等东亚文字的支持也较好；只是其安装配置较繁琐，此处不赘述，实在有兴趣考古的读者可以参考lnotes第一版\citep{Huang_2008}。
+
+pdflatex支持Type 1, TrueType，也在一定程度上支持OpenType。它的配置也很繁琐，可以参考其用户手册\citep{Han_2007}第五章。
+
+\subsection{XeTeX}
+
+\XeTeX 可以直接使用电脑系统字体，不再需要TFM文件。我们首先需要知道电脑上有哪些字体，\XeTeX 用一个XML文件记录系统字体路径，MikTeX用的是\texttt{localfonts.conf}，TeXlive用的是 \texttt{fonts.conf}。
+
+我们设置字体时需要字体的引用名，它和字体的文件名是不同的概念。\texttt{fc-list} 程序可以用来获取字体引用名，比如下面命令生成的 \texttt{myfonts.txt} 文件就是一份字体引用名列表。
+
+\begin{Code}[]
+fc-list > myfonts.txt
+\end{Code}
+
+带 \XeTeX 的发行包首次安装时会自动扫描这些字体目录，生成字体的缓存 (cache) 。每次系统安装了新字体时，我们需要手工运行字体缓存命令 \texttt{fc-cache}，生成新的缓存。
+
+\begin{Code}[]
+fc-cache -r
+\end{Code}
+
+关于字体路径，\texttt{fc-list} 和 \texttt{fc-cache} 命令等的详细信息，可以参考Michel Goossens (1951--)\indexGoossens{} \footnote{布鲁塞尔自由大学 (Free University of Brussels) 物理系1972年学士，1978年博士。1979年加入CERN。合著\emph{\LaTeX{} Companion}、\emph{\LaTeX{} Graphics Companion}、\emph{\LaTeX{} Web Companion}等书。曾任TUG总统。} 编辑的\emph{\XeTeX{} Companion}\citep{Goossens_2010}。
+
+\XeTeX 提供的字体命令比较原始、繁琐，Will Robertson (1981--)\indexRobertson{} \footnote{阿德雷德大学 (University of Adelaide) 机械系博士生，80后帅哥。} 的 \texttt{fontspec} 宏包提供了较好的封装。\XeLaTeX 下字体常用设置方法如下，详细信息可以参考 \texttt{fontspec} 的用户手册\citep{Robertson_2008}。
+
+\begin{example}[h]
+\begin{Code}[]
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Times New Roman}
+\setsansfont[Mapping=tex-text]{Tahoma}
+\setmonofont{Courier New}
+\end{Code}
+\caption{\XeLaTeX 字体设置}
+\label{exa:xelatex_font}
+\end{example}
+
+\autoref{exa:xelatex_font} 中的代码分别设置了衬线、无衬线和等宽字体样式对应的字体。在 \ref{sec:char_input} 节 \autoref{exa:dash} 中我们学过中划线和短划线可以用 \texttt{--} 和 \texttt{---} 来输入。\TeX 中几个短划线是相连的，\XeTeX 中缺省它们之间是有空隙的。\autoref{exa:xelatex_font} 用 \texttt{Mapping} 参数指示改回 \TeX 的方式，即去掉短划线之间的空隙。
+
+\section{中文解决方案}
+
+\LaTeX 对中文的支持主要有两种方法：张林波\indexZhangLinbo{} \footnote{中科院数学与系统科学研究院研究员。} 的CCT和Werner Lemberg (1968--)\indexLemberg{} \footnote{从维也纳音乐和表演艺术大学 (University of Music and Performing Arts, Vienna) 获得作曲、指挥、钢琴、乐团管理、歌手教练等五个专业文凭，后自学中文和数学。曾任职于奥地利和德国多家剧院和乐团，现任德国科布伦茨某剧院指挥。} 的CJK宏包。早期CCT比较流行，CJK后来居上；新版CCT也可以和CJK配合使用。
+
+支持简体中文的 \LaTeX 发行版有吴凌云等人的CTeX和李树钧\indexLiShujun{} \footnote{西安交大电子系1997年学士，2003年博士。2003年香港城市大学博士后，2005年香港理工大学博士后，2007年哈根函授大学 (Distance University of Hagen) 研究员，2008年康斯坦茨大学 (University of Konstanz) 研究员。} 的ChinaTeX，支持繁体中文的有吴聪敏 (1952--)\indexWuCongmin{} \footnote{台湾大学电机学士，罗彻斯特大学经济学博士，台湾大学经济系教授。}、吴聪慧\indexWuConghui{} \footnote{新泽西理工学院电脑硕士，嘉南药理科技大学医务管理系助理教授。} 兄弟和翁鸿翎\indexWongHongling 的cwTeX，蔡奇伟\indexCaiQiwei{} \footnote{犹他电脑博士，静宜大学资讯工程系副教授。} 的PUTeX。这两个繁体中文的发行版本人都不熟悉，前两个简体中文发行版都包含MikTeX, CCT, CJK, WinEdt等。
+
+\XeTeX 问世后，孙文昌 (1970--)\indexSunWenchang{} \footnote{南开大学数学系1993年学士，1998年博士，毕业后留校作博士后，2000年副教授，2002年教授。} 推出了 \texttt{xeCJK} 宏包，用于排版中日韩等文字，包括字体选择，标点、文字间距调整等功能。它可以被认为是CCT和CJK在某种程度上的结合。
+
+在 \autoref{exa:xecjk} 中引用宏包时，\texttt{CJKchecksingle} 参数防止段落最后一行只有一个汉字；\texttt{CJKnumber} 参数自动载入另一个宏包 \texttt{CJKnumber}，它提供的 \verb|\CJKnumber| 命令可以把阿拉伯数字转换为中文数字。
+
+\verb|\setCJKmainfont| 命令设置了中文正文字体，它的两个参数 \texttt{BoldFont} 和 \texttt{ItalicFont} 分别设置了粗体、斜体样式对应的字体。\verb|\setCJKsansfont|, \verb|\setCJKmonofont| 命令分别设置了无衬线和等宽字体样式对应的字体。
+
+\begin{example}[h]
+\begin{Code}[numbers=left]
+\usepackage[CJKchecksingle,CJKnumber]{xeCJK}
+\setCJKmainfont[BoldFont={Adobe Heiti Std}, 
+    ItalicFont={Adobe Kaiti Std}]{Adobe Song Std}
+\setCJKsansfont{Adobe Heiti Std}
+\setCJKmonofont{Adobe Fangsong Std}
+\punctstyle{hangmobanjiao}
+\end{Code}
+\caption{xeCJK}
+\label{exa:xecjk}
+\end{example}
+
+其实严格地讲中文字体并没有衬线、无衬线、等宽、斜体等概念，只是习惯上宋体用得最多，辅以黑体、仿宋、楷体，文档会显得疏落有致，不至于太沉闷。如果我们把 \autoref{exa:xelatex_font} 和 \autoref{exa:xecjk} 中的命令结合起来，就可以为中英文分别设置字体。
+
+xeCJK宏包的详细用法可参考其用户手册\citep{Sun_2009}。另外Yin Dian的zhspacing宏包也可以完成类似功能，具体用法可参考其文档\citep{Yin_2007}。
+
+\bibliographystyle{unsrtnat}
+\bibliography{lnotes2}

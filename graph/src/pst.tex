@@ -1,0 +1,125 @@
+%initexmf --edit-config-file dvipdfmx
+
+\documentclass[11pt]{article}
+\usepackage[active,tightpage]{preview}
+\usepackage[svgnames]{xcolor}% put before pstricks
+\usepackage{pstricks,pst-plot}
+\psset{unit=10pt}
+
+\begin{document}
+
+\begin{preview}% dot & line
+\begin{pspicture}(-.2,-.2)(14,2.2)
+\psdot(0,0)
+\psdots(4,0)(2,2)
+\psline(5,0)(7,2)(9,0)
+\psline[linearc=.3](10,0)(12,2)(14,0)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% frame & polygon
+\begin{pspicture}(19,2)
+\psframe(0,0)(4,2)
+\psframe[framearc=.3](5,0)(9,2)
+\pspolygon(10,0)(14,0)(12,2)
+\pspolygon[linearc=.3](15,0)(19,0)(17,2)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% circle, ellipse, arc, wedge
+\begin{pspicture}(19,2)
+\pscircle(1,1){1}
+\psellipse(5,1)(2,1)
+\psarc(9,0){2}{0}{120}
+\psarcn(13,0){2}{120}{0}
+\pswedge(17,0){2}{0}{120}
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% curve, bezier, parabola
+\begin{pspicture}(-0.2,-0.2)(25.2,2.2)
+\pscurve[showpoints=true](0,1)(1,2)(3,0)(4,2)(1,0)
+\psecurve[showpoints=true](5,1)(6,2)(8,0)(9,2)(5,0)
+\psccurve[showpoints=true](11,1)(12,2)(14,0)(15,2)(12,0)
+\psbezier[showpoints=true](16,0)(18,2)(20,0)(22,2)
+\psparabola[showpoints=true](25,2)(24,0)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% grid
+\psset{unit=20pt}
+\begin{pspicture}(-1,-1)(13.5,2.5)
+\psgrid(0,0)(-1,-1)(3,2)
+\psgrid(5,0)(8,2)
+\psgrid(13,2)(10,0)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% axis
+\psset{unit=20pt}
+\begin{pspicture}(-1,-1)(13.2,2.2)
+\psaxes{<->}(0,0)(-1,-1)(3,2)
+\psaxes[tickstyle=top,labels=none]{->}(5,0)(8,2)
+\psaxes[axesstyle=frame,tickstyle=top]{->}(10,0)(13,2)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% linestyle
+\begin{pspicture}(0,-0.1)(9,2.1)
+\psline[linewidth=1.5pt](0,0)(9,0)
+\psline[linestyle=dotted](0,1)(9,1)
+\psline[linestyle=dashed](0,2)(9,2)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% arrow
+\begin{pspicture}(-0.2,-0.2)(9.2,6.2)
+\psline{->}(0,0)(9,0)
+\psline{<-}(0,1)(9,1)
+\psline{<->}(0,2)(9,2)
+\psline{>-<}(0,3)(9,3)
+\psline{|-|}(0,4)(9,4)
+\psline{o-o}(0,5)(9,5)
+\psline{*-*}(0,6)(9,6)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% color
+\begin{pspicture}(0,-0.1)(9,2.1)
+\psline[linecolor=red](0,0)(9,0)
+\psline[linecolor=green](0,1)(9,1)
+\psline[linecolor=blue](0,2)(9,2)
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% fill
+\begin{pspicture}(11,2)
+\pscircle[fillstyle=solid,fillcolor=RoyalBlue](1,1){1}
+\pscircle[fillstyle=vlines](4,1){1}
+\pscircle[fillstyle=hlines](7,1){1}
+\pscircle[fillstyle=crosshatch](10,1){1}
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% shift, rotate
+\begin{pspicture}(12,3.2)
+\psframe(0,0)(3,2)
+\psframe[origin={4,0}](0,0)(3,2)
+\rput{30}(9,0){\psframe(0,0)(3,2)}
+\end{pspicture}
+\end{preview}
+
+\begin{preview}% label
+\begin{pspicture}(-0.8,-0.4)(12.3,3.3)
+\pspolygon(0,0)(4,0)(2,2)
+\rput[r](0,0){A}
+\rput[l](4,0){B}
+\rput[b](2,2){C}
+\pspolygon(7,0)(11,0)(9,2)
+\uput[l](7,0){A}
+\uput[r](11,0){B}
+\uput[u](9,2){C}
+\end{pspicture}
+\end{preview}
+
+\end{document}

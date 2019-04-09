@@ -1,0 +1,193 @@
+\chapter{表格}
+
+\section{简单表格}
+
+\texttt{tabular} 环境提供了最简单的表格功能。它用 \verb|\hline| 命令表示横线，\verb+|+ 表示竖线；用 \verb|&| 来分列，用 \verb|\\| 来换行；每列可以采用居中、居左、居右等横向对齐方式，分别用 \texttt{l、c、r} 来表示。
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-simple}
+\caption{简单表格}
+\label{tab:simple_tab}
+\end{example}
+
+%\clearpage
+
+在插图一章中我们介绍了一种图形浮动环境 \texttt{figure}；表格也有一种类似的浮动环境 \texttt{table}，其标题和交叉引用的用法和图形浮动环境类似。我们可以用它给 \autoref{tab:simple_tab} 中的表格穿件马甲，顺便把表格简化为科技文献中常用的三线表。\autoref{tab:simple_tab} 中的三条横线一样粗细，如果嫌它不够美观，可以使用 Simon Fear\indexFear{} \footnote{这名字看起来像个笔名。《圣经·新约》路加福音卷有一个故事：耶稣于某湖边传教时，命渔人西门撒网，得鱼甚多。西门惊诧，五体投地，口称罪人。耶稣道：西门莫怕，打渔这个职业没什么前途，你还是跟我打人罢 (Jesus said unto Simon, Fear not; from henceforth thou shalt catch men.) 。西门遂忝列夫子门墙。另外有个恐怖小说系列\emph{Fear Street}里的主角也叫西门怕怕。} 的 \texttt{booktabs} 宏包\citep{Fear_2005}。三条横线就分别用 \verb|\toprule、\midrule、\bottomrule| 等命令表示。改进后的表格见 \autoref{tab:threesome_tab}。
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-threesome}
+\caption{浮动三线表}
+\label{tab:threesome_tab}
+\end{example}
+
+\texttt{tabular} 环境中的行可以采用居顶、居中、居底等纵向对齐方式，分别用 \texttt{t、c、b} 来表示，缺省的是居中对齐。列之间的分隔符也可以改用其他符号，比如用 \verb+||+ 来画双竖线。
+
+\verb|语法：[纵向对齐]{横向对齐和分隔符}|
+
+\section{宽度控制}
+
+有时我们需要控制某列的宽度，可以将其对齐方式参数从 \texttt{l、c、r} 改为 \verb|p{宽度}|。这时纵向对齐方式是居顶，\texttt{t、c、b}等参数失效。
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-width}
+\caption{控制列宽}
+\label{tab:width_tab}
+\end{example}
+
+使用宽度控制参数之后，表格内容缺省居左对齐。我们可以用列前置命令 \verb|>{}| 配合 
+\verb|\centering、\raggedleft| 命令来把横向对齐方式改成居中或居右。列前置命令仅对紧邻其后的一列有效，其语法如下：
+
+\verb|语法：>{命令}列参数|
+
+\LoadCode[numbers=left]{texlet/tab-width-aligned-esc}
+
+\begin{example}[h]
+\LoadDemo{texlet/tab-width-aligned}
+\caption{控制列宽和横向对齐}
+\label{tab:width_aligned_tab}
+\end{example}
+
+若要控制整个表格的宽度，可以使用Carlisle\indexCarlisle{}的 \texttt{tabularx} 宏包\citep{Carlisle_1999}的同名环境，其语法如下，其中 \texttt{X} 参数表示某列可以折行。
+
+\verb|语法：{表格宽度}{横向对齐、分隔符、折行}|
+
+%\LoadCode{texlet/tab_tabularx_esc}
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-tabularx}
+\caption{控制表格宽度}
+\label{tab:tabularx_tab}
+\end{example}
+
+如果想把纵向对齐方式改为居中和居底，可以使用Mittelbach\indexMittelbach 和Carlisle的 \texttt{array} 宏包\citep{Mittelbach_2009}，它提供了另两个对齐方式参数：\verb|m{宽度}、b{宽度}|。
+
+\section{跨行跨列}
+
+有时表格某单元格需要横跨几列，我们可以使用 \verb|\multicolumn| 命令，同时使用 \texttt{booktabs} 宏包的 \verb|\cmidrule| 命令来画横跨几列的横线。它们的语法如下：
+
+\verb|语法：\multicolumn{横跨列数}{对齐方式}{内容}|\\
+\indent\verb|语法：\cmidrule{起始列-结束列}|
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-multicol}
+\caption{跨列表格}
+\label{tab:multicol_tab}
+\end{example}
+
+跨行表格可以使用 \texttt{multirow} 宏包的 \verb|\multirow| 命令，其语法如下，
+
+\verb|语法：\multirow{竖跨行数}{宽度}{内容}|
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-multirow}
+\caption{跨行表格}
+\label{tab:multirow_tab}
+\end{example}
+
+\section{数字表格}
+
+当表格中包含大量数字时，手工调整小数点和数位的对齐很麻烦，这时可以使用Rochester\indexRochester{} \footnote{曾就职于昆士兰大学昆虫系，后转到澳大利亚联邦科学与工业研究组织 (Commonwealth Scientific and Industrial Research Organisation) 。} 的 \texttt{warpcol} 宏包\citep{Rochester_2007}。它为 \texttt{tabular} 环境提供了一个列对齐参数 \texttt{P}，其语法如下，其中 \texttt{m} 和 \texttt{n} 分别是小数点前后的位数，数字前的负号可选。
+
+\verb|语法：P{-m.n}|
+
+\begin{example}[!h]
+\LoadFBTDemo[numbers=left]{texlet/tab-num}
+\caption{数字表格}
+\label{tab:num_tab}
+\end{example}
+
+\autoref{tab:num_tab} 中使用 \verb|multicolumn| 命令是为了保护表头，防止它们被 \texttt{P} 参数误伤。把跨列命令的列数设为1是设置单元格格式的一种常用方法。
+
+\section{长表格}
+
+有时表格太长要跨页，可以使用Carlisle\indexCarlisle 的 \texttt{longtable} 宏包\citep{Carlisle_2004}。这位同学对表格情有独钟，表格的宏包被他承包了一半。我们需要做以下工作：
+
+\begin{enumerate}
+    \item 首先用 \texttt{longtable} 环境取代 \texttt{tabular} 环境；
+    \item 然后在表格开始部分定义每页页首出现的通用表头，表头最后一行末尾不用 \verb|\\| 换行，而是加一个 \verb|\endhead| 命令；
+    \item 接着定义首页表头 (如果它和通用表头不同的话) ，同样地最后一行用 \verb|\endfirsthead| 命令结尾；
+    \item 然后是以 \verb|\endfoot| 命令结尾的通用表尾；
+    \item 然后是以 \verb|\endlastfoot| 命令结尾的末页表尾 (如果它和通用表尾不同的话) ；
+    \item 最后是表格的具体内容。
+\end{enumerate}
+
+\LoadCode[numbers=left]{texlet/tab-long-esc}
+
+\begin{Code}[numbers=left,firstnumber=last]
+    & `天生丽质难自弃，一朝选在君王侧。`\\
+    & `回眸一笑百媚生，六宫粉黛无颜色。`\\
+    & `春寒赐浴华清池，温泉水滑洗凝脂。`\\
+    & `侍儿扶起娇无力，始是新承恩泽时。`\\
+    & `云鬓花颜金步摇，芙蓉帐暖度春宵。`\\
+    & `春宵苦短日高起，从此君王不早朝。`\\
+    & `承欢侍宴无闲暇，春从春游夜专夜。`\\
+    & `后宫佳丽三千人，三千宠爱在一身。`\\
+    & `金屋妆成娇侍夜，玉楼宴罢醉和春。`\\
+    & `姊妹弟兄皆列土，可怜光彩生门户。`\\
+    & `遂令天下父母心，不重生男重生女。`\\
+    & `骊宫高处入青云，仙乐风飘处处闻。`\\
+    & `缓歌慢舞凝丝竹，尽日君王看不足。`\\
+    & `渔阳鼙鼓动地来，惊破霓裳羽衣曲。`\\
+    & `九重城阙烟尘生，千乘万骑西南行。`\\
+    & `翠华摇摇行复止，西出都门百余里。`\\
+    & `六军不发无奈何，宛转蛾眉马前死。`\\
+    & `花钿委地无人收，翠翅金雀玉搔头。`\\
+    & `君王掩面救不得，回看血泪相和流。`\\
+    & `黄埃散漫风萧索，云栈萦纡登剑阁。`\\
+    & `峨嵋山下少人行，旌旗无光日色薄。`\\
+    & `蜀江水碧蜀山青，圣主朝朝暮暮情。`\\
+    & `行宫见月伤心色，夜雨闻铃断肠声。`\\
+\end{longtable}
+\end{Code}
+
+\input{texlet/tab-long}
+
+%\clearpage
+\section{宽表格}
+
+表格太宽时可以使用Fairbairns\indexFairbairns{} \footnote{1970年代剑桥数学学士，电脑硕士，现任剑桥网管。UK FAQ的维护者。} 等人的 \texttt{rotating} 宏包\citep{Fairbairns_2010}。其方法很简单，用 \texttt{sidewaystable} 环境替代 \texttt{table} 环境即可。
+
+\begin{Code}[numbers=left]
+\begin{sidewaystable}[htbp]
+\caption{`主流英文词典`}
+\label{tab:dict}
+\centering
+\begin{tabularx}{550pt}{Xllcrrr}
+    \toprule
+    Title & Abbr & Publisher & Year & Pages & Entries & Price \\
+    \midrule
+    Oxford English Dict, 2nd Ed & OED & Oxford Univ 
+        & 1989 & 21,728 & 616,500 & 995 \\
+\end{Code}
+
+\LoadCode[numbers=left,firstnumber=last]{texlet/tab-rotate-esc}
+\input{texlet/tab-rotate}
+\lstset{firstnumber=1}
+
+\section{彩色表格}
+
+若想给表格增加点色彩，可以使用Carlisle的 \texttt{colortbl} 宏包\citep{Carlisle_2001}。它提供的 \verb|\columncolor、\rowcolor、\cellcolor| 命令可以分别设置列、行、单元格的颜色。这三个命令的基本语法相似：
+
+\verb|语法：{颜色}|
+
+\verb|\columncolor| 需要放到列前置命令里，\verb|rowcolor、\cellcolor| 分别放到行、单元格之前。\texttt{colortbl} 宏包可以使用 \texttt{xcolor} 宏包的色彩模型；两者同时，前者不能直接加载，需要通过后者的选项 \texttt{table} 来加载。三个命令同时使用时，它们的优先顺序为：单元格、行、列。
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-color}
+\caption{彩色表格}
+\label{tab:color_tab}
+\end{example}
+
+\autoref{tab:color_tab} 这样的彩色表格过于花里胡哨，和包老师低调中年宅男的定位极不相称。\texttt{xcolor} 宏包的 \verb|rowcolors| 命令 (需要 \texttt{colortbl} 宏包的支持) 可以分别设置奇偶行的颜色，甚合吾意。该命令语法如下：
+
+\verb|语法：{起始行}{奇数行颜色}{偶数行颜色}|
+
+\begin{example}[h]
+\LoadFBTDemo[numbers=left]{texlet/tab-color-alt}
+\caption{彩色表格}
+\label{tab:alt_color_tab}
+\end{example}
+
+\autoref{tab:alt_color_tab} 中代码第14行的 \verb|\hiderowcolors| 命令是用来暂停显示前面设置的奇偶行颜色，否则后面的其他表格会继续显示颜色。另一个命令 \verb|\showrowcolors| 可以用来重新激活奇偶行颜色设置。
+
+\bibliographystyle{unsrtnat}
+\bibliography{lnotes2}
