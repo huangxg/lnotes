@@ -1,30 +1,30 @@
 \chapter{PSTricks}
 \label{sec:pstricks}
 
-PSTricks是一个基于PostScript的宏包，有了它用户就可以直接在 \LaTeX 文档中插入绘图命令。PSTricks早期的作者是van Zandt\indexVanZandt ，初始开发年月不详，1997年之后Denis Girou\indexGirou{} \footnote{供职于法国国家科学研究中心 (National Centre for Scientific Research, CNSR) 。} 和Herbert Voß\indexVoss{} \footnote{电力工程博士，高中数学、物理、电脑教师，柏林自由大学 (Free University of Berlin) 讲师。\LaTeX{}3项目成员，十几本书的作者。} 接管了维护工作。
+PSTricks 是一个基于 PostScript 的宏包，有了它用户就可以直接在 \LaTeX 文档中插入绘图命令。PSTricks 早期的作者是 van Zandt\indexVanZandt ，初始开发年月不详，1997年之后 Denis Girou\indexGirou{} \footnote{供职于法国国家科学研究中心 (National Centre for Scientific Research, CNSR) 。} 和 Herbert Voß\indexVoss{} \footnote{电力工程博士，高中数学、物理、电脑教师，柏林自由大学 (Free University of Berlin) 讲师。\LaTeX{}3项目成员，十几本书的作者。} 接管了维护工作。
 
-\autoref{tab:pst_add} 列出了一些可以和PSTricks配合使用的辅助宏包。
+\autoref{tab:pst_add} 列出了一些可以和 PSTricks 配合使用的辅助宏包。
 
 \begin{table}[htbp]
 \caption{PSTricks 辅助宏包}
 \label{tab:pst_add}
 \centering
 \begin{tabular}{llll}
-    \toprule
-    multido & 循环      & pst-3dplot & 三维绘图 \\
-    pst-node & 示意图   & pst-solides3d & 三维实体 \\
-    pst-tree & 树状图   & pst-circ & 电路 \\
-    pst-plot & 函数绘图 & pst-labo & 化学 \\
-    pst-func & 数学函数 & pst-geo & 地理 \\
-    pst-eucl & 几何函数 & pstricks-add & 杂项 \\
-    \bottomrule
+  \toprule
+  multido & 循环      & pst-3dplot & 三维绘图 \\
+  pst-node & 示意图   & pst-solides3d & 三维实体 \\
+  pst-tree & 树状图   & pst-circ & 电路 \\
+  pst-plot & 函数绘图 & pst-labo & 化学 \\
+  pst-func & 数学函数 & pst-geo & 地理 \\
+  pst-eucl & 几何函数 & pstricks-add & 杂项 \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
 \section{准备工作}
 \label{sec:pst_setup}
 
-PSTricks中缺省长度单位是1cm，我们也可以设置自己的单位。绘图命令一般要放在 \texttt{pspicture} 环境里，其参数是一个矩形的左下角和右上角，如果左下从原点开始可以省略该点坐标。这样 \LaTeX 就会给它预留空间，注意这个矩形要能容纳所有图形对象。
+PSTricks 中缺省长度单位是 1cm，我们也可以设置自己的单位。绘图命令一般要放在 \texttt{pspicture} 环境里，其参数是一个矩形的左下角和右上角，如果左下从原点开始可以省略该点坐标。这样 \LaTeX 就会给它预留空间，注意这个矩形要能容纳所有图形对象。
 
 \begin{Code}[]
 \psset{unit=10pt}
@@ -35,7 +35,7 @@ PSTricks中缺省长度单位是1cm，我们也可以设置自己的单位。绘
 
 另外需要注意的是，嵌入 \LaTeX 的PSTricks生成的是PostScript，\texttt{dvips} 认得自家人，\texttt{xdvipdfmx} 也可以处理。\texttt{dvipdfm} 和 \texttt{pdflatex} 则不能；如果使用后两种驱动，需要先行生成EPS或PDF。
 
- \texttt{pst-eps} 宏包能够在线处理PSTricks代码并生成EPS，这样用户就可以在同一 \LaTeX 源文件中插入该EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的EPS，它和 \verb|\rput、\uput、\psaxes| 等命令都不兼容。
+ \texttt{pst-eps} 宏包能够在线处理 PSTricks 代码并生成 EPS，这样用户就可以在同一 \LaTeX 源文件中插入该 EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的 EPS，它和 \verb|\rput, \verb|\uput|, \verb|\psaxes| 等命令都不兼容。
 
 \begin{example}[h]
 \begin{Code}[numbers=left]
@@ -52,7 +52,7 @@ PSTricks中缺省长度单位是1cm，我们也可以设置自己的单位。绘
 \label{exa:pst-pdf}
 \end{example}
 
-较好的方法是用 \texttt{pst-pdf} 宏包生成包含PSTricks图形的EPS，然后再根据需要转为PDF。每个 \texttt{pspicture} 环境中的内容会自成一页，方便插入文档。下面 \texttt{dvips} 命令的 \texttt{-E} 参数指示生成EPS。
+较好的方法是用 \texttt{pst-pdf} 宏包生成包含 PSTricks 图形的 EPS，然后再根据需要转为 PDF。每个 \texttt{pspicture} 环境中的内容会自成一页，方便插入文档。下面 \texttt{dvips} 命令的 \texttt{-E} 参数指示生成 EPS。
 
 \begin{Code}[]
 latex fig(.tex)
@@ -60,7 +60,7 @@ dvips fig(.dvi) -E fig.eps
 ps2pdf fig.eps fig.pdf
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Code}[numbers=left]
 \documentclass{article}
 \usepackage[active,tightpage,xetex]{preview}
@@ -77,14 +77,14 @@ ps2pdf fig.eps fig.pdf
 \label{exa:preview}
 \end{example}
 
-使用 \texttt{dvips} 或 \texttt{xdvipdfmx} 时也可以考虑这种生成独立图形的方法，因为直接在 \LaTeX 源文件中使用绘图命令，编译时间会比较长。使用 \texttt{pst-pdf} 宏包时的编译命令较繁琐，用两个命令生成EPS，第三个命令才得到PDF。如果使用 \texttt{xdvipdfmx}，可以改用 \texttt{preview} 宏包 (见 \autoref{exa:preview}) ，这样直接生成PDF，而且文件体积较小。每个 \texttt{preview} 环境中的内容也会自成一页。
+使用 \texttt{dvips} 或 \texttt{xdvipdfmx} 时也可以考虑这种生成独立图形的方法，因为直接在 \LaTeX 源文件中使用绘图命令，编译时间会比较长。使用 \texttt{pst-pdf} 宏包时的编译命令较繁琐，用两个命令生成 EPS，第三个命令才得到 PDF。如果使用 \texttt{xdvipdfmx}，可以改用 \texttt{preview} 宏包 (见 \autoref{exa:preview}) ，这样直接生成 PDF，而且文件体积较小。每个 \texttt{preview} 环境中的内容也会自成一页。
 
 \section{基本图形对象}
 \subsection{点和直线}
 
-\verb|\dot| 命令画一个点，\verb|\dots| 命令画多个点。因为点是有直径的，\texttt{pspicture} 的尺寸需要稍大一点。\verb|\psline| 命令把多个点用直线段连接起来，线段之间的连接缺省为尖角，也可以设置为圆角。
+\verb|\dot| 命令画一个点，\verb|\dots| 命令画多个点。因为点是有直径的，我们需要把\texttt{pspicture} 的尺寸设稍大一点。\verb|\psline| 命令把多个点用直线段连接起来，线段之间的连接缺省为尖角，也可以设置为圆角。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{pst.pdf}}
 \begin{pspicture}(-.2,-.2)(14,2.2)
 \psdot(0,0)
@@ -110,7 +110,7 @@ ps2pdf fig.eps fig.pdf
 \end{pspicture}
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \includegraphics[page=2]{pst.pdf}
 \end{Demo}
@@ -122,7 +122,7 @@ ps2pdf fig.eps fig.pdf
 
 圆形用 \verb|\pscircle| 命令，参数是圆心和半径。椭圆用 \verb|\psellipse| 命令，参数是中心、长径、短径。注意这两个命令的半径参数用不同的括号，可能是作者的笔误。圆弧用 \verb|\psarc| 命令，其参数是圆心、半径、起止角度，逆时针作图。\verb|\psarcn| 类似，只是顺时针作图。扇形用 \verb|\pswedge| 命令。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=3]{pst.pdf}}
 \begin{pspicture}(19,2)
 \pscircle(1,1){1}
@@ -138,9 +138,7 @@ ps2pdf fig.eps fig.pdf
 
 \subsection{曲线}
 
-\verb|\pscurve| 命令把一系列点用平滑曲线连接起来；\verb|\psecurve| 命令不显示曲线的两个端点；\verb|\psccurve| 命令则把曲线封闭起来。\verb|showpoints| 参数用来指示是否显示曲线的构成点，它也可用于其它绘图命令。
-
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=4]{pst.pdf}}
 \begin{pspicture}(-0.2,-0.2)(25.2,2.2)
 \pscurve[showpoints=true](0,1)(1,2)(3,0)(4,2)(1,0)
@@ -154,13 +152,15 @@ ps2pdf fig.eps fig.pdf
 \label{exa:pst_curve}
 \end{example}
 
+\verb|\pscurve| 命令把一系列点用平滑曲线连接起来；\verb|\psecurve| 命令不显示曲线的两个端点；\verb|\psccurve| 命令则把曲线封闭起来。\verb|showpoints| 参数用来指示是否显示曲线的构成点，它也可用于其它绘图命令。
+
 贝塞尔曲线用 \verb|\psbezier| 命令，其参数就是曲线的控制点。抛物线用 \verb|\psparabola| 命令，它有两个参数，一个是抛物线通过的某点，另一个是抛物线的顶点。
 
 \subsection{网格和坐标轴}
 
 科技制图通常会用到坐标和网格。\verb|\psgrid| 命令输出一个矩形网格，它有三个参数点。网格坐标标注在通过第一个点的两条直线上，第二和第三个点是矩形的两个对角顶点。当第一个参数省略时，坐标标注在通过第一个顶点的两条矩形边上。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=5]{pst.pdf}}
 \psset{unit=20pt}
 \begin{pspicture}(-1,-1)(13.5,2.5)
@@ -173,9 +173,7 @@ ps2pdf fig.eps fig.pdf
 \label{exa:pst_grid}
 \end{example}
 
-坐标轴可以用 \texttt{pst-plot} 宏包的 \verb|\psaxes| 命令。它的参数和 \verb|\psgrid| 的类似，刻度和标注的设置都很方便，也可以把坐标轴改成矩形框。
-
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=6]{pst.pdf}}
 \psset{unit=20pt}
 \begin{pspicture}(-1,-1)(13.4,2.4)
@@ -188,12 +186,14 @@ ps2pdf fig.eps fig.pdf
 \label{exa:pst_axis}
 \end{example}
 
+坐标轴可以用 \texttt{pst-plot} 宏包的 \verb|\psaxes| 命令。它的参数和 \verb|\psgrid| 的类似，刻度和标注的设置都很方便，也可以把坐标轴改成矩形框。
+
 \section{图形控制}
 \subsection{线宽和线型}
 
 PSTricks中缺省线条是0.8pt的实线。线宽和线型参数使用方法如下，
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=7]{pst.pdf}}
 \begin{pspicture}(0,-0.1)(9,2.1)
 \psline[linewidth=1.5pt](0,0)(9,0)
@@ -209,7 +209,7 @@ PSTricks中缺省线条是0.8pt的实线。线宽和线型参数使用方法如�
 
 以下参数可以控制绘图命令的箭头。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=8]{pst.pdf}}
 \begin{pspicture}(-0.2,-0.2)(9.2,6.2)
 \psline{->}(0,0)(9,0)
@@ -227,9 +227,9 @@ PSTricks中缺省线条是0.8pt的实线。线宽和线型参数使用方法如�
 
 \subsection{颜色和填充}
 
-PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和red, green, blue, cyan, magenta, yellow等彩色。它可以使用 \texttt{xcolor} 宏包。设置线条颜色的方法如 \autoref{exa:pst_color} 所示，
+PSTricks 预定义了 black, darkgray, gray, lightgray, white 等灰度颜色，和 red, green, blue, cyan, magenta, yellow 等彩色。它可以使用 \texttt{xcolor} 宏包。设置线条颜色的方法如 \autoref{exa:pst_color} 所示，
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=9]{pst.pdf}}
 \begin{pspicture}(0,-0.1)(9,2.1)
 \psline[linecolor=red](0,0)(9,0)
@@ -243,7 +243,7 @@ PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和
 
 设置填充模式和填充颜色的方法如 \autoref{exa:pst_fill}。注意只有封闭路径才可以填充。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=10]{pst.pdf}}
 \begin{pspicture}(11,2)
 \pscircle[fillstyle=solid,fillcolor=RoyalBlue](1,1){1}
@@ -261,7 +261,8 @@ PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和
 前文提到过用 \verb|\pseset| 命令设置长度单位，它还可以用来设置线宽、线型、颜色等全局参数。
 
 \begin{Code}[]
-\psset{linewidth=1pt, linestyle=dashed, linecolor=Silver, fillcolor=Lavender, fillstyle=crosshatch}
+\psset{linewidth=1pt, linestyle=dashed, linecolor=Silver, 
+  fillcolor=Lavender, fillstyle=crosshatch}
 \end{Code}
 
 \section{图形变换}
@@ -271,27 +272,27 @@ PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和
 \verb|语法: \rput[参考点]{旋转角度}{平移坐标}{操作对象}|
 
 \begin{enumerate}
-    \item 参考点，可选。其取值见 \autoref{tab:rput}，缺省是左下。
-    \item 旋转角度，可以取任意角度，也可以用U、L、D、R分别代表0$^\circ$、90$^\circ$、180$^\circ$、270$^\circ$ 。
-    \item 平移到的位置。
-    \item 操作对象。
+  \item 参考点，可选。其取值见 \autoref{tab:rput}，缺省是左下。
+  \item 旋转角度，可以取任意角度，也可以用U、L、D、R分别代表0$^\circ$, 90$^\circ$, 180$^\circ$, 270$^\circ$ 。
+  \item 平移到的位置。
+  \item 操作对象。
 \end{enumerate}
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \caption{ \texttt{\char`\\rput} 命令的参考点}
 \label{tab:rput}
 \begin{tabular}{cccc}
-    \toprule
-    \multicolumn{2}{c}{水平方向} & \multicolumn{2}{c}{垂直方向} \\
-    \midrule
-    l & 左 & t & 上 \\
-    r & 右 & b & 下 \\
-    \bottomrule
+  \toprule
+  \multicolumn{2}{c}{水平方向} & \multicolumn{2}{c}{垂直方向} \\
+  \midrule
+  l & 左 & t & 上 \\
+  r & 右 & b & 下 \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=11]{pst.pdf}}
 \begin{pspicture}(12,3.2)
 \psframe(0,0)(3,2)
@@ -309,7 +310,7 @@ PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和
 
 \verb|\rput| 命令还可以在指定的坐标点标注文字，\autoref{exa:pst_label} 中的参考点参数指示把文字分别标注在某点的左边、右边、上边。它生成的标注就在坐标点上，有时会感觉离图形太近。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=12]{pst.pdf}}
 \begin{pspicture}(-0.8,-0.4)(12.3,3.3)
 \pspolygon(0,0)(4,0)(2,2)
@@ -328,21 +329,21 @@ PSTricks预定义了black, darkgray, gray, lightgray, white等灰度颜色，和
 
 另一个命令 \verb|\uput| 则生成缺省距离指定坐标点5pt的标注。它的第一个参数是标注相对于坐标点的角度，取值可以是角度或字母 (见 \autoref{tab:uput}) 。注意 \verb|\uput| 的角度参数和 \verb|\rput| 命令的参考点位置参数的定义几乎正好相反，比较容易混淆。
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
 \caption{ \texttt{\char`\\uput} 命令的角度参数}
 \label{tab:uput}
 \begin{tabular}{lrlr}
-    \toprule
-    r &   0$^\circ$ & ur &  45$^\circ$ \\
-    u &  90$^\circ$ & ul & 135$^\circ$ \\
-    l & 180$^\circ$ & dl & 225$^\circ$ \\
-    d & 270$^\circ$ & dr & 315$^\circ$ \\
-    \bottomrule
+  \toprule
+  r &   0$^\circ$ & ur &  45$^\circ$ \\
+  u &  90$^\circ$ & ul & 135$^\circ$ \\
+  l & 180$^\circ$ & dl & 225$^\circ$ \\
+  d & 270$^\circ$ & dr & 315$^\circ$ \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
-若想深入了解PSTricks，可以参阅其用户手册\citep{Zandt_2007}。
+若想深入了解 PSTricks，可以参阅其用户手册\citep{Zandt_pstricks}。
 
 \bibliographystyle{unsrtnat}
 \bibliography{lnotes2}

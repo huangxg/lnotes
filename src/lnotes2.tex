@@ -1,19 +1,17 @@
-\documentclass[a4paper,11pt]{book}
+\documentclass[a4paper,11pt,fontset=none,scheme=chinese]{ctexbook}
+\ctexset{
+  section/format = \Large\bfseries,
+  today=old
+}
 
 % **************************************
 % Language & Fonts
 % **************************************
-\usepackage[CJKchecksingle,CJKnumber]{xeCJK}
-\punctstyle{hangmobanjiao}
-%\setmainfont[Mapping=tex-text]{Palatino Linotype}
-\setmainfont[Mapping=tex-text]{Adobe Garamond Pro}
+\input{lang}
+\usepackage{CJKnumb}
 %Mapping fixes endash & emdash
 \newfontfamily\lmr{Latin Modern Roman}
 \newfontfamily\courier{Courier New}
-\setCJKmainfont[BoldFont={Adobe Heiti Std},
-    ItalicFont={Adobe Kaiti Std}]{Adobe Song Std}%
-\setCJKsansfont{Adobe Heiti Std}
-\setCJKmonofont{Adobe Fangsong Std}
 
 %\xeCJKsetcharclass{"0}{"2E7F}{0}
 %\xeCJKsetcharclass{"2E80}{"FFFF}{1}
@@ -68,27 +66,31 @@ breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
 \usepackage{multind}
 \makeindex{people}
 \makeindex{org}
-\usepackage{titlesec}
+% replaced by ctexbook
+% \usepackage{titlesec}
 
-\newcommand{\lnotesversion}{v2.03}
-\newcommand{\lnotesdate}{2013年9月}
+\newcommand{\lnotesauthor}{包 太 雷}
+\newcommand{\lnotesversion}{v2.50}
+\newcommand{\lnotesdate}{2019年4月}
 
-\renewcommand{\contentsname}{目录}
+% replaced by ctexbook
+% \renewcommand{\contentsname}{目录}
 \renewcommand{\listfigurename}{图目录}
 \renewcommand{\listtablename}{表目录}
 \renewcommand{\chaptername}{第\CJKnumber{\thechapter}章}
 %\newcommand{\sectionname}{\thesection 节}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-%\renewcommand{\appendixname}{附录{\thechapter}}
-\renewcommand{\bibname}{参考文献}
-\renewcommand{\indexname}{索引}
+% \renewcommand{\figurename}{图}
+% \renewcommand{\tablename}{表}
+% \renewcommand{\appendixname}{附录{\thechapter}}
+% \renewcommand{\bibname}{参考文献}
+% \renewcommand{\indexname}{索引}
 
 \renewcommand{\figureautorefname}{图}
 \renewcommand{\tableautorefname}{表}
 \renewcommand{\appendixautorefname}{附录}
 
-\titleformat{\chapter}[block]{\center\Huge}{\chaptername}{20pt}{}
+% replaced by ctexbook
+% \titleformat{\chapter}[block]{\center\Huge}{\chaptername}{20pt}{}
 \makeatletter
 \renewcommand{\tableofcontents}{%
 \setlength{\columnsep}{2.5em}
@@ -162,8 +164,8 @@ breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\leftmark}
-\fancyhead[LO]{\rightmark}
+\fancyhead[RE]{\textit{\leftmark}}
+\fancyhead[LO]{\textit{\rightmark}}
 \fancypagestyle{plain}{             % set header and footer of plain pages
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}

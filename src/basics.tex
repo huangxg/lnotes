@@ -7,7 +7,7 @@
 \label{exa:helloworld}
 \end{example}
 
-在编辑器中将 \autoref{exa:helloworld} 中的代码保存为 \verb|hello-world.tex|，这就是一份最简单的 \LaTeX 源文件。然后我们可以用 \texttt{xelatex} 程序编译源文件生成PDF，它知道输入的是 \LaTeX 源文件，所以这里的 \texttt{.tex} 后缀可以省略。以后类似情况都用括号标出，不再特意声明。
+在编辑器中将 \autoref{exa:helloworld} 中的代码保存为 \verb|hello-world.tex|，这就是一份最简单的 \LaTeX 源文件。然后我们可以用 \texttt{xelatex} 程序编译源文件生成 PDF，它知道输入的是 \LaTeX 源文件，所以这里的 \texttt{.tex} 后缀可以省略。以后类似情况都用括号标出，不再特意声明。
 
 \begin{Code}[]
 xelatex hello_world(.tex)
@@ -31,7 +31,7 @@ Output written on hello_world.pdf (1 page).
 Transcript written on hello_world.log.
 \end{Code}
 
-\TeX 系统针对不同格式和引擎的组合，提供了一系列的命令行程序，完成不同的编译和转换功能。比如源文件是plain \TeX 格式时，可以分别用 \texttt{tex、pdftex、xetex} 程序调用 \TeX, pdfTeX, \XeTeX 引擎；源文件是 \LaTeX 格式时，相应的程序则是 \texttt{latex, pdflatex, xelatex} \footnote{现在的发行包大多以pdfTeX为缺省引擎，所以 \texttt{latex} 命令缺省调用的其实是pdfTeX，而不是 \TeX 。}。选择编译和转换程序时可以参考 \autoref{fig:compile}，一般有直接方法可用时，不必非要排个转折亲使用间接方法。
+\TeX 系统针对不同格式和引擎的组合，提供了一系列的命令行程序，完成不同的编译和转换功能。比如源文件是 plain \TeX 格式时，可以分别用 \texttt{tex, pdftex, xetex} 程序调用 \TeX, pdfTeX, \XeTeX 引擎；源文件是 \LaTeX 格式时，相应的程序则是 \texttt{latex, pdflatex, xelatex} \footnote{现在的发行包大多以pdfTeX为缺省引擎，所以 \texttt{latex} 命令缺省调用的其实是pdfTeX，而不是 \TeX 。}。选择编译和转换程序时可以参考 \autoref{fig:compile}，一般有直接方法可用时，不必非要排个转折亲使用间接方法。
 
 \begin{figure}[htbp]
 \centering
@@ -65,27 +65,27 @@ Transcript written on hello_world.log.
 \end{document}
 \end{Code}
 
-常用的文档类 (documentclass) 有三种：\texttt{article、report、book}，它们的基本选项见 \autoref{tab:class_options}。
+常用的文档类 (documentclass) 有三种：\texttt{article, report, book}，它们的基本选项见 \autoref{tab:class_options}。
 
 \begin{table}[htbp]
 \centering
 \caption{文档类常用选项}
 \label{tab:class_options}
 \begin{tabularx}{350pt}{lX}
-    \toprule
-    10pt, 11pt, 12pt & 正文字号，缺省10pt。\LaTeX 会根据正文字号选择标题、上下标等的字号。\\
-    letterpaper, a4paper & 纸张尺寸，缺省是letterpaper。\\
-    notitlepage, titlepage & 标题后是否另起新页。article缺省notitlepage，report和book缺省有titlepage。\\
-    onecolumn, twocolumn & 栏数，缺省单栏。\\
-    oneside, twoside & 单面双面。article和report缺省用单面，book缺省用双面。\\
-    landscape & 横向打印，缺省是纵向。\\
-    openany, openright & 此选项只用于report和book。report缺省openany，book缺省openright。\\
-    draft & 草稿模式。有时某些行排得过满，draft模式可以在它们右边标上粗黑线提醒用户。\\
-    \bottomrule
+  \toprule
+  10pt, 11pt, 12pt & 正文字号，缺省10pt。\LaTeX 会根据正文字号选择标题、上下标等的字号。\\
+  letterpaper, a4paper & 纸张尺寸，缺省是 letterpaper。\\
+  notitlepage, titlepage & 标题后是否另起新页。article 缺省 notitlepage，report 和 book 缺省有 titlepage。\\
+  onecolumn, twocolumn & 栏数，缺省单栏。\\
+  oneside, twoside & 单面双面。article 和 report 缺省用单面，book 缺省用双面。\\
+  landscape & 横向打印，缺省是纵向。\\
+  openany, openright & 此选项只用于 report 和 book。report 缺省 openany，book 缺省 openright。\\
+  draft & 草稿模式。有时某些行排得过满，draft 模式可以在它们右边标上粗黑线提醒用户。\\
+  \bottomrule
 \end{tabularx}
 \end{table}
 
-\LaTeX 核心只提供基本功能，很多功能要通过宏包来实现。其他一些编程语言也有类似的模块化机制，比如C/C++的 \texttt{include}，Java的 \texttt{import}。
+\LaTeX 核心只提供基本功能，很多功能要通过宏包来实现。其他一些编程语言也有类似的模块化机制，比如 C/C++的 \texttt{include}，Java 的 \texttt{import}。
 
 \subsection{逻辑结构}
 
@@ -108,7 +108,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 \end{abstract}
 \end{Code}
 
-\LaTeX 提供了七种层次结构命令，每个高级层次可以包含若干低级层次。article中没有chapter，而report和book则支持所有层次。
+\LaTeX 提供了七种层次结构命令，每个高级层次可以包含若干低级层次。article 中没有 chapter，而 report 和 book 则支持所有层次。
 
 \begin{example}[h]
 \begin{Code}[numbers=left]
@@ -124,7 +124,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 \label{tab:structure}
 \end{example}
 
-我们可以用 \verb|\tableofcontents| 命令来生成目录。系统会自动设定目录包含的章节层次，用户也可以显式指定目录层次深度。比如下面的命令指定目录深度为2，也就是只显示subsection及以上层次的目录。注意设定目录深度命令要放在列目录命令的前面。
+我们可以用 \verb|\tableofcontents| 命令来生成目录。系统会自动设定目录包含的章节层次，用户也可以显式指定目录层次深度。比如下面的命令指定目录深度为2，也就是只显示 subsection 及以上层次的目录。注意设定目录深度命令要放在列目录命令的前面。
 
 \begin{Code}[]
 \setcounter{tocdepth}{2} %设定目录深度
@@ -158,32 +158,32 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 
 文档中可以输入的文字符号大致可以分为：普通字符、控制符、特殊符号、预定义字符串、注音符号等。
 
-普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个 \verb|\|。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
+普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个 \verb|\|。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是  Pascal。}。
 
 \begin{Code}[]
 \# \$ \^ \& \_ \{ \} \~ \textbackslash \%
 \end{Code}
 
-\autoref{tab:symbols} 给出一些特殊符号和预定义字符串的输入方法；其中 \verb|\XeTeX|, \verb|\XeLaTeX| 命令需要 \texttt{metalogo} 宏包，\verb|\MF|, \verb|\MP| 命令需要 \texttt{mflogo} 宏包，\verb|\AmS| 命令需要 \texttt{texnames} 宏包。\autoref{tab:accent} 列出一些注音符号。更多的符号见Scott Pakin\indexPakin{} \footnote{UIUC计算机系1995年硕士，2001年博士。现供职于洛斯阿莫斯国家实验室 (Los Alamos National Laboratory) 。} 的符号列表\citep{Pakin_2008}。
+\autoref{tab:symbols} 给出一些特殊符号和预定义字符串的输入方法；其中 \verb|\XeTeX|, \verb|\XeLaTeX| 命令需要 \texttt{metalogo} 宏包，\verb|\MF|, \verb|\MP| 命令需要 \texttt{mflogo} 宏包，\verb|\AmS| 命令需要 \texttt{texnames} 宏包。\autoref{tab:accent} 列出一些注音符号。更多的符号见 Scott Pakin\indexPakin{} \footnote{UIUC 计算机系 1995年硕士，2001年博士。现供职于洛斯阿莫斯国家实验室 (Los Alamos National Laboratory) 。} 的符号列表\citep{Pakin_comprehensive}。
 
 \begin{table}[htbp]
 \centering
 \caption{特殊符号和预定义字符串}
 \label{tab:symbols}
 \begin{tabular}{llll}
-    \toprule
-    \multicolumn{2}{c}{特殊符号} & \multicolumn{2}{c}{预定义字符串} \\
-    \cmidrule(lr){1-2} \cmidrule(lr){3-4}
-    \textcopyright  & \verb|\textcopyright| & \today & \verb|\today| \\
-    {\lmr\textregistered} & \verb|\textregistered|& \TeX  & \verb|\TeX| \\
-    {\lmr\texttrademark} & \verb|\texttrademark| & \LaTeX  & \verb|\LaTeX| \\
-    \textyen        & \verb|\textyen|       & \LaTeXe  & \verb|\LaTeXe| \\
-    \texteuro       & \verb|\texteuro|      & \XeTeX  & \verb|\XeTeX| \\
-    \pounds         & \verb|\pounds|        & \XeLaTeX  & \verb|\XeLaTeX| \\
-    \dots           & \verb|\dots|          & \MF & \verb|\MF| \\
-    \P              & \verb|\P|             & \MP & \verb|\MP| \\
-    \S              & \verb|\S|             & \AmS & \verb|\AmS| \\
-    \bottomrule
+  \toprule
+  \multicolumn{2}{c}{特殊符号} & \multicolumn{2}{c}{预定义字符串} \\
+  \cmidrule(lr){1-2} \cmidrule(lr){3-4}
+  \textcopyright  & \verb|\textcopyright| & \today & \verb|\today| \\
+  {\lmr\textregistered} & \verb|\textregistered|& \TeX  & \verb|\TeX| \\
+  {\lmr\texttrademark} & \verb|\texttrademark| & \LaTeX  & \verb|\LaTeX| \\
+  \textyen        & \verb|\textyen|       & \LaTeXe  & \verb|\LaTeXe| \\
+  \texteuro       & \verb|\texteuro|      & \XeTeX  & \verb|\XeTeX| \\
+  \pounds         & \verb|\pounds|        & \XeLaTeX  & \verb|\XeLaTeX| \\
+  \dots           & \verb|\dots|          & \MF & \verb|\MF| \\
+  \P              & \verb|\P|             & \MP & \verb|\MP| \\
+  \S              & \verb|\S|             & \AmS & \verb|\AmS| \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -193,21 +193,21 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 \label{tab:accent}
 \lmr
 \begin{tabular}{lp{40pt}lp{40pt}lp{40pt}lp{85pt}}
-    \toprule
-    \.{A} & \verb|\.{A}| & \"{A} & \verb|\"{A}| & 
-        \={A} & \verb|\={A}| & \`{A} & \verb|\`{A}| \\
-    \'{A} & \verb|\'{A}| & \^{A} & \verb|\^{A}| & 
-        \v{A} & \verb|\v{A}| & \~{A} & \verb|\~{A}| \\
-    \d{A} & \verb|\d{A}| & \b{A} & \verb|\b{A}| & 
-        \r{A} & \verb|\r{A}| & \textcircled{A} & \verb|\textcircled{A}| \\
-    \bottomrule
+  \toprule
+  \.{A} & \verb|\.{A}| & \"{A} & \verb|\"{A}| & 
+    \={A} & \verb|\={A}| & \`{A} & \verb|\`{A}| \\
+  \'{A} & \verb|\'{A}| & \^{A} & \verb|\^{A}| & 
+    \v{A} & \verb|\v{A}| & \~{A} & \verb|\~{A}| \\
+  \d{A} & \verb|\d{A}| & \b{A} & \verb|\b{A}| & 
+    \r{A} & \verb|\r{A}| & \textcircled{A} & \verb|\textcircled{A}| \\
+  \bottomrule
 \end{tabular}
 \rmfamily
 \end{table}
 
 \LaTeX 中有短划线 (hypen) 、中划线 (en-dash) 和长划线 (em-dash) 。短划线又称连字符，用来连接单词；中划线用来连接数字，可以通过重复两次短划线得到；长划线类似于中文的破折号，重复三次短划线。为了便于比较，这里也给出数学模式的减号。
 
-\begin{example}[h]
+\begin{example}[!h]
 \begin{RLDemo}[]
 computer-aided\\
 1840--2010\\
@@ -221,33 +221,33 @@ $1-1=0$
 \subsection{字体样式和大小}
 \label{sec:font_style}
 
-拉丁文字体主要有三大类：衬线字体 (roman, serif) 、无衬线字体 (sans serif) \footnote{Sans这个词来源于法语，就是“没有”的意思。}和等宽字体 (monospace, typewriter) 。衬线字体笔画的边缘部分有些修饰，类似于中文的宋体、仿宋、楷体、魏体等。无衬线字体的笔画则是平滑的，类似于中文的黑体。
+拉丁文字体主要有三大类：衬线字体 (roman, serif) 、无衬线字体 (sans serif) \footnote{Sans 这个词来源于法语，就是“没有”的意思。}和等宽字体 (monospace, typewriter) 。衬线字体笔画的边缘部分有些修饰，类似于中文的宋体、仿宋、楷体、魏体等。无衬线字体的笔画则是平滑的，类似于中文的黑体。
 
 字体还可以有粗体 (bold) 、斜体 (italic) 、伪斜体 (oblique, slanted) 、小型大写字母 (small caps) 等修饰效果。\TeX 提供了介于正常字体和粗体之间的半粗体 (medium weight) 。斜体通常对原字体进行了重新设计，它修饰精细，多用于衬线字体；伪斜体基本上是把原字体倾斜，多用于无衬线字体，一般伪斜体看起来比斜体要宽一些。小型大写字母的形状和大写字母相同但尺寸较小，一般高度和小写字母相似。
 
 每种字体样式包含很多种具体的字体，第三章会有关于字体更详细的介绍，包括中文字体的设置。字体常用样式命令见 \autoref{tab:font_style}。
 
-\begin{table}[hbtp]
+\begin{table}[htbp]
 \centering
 \caption{字体样式}
 \label{tab:font_style}
 \begin{tabular}{llll}
-    \toprule
-    \textrm{roman} & \verb|\textrm{...}| & 
-        \textbf{bold face} & \verb|\textbf{...}| \\
-    \textsf{sans serif} & \verb|\textsf{...}| & 
-        \textmd{medium weight} & \verb|\textmd{...}| \\
-    \texttt{typewriter} & \verb| \texttt{...}| & 
-        \textit{italic} & \verb|\textit{...}| \\
-    \textsc{Small Caps} & \verb|\textsc{...}| & 
-        \textsl{slanted} & \verb|\textsl{...}| \\
-    \bottomrule
+  \toprule
+  \textrm{roman} & \verb|\textrm{...}| & 
+    \textbf{bold face} & \verb|\textbf{...}| \\
+  \textsf{sans serif} & \verb|\textsf{...}| & 
+    \textmd{medium weight} & \verb|\textmd{...}| \\
+  \texttt{typewriter} & \verb| \texttt{...}| & 
+    \textit{italic} & \verb|\textit{...}| \\
+  \textsc{Small Caps} & \verb|\textsc{...}| & 
+    \textsl{slanted} & \verb|\textsl{...}| \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
 \LaTeX 的字体强调命令 \verb|\emph| 在不同字体环境中有不同的效果。如果周围文字是正体，它就是斜体；反之它就是正体。\verb|\underline| 命令可以给字体加下划线，但是它不能正确断字。 \texttt{ulem} 宏包改进了断字，还增加了波浪线和删除线等命令。只是 \texttt{ulem} 把 \verb|\emph| 重定义成了下划线，我们可以在引用宏包时可以加个选项改回去：\verb|\usepackage[normalem]{ulem}|。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \emph{emphasis}\\
 \uline{underline}\\
@@ -257,29 +257,29 @@ $1-1=0$
 \caption{字体强调和下划线}
 \end{example}
 
-\LaTeX 会根据正文的字体大小来调整标题、章节、上下标、脚注等的字号。我们也可以用 \autoref{tab:fontsize} 中的命令来设置字体相对尺寸，比如正文的字号是10pt、11pt、12pt 时，tiny的字号就分别是5pt、6pt、6pt。
+\LaTeX 会根据正文的字体大小来调整标题、章节、上下标、脚注等的字号。我们也可以用 \autoref{tab:fontsize} 中的命令来设置字体相对尺寸，比如正文的字号是10pt, 11pt, 12pt 时，tiny的字号就分别是5pt, 6pt, 6pt。
 
 \begin{table}[htbp]
 \centering
 \caption{字体相对尺寸}
 \label{tab:fontsize}
 \begin{tabular}{llrrr}
-    \toprule
-    & & \multicolumn{3}{c}{正文字号} \\
-    \cmidrule(lr){3-5}
-    样本 & 命令 & 10pt & 11pt & 12pt \\
-    \midrule
-    \tiny{sample} & \verb|\tiny|         & 5pt  & 6pt  & 6pt \\
-    \scriptsize{sample} & \verb|\scriptsize|   & 7pt  & 8pt  & 8pt \\
-    \footnotesize{sample} & \verb|\footnotesize| & 8pt  & 9pt  & 10pt \\
-    \small{sample} & \verb|\small|        & 9pt  & 10pt & 11pt \\
-    \normalsize{sample} & \verb|\normalsize|   & 10pt & 11pt & 12pt \\
-    \large{sample} & \verb|\large|        & 12pt & 12pt & 14pt \\
-    \Large{sample} & \verb|\Large|        & 14pt & 14pt & 17pt \\
-    \LARGE{sample} & \verb|\LARGE|        & 17pt & 17pt & 20pt \\
-    \huge{sample} & \verb|\huge|         & 20pt & 20pt & 25pt \\
-    \Huge{sample} & \verb|\Huge|         & 25pt & 25pt & 25pt \\
-    \bottomrule
+  \toprule
+  & & \multicolumn{3}{c}{正文字号} \\
+  \cmidrule(lr){3-5}
+  样本 & 命令 & 10pt & 11pt & 12pt \\
+  \midrule
+  \tiny{sample} & \verb|\tiny|         & 5pt  & 6pt  & 6pt \\
+  \scriptsize{sample} & \verb|\scriptsize|   & 7pt  & 8pt  & 8pt \\
+  \footnotesize{sample} & \verb|\footnotesize| & 8pt  & 9pt  & 10pt \\
+  \small{sample} & \verb|\small|        & 9pt  & 10pt & 11pt \\
+  \normalsize{sample} & \verb|\normalsize|   & 10pt & 11pt & 12pt \\
+  \large{sample} & \verb|\large|        & 12pt & 12pt & 14pt \\
+  \Large{sample} & \verb|\Large|        & 14pt & 14pt & 17pt \\
+  \LARGE{sample} & \verb|\LARGE|        & 17pt & 17pt & 20pt \\
+  \huge{sample} & \verb|\huge|         & 20pt & 20pt & 25pt \\
+  \Huge{sample} & \verb|\Huge|         & 25pt & 25pt & 25pt \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -287,7 +287,7 @@ $1-1=0$
 
 通常 \LaTeX 会自动换行，我们也可以用 \verb|\\| 或 \verb|\newline| 命令来强制换行；用 \verb|\newpage| 命令来强制换页。
 
-\LaTeX 也会自动断字 (hyphenate) ，使得每一行的字间距分布均匀。有时我们也需要显式指明断字位置，比如下例就指明BASIC这个词不能断开，而 blar-blar-blar 可以在-处断开。
+\LaTeX 也会自动断字 (hyphenate) ，使得每一行的字间距分布均匀。有时我们也需要显式指明断字位置，比如下例就指明 BASIC 这个词不能断开，而 blar-blar-blar 可以在-处断开。
 
 \begin{Code}[]
 \hyphenation{BASIC blar-blar-blar}
@@ -296,18 +296,18 @@ $1-1=0$
 \section{长度}
 \label{sec:length}
 
-为了精确排版，人们需要控制排版对象的尺寸和位置。\LaTeX 中常用长度单位见 \autoref{tab:unit}，其中point是个传统印刷业采用的单位，而big point是Adobe推出PostScript时定义的新单位。em是个相对单位，比如当前字体是11pt时，1em就是11pt；ex和mu也是相对单位。
+为了精确排版，人们需要控制排版对象的尺寸和位置。\LaTeX 中常用长度单位见 \autoref{tab:unit}，其中 point 是个传统印刷业采用的单位，而 big point 是 Adobe 推出 PostScript 时定义的新单位。em 是个相对单位，比如当前字体是 11pt 时，1em 就是 11pt；ex 和 mu 也是相对单位。
 
 \begin{table}[htbp]
 \caption{常用长度单位}
 \label{tab:unit}
 \centering
 \begin{tabular}{llllll}
-    \toprule
-    in & 英寸 & pt & point, 1/72.27 in  & em & 当前字体中字母M的宽度 \\
-    cm & 厘米 & bp & big point, 1/72 in & ex & 当前字体中字母x的高度 \\
-    mm & 毫米 & pc & pica, 12 pt        & mu & math unit，1/18 em \\
-    \bottomrule
+  \toprule
+  in & 英寸 & pt & point, 1/72.27 in  & em & 当前字体中字母M的宽度 \\
+  cm & 厘米 & bp & big point, 1/72 in & ex & 当前字体中字母x的高度 \\
+  mm & 毫米 & pc & pica, 12 pt        & mu & math unit，1/18 em \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -412,7 +412,7 @@ printf("Hello, world!");
 \caption{原文打印}
 \end{example}
 
-Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士，1989年博士。1990年加入普林斯顿，1998年跳槽到欧洲工商管理学院。} 等人的 \texttt{fancyvrb} 宏包\citep{Zandt_2008}和Brooks Moses\indexMoses{} \footnote{1997年弗吉尼亚理工学院机械学士，2007年斯坦福机械博士，毕业后加入一家软件公司源码巫师 (CodeSourcery) 。} 等人的 \texttt{listings} 宏包\citep{Moses_2007}提供了更多的原文打印功能，比如行号、边框、背景、语法着色等。
+Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士，1989年博士。1990年加入普林斯顿，1998年跳到欧洲工商管理学院。} 等人的 \texttt{fancyvrb} 宏包\citep{Zandt_fancyvrb}和 Brooks Moses\indexMoses{} \footnote{1997年弗吉尼亚理工学院机械学士，2007年斯坦福机械博士，毕业后加入一家软件公司源码巫师 (CodeSourcery) 。} 等人的 \texttt{listings} 宏包\citep{Moses_listings}提供了更多的原文打印功能，比如行号、边框、背景、语法着色等。
 
 \subsection{脚注}
 
@@ -435,13 +435,13 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 \caption{计数器显示格式}
 \label{tab:counter_format}
 \begin{tabular}{lll}
-    \toprule
-    阿拉伯数字 & \verb|\arabic{counter}| & 1, 2, 3\dots \\
-    小写英文字母 & \verb|\alph{counter}| & a, b, c\dots \\
-    小写英文字母 & \verb|\Alph{counter}| & A, B, C\dots \\
-    小写罗马数字 & \verb|\roman{counter}| & i, ii, iii\dots \\
-    大写罗马数字 & \verb|\Roman{counter}| & I, II, III\dots \\
-    \bottomrule
+  \toprule
+  阿拉伯数字 & \verb|\arabic{counter}| & 1, 2, 3\dots \\
+  小写英文字母 & \verb|\alph{counter}| & a, b, c\dots \\
+  小写英文字母 & \verb|\Alph{counter}| & A, B, C\dots \\
+  小写罗马数字 & \verb|\roman{counter}| & i, ii, iii\dots \\
+  大写罗马数字 & \verb|\Roman{counter}| & I, II, III\dots \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -501,28 +501,28 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 
 \subsection{其他列表}
 
-上述列表的缺省行间距较大，如要节省空间，可以考虑Bernd Schandl\indexSchandl{} \footnote{1997年凯撒斯劳腾工业大学 (Kaiserslautern University of Technology) 数学硕士，1999年克莱姆森大学数学博士。} 的 \texttt{paralist} 宏包，它提供了一系列压缩列表和行间列表环境。
+上述列表的缺省行间距较大，如要节省空间，可以考虑 Bernd Schandl\indexSchandl{}\footnote{1997年凯撒斯劳腾工业大学 (Kaiserslautern University of Technology) 数学硕士，1999年克莱姆森大学数学博士。} 的 \texttt{paralist} 宏包，它提供了一系列压缩列表和行间列表环境。
 
 \begin{example}[!h]
 \begin{RLDemo}[numbers=left]
 \begin{compactitem}
-    \item C++
-    \item Java 
-    \item HTML
+  \item C++
+  \item Java 
+  \item HTML
 \end{compactitem}
 \end{RLDemo}
 \begin{RLDemo}[numbers=left]
 \begin{compactenum}
-    \item C++
-    \item Java 
-    \item HTML
+  \item C++
+  \item Java 
+  \item HTML
 \end{compactenum}
 \end{RLDemo}
 \begin{RLDemo}[numbers=left]
 \begin{compactdesc}
-    \item[C++] 编程语言，
-    \item[Java] 编程语言，
-    \item[HTML] 标记语言。
+  \item[C++] 编程语言，
+  \item[Java] 编程语言，
+  \item[HTML] 标记语言。
 \end{compactdesc}
 \end{RLDemo}
 \caption{压缩列表}
@@ -532,23 +532,23 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 \begin{example}[!h]
 \begin{RLDemo}[numbers=left]
 \begin{inparaitem}
-    \item C++
-    \item Java 
-    \item HTML
+  \item C++
+  \item Java 
+  \item HTML
 \end{inparaitem}
 \end{RLDemo}
 \begin{RLDemo}[numbers=left]
 \begin{inparaenum}
-    \item C++
-    \item Java 
-    \item HTML
+  \item C++
+  \item Java 
+  \item HTML
 \end{inparaenum}
 \end{RLDemo}
 \begin{RLDemo}[numbers=left]
 \begin{inparadesc}
-    \item[C++] 编程语言，
-    \item[Java] 编程语言，
-    \item[HTML] 标记语言。
+  \item[C++] 编程语言，
+  \item[Java] 编程语言，
+  \item[HTML] 标记语言。
 \end{inparadesc}
 \end{RLDemo}
 \caption{行间列表}
@@ -568,7 +568,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 \renewcommand{\labelitemi}{-}
 \renewcommand{\theenumi}{\alph{enumi}}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \LoadRLDemo[numbers=left]{texlet/list-itemize}\\
 \LoadRLDemo[numbers=left]{texlet/list-enumerate}
 \caption{定制列表}
@@ -587,7 +587,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 
 最简单的盒子命令是 \verb|\mbox|和 \verb|\fbox|。前者把一组对象组合起来，后者在此基础上加了个边框。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \mbox{010 6278 5001}
 \fbox{010 6278 5001}
@@ -600,7 +600,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 
 稍复杂的 \verb|\makebox| 和 \verb|\framebox| 命令提供了宽度和对齐方式控制的选项。其对齐方式有居中 (缺省) 、居左、居右和分散对齐，分别用 \texttt{c}, \texttt{l}, \texttt{r}, \texttt{s} 来表示。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \LoadFRLDemo[]{texlet/box-make}
 \caption{ \texttt{makebox}和 \texttt{framebox}}
 \label{exa:makebox}
@@ -612,7 +612,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 
 \verb|语法：[外部对齐][高度][内部对齐]{宽度}{内容}|
 
-\begin{example}[h]
+\begin{example}[htbp]
 \LoadCode[numbers=left]{texlet/box-par-esc}
 \input{texlet/box-par}
 \caption{\texttt{parbox} 和 \texttt{minipage}}

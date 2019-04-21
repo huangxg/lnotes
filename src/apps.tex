@@ -4,13 +4,13 @@
 
 \section{幻灯}
 
-在制作演示文稿和幻灯的工具中，应用比较广泛的是Tantau\indexTantau, Joseph Wright\indexWright{} \footnote{莱斯特大学 (University of Leicester) 化学硕士，2009年剑桥大学博士，南安普敦大学博士后，现任东安格里亚大学 (University of East Anglia) 化学系研究员。\LaTeX{}3项目组成员。}和Vedran Miletić\indexMiletic{} \footnote{克罗地亚里耶卡大学 (University of Rijeka) 电子和计算机系博士生。}的Beamer\citep{Tantau_2012}。
+在制作演示文稿和幻灯的工具中，应用比较广泛的是 Tantau\indexTantau, Joseph Wright\indexWright{} \footnote{莱斯特大学 (University of Leicester) 化学硕士，2009年剑桥大学博士，南安普敦大学博士后，现任东安格里亚大学 (University of East Anglia) 化学系研究员。\LaTeX{}3项目组成员。}和 Vedran Miletić\indexMiletic{} \footnote{克罗地亚里耶卡大学 (University of Rijeka) 数学学士和电脑博士。现在海德堡理论研究所从事计算生物化学研究。}的Beamer\citep{Tantau_beamer}。
 
 \subsection{页}
 
-我们在书写普通文档时，通常不会特别在意每一页内放进了哪些具体内容，因为分页是\TeX 的任务，用户只是偶尔干涉一下。而在写幻灯时，作者需要自行决定每一页的内容。这是普通文档和幻灯的一个显著差别。
+我们在书写普通文档时，通常不会特别在意每一页内放进了哪些具体内容，因为分页是 \TeX 的任务，用户只是偶尔干涉一下。而在写幻灯时，作者需要自行决定每一页的内容。这是普通文档和幻灯的一个显著差别。
 
-\autoref{exa:beamer_frame} 是一页很简单的幻灯。在例中，我们先引入\texttt{beamer} 文档类，然后是常见的\texttt{document} 环境。接下来是生成幻灯页的\texttt{frame} 环境，它的参数就是幻灯页的标题。
+\autoref{exa:beamer_frame} 是一页很简单的幻灯。在例中，我们先引入 \texttt{beamer} 文档类，然后是常见的 \texttt{document} 环境。接下来是生成幻灯页的 \texttt{frame} 环境，它的参数就是幻灯页的标题。
 
 \begin{Code}[]
 \documentclass{beamer}
@@ -22,7 +22,7 @@
 \end{document}
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \includegraphics[page=3, scale=.8]{beamer.pdf}
@@ -31,7 +31,7 @@
 \label{exa:beamer_frame}
 \end{example}
 
-有些人比如拙荆喜欢在一页幻灯内堆积过多的内容，而这种人一般都在用微软的PowperPoint，它遇到过多的内容就会自动减小字号。字太小了观众看不清，演讲者只好散发打印出来的讲稿。
+有些人比如拙荆喜欢在一页幻灯内堆积过多的内容，而这种人一般都在用微软的 PowperPoint，它遇到过多的内容就会自动减小字号。字太小了观众看不清，演讲者只好散发打印出来的讲稿。
 
 包老师屡次语重心长地指出，这样做不环保会加重全球变暖，而且也没必要在幻灯上放大段的文字。包师母反驳道：我教学生都倾囊相授，不像你总藏着掖着。包子曰：包子有肉不在褶儿上。
 
@@ -39,7 +39,7 @@
 
 普通文档中的很多内容也都可以用于幻灯页，比如第二章里的列表和盒子，第五至八章里的各种插图，第九章里的表格。有时为了平衡页内空白，也可以使用第十章里的双栏。这些内容在幻灯和普通文档中的使用方法相似，此处不赘述。
 
-Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{exa:beamer_block} 中示范的几个矩形块环境。它们都是在一个矩形块内输出一段文字，那个参数就是一个标题，它们的差别只是标题的颜色。
+Beamer 自己也提供了一些比较适用于幻灯的环境，比如 \autoref{exa:beamer_block} 中示范的几个矩形块环境。它们都是在一个矩形块内输出一段文字，那个参数就是一个标题，它们的差别只是标题的颜色。
 
 \begin{example}[h]
 \begin{FBTDemo}[numbers=left]{
@@ -75,7 +75,7 @@ Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{e
 \end{frame}
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \includegraphics[page=1, scale=.8]{beamer.pdf}
@@ -84,6 +84,7 @@ Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{e
 \label{exa:beamer_titlepage}
 \end{example}
 
+\pagebreak
 \autoref{exa:beamer_toc} 是一个目录页，这里使用了 \verb|\frame| 命令，它比较适合这种内容简单一行代码的幻灯页。当然，在列目录之前需要先设置节和小节。
 
 \begin{example}[!h]
@@ -99,7 +100,7 @@ Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{e
 
 在演讲过程中，如果想要显示当前的进程，可以在列目录时高亮当前节或小节（\autoref{exa:beamer_current_sec}）。
 
-\begin{example}[!h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=none]{
 \centering
 \includegraphics[page=5, scale=.8]{beamer.pdf}
@@ -112,23 +113,23 @@ Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{e
 
 \subsection{特效}
 
-有时演讲者需要把一页幻灯的内容分步展现出来，给观众一个思考的机会，这种情况可以使用 \verb|\pause| 命令。\autoref{exa:beamer_pause} 中的代码实际上生成了四页PDF，依次重叠。
+有时我们需要把一页幻灯的内容分步展现，给观众一个思考的机会，这种情况可以使用 \verb|\pause| 命令。\autoref{exa:beamer_pause} 中的代码实际上生成了四页 PDF，依次重叠。
 
 \begin{Code}[]
 \begin{frame}{`受持此经，功德无量`}
 \begin{itemize}
-    \item 初日分以恒河沙等身布施
-    \pause
-    \item 中日分复以恒河沙等身布施
-    \pause
-    \item 后日分亦以恒河沙等身布施
-    \pause
-    \item 如是无量百千万亿劫以身布施
+  \item 初日分以恒河沙等身布施
+  \pause
+  \item 中日分复以恒河沙等身布施
+  \pause
+  \item 后日分亦以恒河沙等身布施
+  \pause
+  \item 如是无量百千万亿劫以身布施
 \end{itemize}
 \end{frame}
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \includegraphics[page=7, scale=.4]{beamer.pdf}
@@ -142,9 +143,9 @@ Beamer自己也提供了一些比较适用于幻灯的环境，比如 \autoref{e
 
 本文无法展示这种动态效果，索性偷个懒，把这四页缩小放在一起。清晰无码大图见源码包中的 \verb|graph\beamer.pdf| 文件。
 
-Beamer还提供了十几种翻页渐变特效，\autoref{exa:beamer_transition} 是其中一种，其余命令读者可以自己查阅手册\citep{Tantau_2012}。Adobe Reader和Foxit Reader在全屏模式下支持这些PDF翻页特效，PDF X-Change Viewer和Sumatra PDF不支持。其他软件包老师没试过。
+Beamer还提供了十几种翻页渐变特效，\autoref{exa:beamer_transition} 是其中一种，其余命令读者可以自己查阅手册\citep{Tantau_beamer}。Adobe Reader 在全屏模式下支持这些 PDF 翻页特效，PDF X-Change Viewer 和Sumatra PDF 不支持。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Code}[]
 \begin{frame}{`应现设化，亦非真实`}
 \transdissolve
@@ -157,19 +158,19 @@ Beamer还提供了十几种翻页渐变特效，\autoref{exa:beamer_transition} 
 
 \subsection{主题} 
 
-看到这里有一多半同学可能会觉得上面那些例子太素净了，虽然素包子也是包子，包老师长此以往会没了主顾。幸好Beamer提供了五种主题：
+看到这里有一多半同学可能会觉得上面那些例子太素净了，虽然素包子也是包子，包老师长此以往会没了主顾。幸好 Beamer 提供了五种主题：
 
 \begin{compactdesc}
-    \item [演示主题] 它其实是其他四种主题的组合，一般选用它即可。
-    \item [色彩主题] 设置各种对象的颜色。
-    \item [字体主题] 设置各种对象的字体。
-    \item [内部主题] 设置内部主要对象的样式。
-    \item [外部主题] 设置外部对象（页首、页脚、导航条等）的样式。
+  \item [演示主题] 它其实是其他四种主题的组合，一般选用它即可。
+  \item [色彩主题] 设置各种对象的颜色。
+  \item [字体主题] 设置各种对象的字体。
+  \item [内部主题] 设置内部主要对象的样式。
+  \item [外部主题] 设置外部对象（页首、页脚、导航条等）的样式。
 \end{compactdesc}
  
 和引入宏包的 \verb|\usepackage| 命令类似，引入幻灯主题时用 \verb|\usetheme| 命令。\autoref{exa:beamer_title_warsaw}--\autoref{exa:beamer_list_warsaw} 使用了包老师喜欢的华沙主题。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \includegraphics[page=1, scale=.8]{beamer-warsaw.pdf}
@@ -187,7 +188,7 @@ Beamer还提供了十几种翻页渐变特效，\autoref{exa:beamer_transition} 
 \label{exa:beamer_toc_warsaw}
 \end{example}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \includegraphics[page=4, scale=.8]{beamer-warsaw.pdf}
@@ -205,18 +206,19 @@ Beamer还提供了十几种翻页渐变特效，\autoref{exa:beamer_transition} 
 \label{exa:beamer_list_warsaw}
 \end{example}
 
-Beamer的演示主题多数以城市命名，Tantau\indexTantau{}或他的合作者去过那些地方开会。其他各种主题，读者可以查阅Beamer手册。
+Beamer 的演示主题多数以城市命名，Tantau\indexTantau 或他的合作者去过那些地方开会。其他各种主题，读者可以查阅 Beamer 手册。
+%\clearpage
 
 \section{书信}
 
-Paul A. Thompson\indexThompson{} \footnote{牛津大学1991年希腊语和拉丁语学士，1993年数学学士和硕士，加大洛杉矶分校1998年神经学博士。现任UCLA医学院教授。}的 \texttt{newlfm} \citep{Thompson_2009}文档类为书信、传真、备忘录等提供了多种格式设置功能。
+Paul A. Thompson\indexThompson{} \footnote{牛津大学1991年希腊语和拉丁语学士，1993年数学学士和硕士，加大洛杉矶分校1998年神经学博士。现任 UCLA 医学院教授。}的 \texttt{newlfm} \citep{Thompson_newlfm}文档类为书信、传真、备忘录等提供了多种格式设置功能。
 
 \autoref{exa:letter_std} 是一封标准信函。在代码的序言部分，我们定义了收信人的姓名和地址，发信人的姓名和地址；在正文起始部分定义了收信人称呼、结尾语和签名。信的内容则放入 \texttt{newlfm} 环境。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{
 \centering
-\adjustimage{scale=.6, trim=0 520 0 0, clip}{letter-std.pdf}
+\adjustimage{scale=.6, trim=0 470 0 0, clip}{letter-std.pdf}
 }
 \documentclass[stdletter]{newlfm}
 \nameto{Cousin Muscles} 
@@ -237,41 +239,43 @@ Am having serious trouble with Tom. Need your help at once
 \label{exa:letter_std}
 \end{example}
 
+\clearpage
+
 为了节省空间，包老师在这里只截取了该信的上半页，未显示的下半页是空白和一条横线。其全貌见源码包 \verb|graph\letter-std.pdf|。
 
-\autoref{tab:newlfm_styles} 列出了 \texttt{newlfm} 文档类提供的几种样式（全部样式见其手册）。每种样式都定义了日期 (D)、发信人地址 (F)、收信人地址 (T)、收信人称呼 (G)、结尾语 (C)、签名 (S)、姓名 (N) 等项目的对齐方式；表中空白单元格表示该项目在该样式中不显示。如要使用某样式，在声明文档类时加个选项即可。
+\autoref{tab:newlfm_styles} 列出了 \texttt{newlfm} 文档类提供的几种样式（全部样式见其手册）。每种样式都定义了日期 (D), 发信人地址 (F), 收信人地址 (T), 收信人称呼 (G), 结尾语 (C), 签名 (S), 姓名 (N) 等项目的对齐方式；表中空白单元格表示该项目在该样式中不显示。如要使用某样式，在声明文档类时加个选项即可。
 
 \begin{table}[htbp]
 \centering
 \caption{\texttt{newlfm} 样式}
 \label{tab:newlfm_styles}
 \begin{tabular}{lllllllll}
-    \toprule
-    样式 & 选项 & D & F & T & G & C & S & N\\
-    \midrule
-    标准信函 & stdletter & 右 & 右 & 左 & 左 & 右 & 右 & 右\\
-    商业信函 & busletter & 左 & 左 & 左 & 左 & 左 & 左 & 左\\
-    标准备忘录 & stdmemo & 右 & 左 & 左 & & & & \\
-    新闻发布稿 & pressrelease & 左 & 左 & & & & & 左\\
-    \bottomrule
+  \toprule
+  样式 & 选项 & D & F & T & G & C & S & N\\
+  \midrule
+  标准信函 & stdletter & 右 & 右 & 左 & 左 & 右 & 右 & 右\\
+  商业信函 & busletter & 左 & 左 & 左 & 左 & 左 & 左 & 左\\
+  标准备忘录 & stdmemo & 右 & 左 & 左 & & & & \\
+  新闻发布稿 & pressrelease & 左 & 左 & & & & & 左\\
+  \bottomrule
 \end{tabular}
 \end{table}
 
 商业信函、标准备忘录和新闻发布稿的模样见 \autoref{exa:letter_bus} -- \autoref{exa:letter_pr}。当然这些样式未必完全符合读者的习惯，用户可能需要自行调整格式。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
-\adjustimage{scale=.6, trim=0 400 0 0, clip}{letter-bus.pdf}
+\adjustimage{scale=.6, trim=0 360 0 0, clip}{letter-bus.pdf}
 \end{Demo}
 \caption{商业信函}
 \label{exa:letter_bus}
 \end{example}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
-\adjustimage{scale=.6, trim=0 580 0 0, clip}{letter-memo.pdf}
+\adjustimage{scale=.6, trim=0 540 0 0, clip}{letter-memo.pdf}
 \end{Demo}
 \caption{标准备忘录}
 \label{exa:letter_memo}
@@ -280,17 +284,17 @@ Am having serious trouble with Tom. Need your help at once
 \begin{example}[!h]
 \begin{Demo}
 \centering
-\adjustimage{scale=.6, trim=0 520 0 0, clip}{letter-pr.pdf}
+\adjustimage{scale=.6, trim=0 480 0 0, clip}{letter-pr.pdf}
 \end{Demo}
 \caption{新闻发布稿}
 \label{exa:letter_pr}
 \end{example}
 
-说完信瓤儿咱们再说说信封，Boris Veytsman\indexVeytsman{} \footnote{乌克兰敖德萨大学 (Odessa University) 理论物理1987年硕士，1990年博士。1992--2001在宾州州立从事科研教学工作，现任国际电话电报公司 (ITT Corporation) 主任工程师，兼任乔治梅森大学 (George Mason University) 客座教授。} 的 \texttt{envlab} 宏包 \citep{Veytsman_1997} 可以配合 \texttt{letter} 文档类制作信封和标签。
+说完信瓤儿咱们再说说信封，Boris Veytsman\indexVeytsman{} \footnote{乌克兰敖德萨大学 (Odessa University) 理论物理1987年硕士，1990年博士。1992--2001在宾州州立从事科研教学工作，现任国际电话电报公司 (ITT Corporation) 主任工程师，兼任乔治梅森大学 (George Mason University) 客座教授。} 的 \texttt{envlab} 宏包 \citep{Veytsman_envlab} 可以配合 \texttt{letter} 文档类制作信封和标签。
 
-\autoref{exa:letter_env} 是美国常用的10号信封。此例代码引入文档类时使用了12pt的字号选项，因为一般信封上的字要大一点。第二行用 \texttt{envlab} 宏包的选项设置了信封尺寸，这样生成的PDF页面尺寸取决于用户 \TeX 发行包的缺省纸张设置或者文档类的纸张选项；信封内容倒是会出现在信封尺寸范围内，而且在页面上居中。如果打印机进纸槽上有专门的信封入口，打印本身是不成问题。为此我们在第三行又用 \texttt{geometry} 宏包设置了页面尺寸。
+\autoref{exa:letter_env} 是美国常用的10号信封。此例代码引入文档类时使用了 12pt 的字号选项，因为一般信封上的字要大一点。第二行用 \texttt{envlab} 宏包的选项设置了信封尺寸，这样生成的 PDF 页面尺寸取决于用户 \TeX 发行包的缺省纸张设置或者文档类的纸张选项；信封内容倒是会出现在信封尺寸范围内，而且在页面上居中。如果打印机进纸槽上有专门的信封入口，打印本身是不成问题。为此我们在第三行又用 \texttt{geometry} 宏包设置了页面尺寸。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{
 \centering
 \includegraphics[scale=.5, angle=-90]{letter-env.pdf}
@@ -298,7 +302,6 @@ Am having serious trouble with Tom. Need your help at once
 \documentclass[12pt]{letter}
 \usepackage[businessenvelope]{envlab}
 \usepackage[papersize={4.125in, 9.5in}]{geometry} 
-
 \begin{document}
 \startlabels
 \mlabel{Jerry Mouse\\Jerry's Hole}{%
@@ -313,27 +316,27 @@ Cousin Muscles\\Hogan's Alley}
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{envlab} 宏包信封尺寸}
+\caption{\texttt{envlab} 宏包信封尺寸 (缺省长度单位mm)}
 \label{tab:env_sizes}
 \begin{tabular}{lcclcc}
-    \toprule
-    宏包选项          & 长度    & 高度     & 宏包选项    & 长度    & 高度\\
-    \midrule
-    businessenvelope  & 9.5 in  & 4.125 in & c6envelope  & 162 mm  & 114 mm\\
-    executiveenvelope & 7.5 in  & 3.875 in & c65envelope & 224 mm  & 114 mm\\
-    bookletenvelope   & 10.5 in & 7.5 in   & c5envelope  & 229 mm  & 162 mm\\
-    personalenvelope  & 6.5     & 3.625 in & dlenvelope  & 220 mm  & 110 mm\\ 
-    \bottomrule
+  \toprule
+  宏包选项           & 长度    & 高度     & 宏包选项     & 长度   & 高度\\
+  \midrule
+  businessenvelope  & 9.5 in  & 4.125 in & c6envelope  & 162 & 114\\
+  executiveenvelope & 7.5 in  & 3.875 in & c65envelope & 224 & 114\\
+  bookletenvelope   & 10.5 in & 7.5 in   & c5envelope  & 229 & 162\\
+  personalenvelope  & 6.5 in  & 3.625 in & dlenvelope  & 220 & 110\\ 
+  \bottomrule
 \end{tabular}
 \end{table}
 
-\texttt{envlab} 宏包支持的信封尺寸选项见 \autoref{tab:env_sizes}。我们也可以用以下命令定制信封尺寸。 
+\texttt{envlab} 宏包支持的信封尺寸选项见 \autoref{tab:env_sizes}。我们也可以用下面命令来定制信封尺寸。 
 
 \verb|语法：\SetEnvelope[上边距]{长度}{宽度}|
 
 \section{简历}
 
-在制作简历的工具中，包老师比较喜欢Xavier Danaux\indexDanaux{} \footnote{比利时天主教鲁文大学 (Catholic University of Louvain) 2006年机械硕士，法律学士。现任麦肯锡公司经理。} 的 \texttt{moderncv}。
+在制作简历的工具中，包老师比较喜欢 Xavier Danaux\indexDanaux{} \footnote{比利时天主教鲁文大学 (Catholic University of Louvain) 2006年机械硕士，法律学士。现任麦肯锡公司经理。} 的 \texttt{moderncv}。
 
 \begin{Code}[numbers=left]
 \documentclass[11pt, a4paper]{moderncv}
@@ -378,9 +381,9 @@ Cousin Muscles\\Hogan's Alley}
 \cventry{1936--1937}{`首席咨询顾问`}{`北美某大型财务公司`}{
 `埃德蒙顿`}{}{
 \begin{itemize}
-    \item `调研和设计新产品：宠物意外怀孕保险`
-    \item `利用业余时间引进和培训多名新员工`
-    \item `按时并超额完成人寿保险推销计划`
+  \item `调研和设计新产品：宠物意外怀孕保险`
+  \item `利用业余时间引进和培训多名新员工`
+  \item `按时并超额完成人寿保险推销计划`
 \end{itemize}}
 \cventry{1906--1911}{`高级技师`}{`欧罗巴天体实验中心`}{
 `罗马`}{}{`浩瀚的宇宙，无边的探索`}
@@ -432,7 +435,7 @@ Cassandra, HBase, MongoDB}
 %\label{exa:cv_casual}
 \end{example}
 
-\begin{example}[!h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \adjustbox{scale=.6, trim=0 450 0 0, clip}{\includegraphics[page=2]{cv-casual.pdf}}
@@ -484,7 +487,9 @@ Cassandra, HBase, MongoDB}
 \label{exa:cv_classic}
 \end{example}
 
-\begin{example}[h]
+\pagebreak
+
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \adjustimage{scale=.6, trim=0 520 0 0, clip}{cv-old.pdf}
@@ -506,9 +511,9 @@ Cassandra, HBase, MongoDB}
 
 \section{棋谱}
 
-Étienne Dupuis \indexDupuis 的 \texttt{igo} 宏包 \citep{Dupuis_2006} 可以用来排版围棋棋谱。\autoref{exa:go_bigpigmouth} 是《玄玄棋经》里的一道死活题。
+Étienne Dupuis \indexDupuis 的 \texttt{igo} 宏包 \citep{Dupuis_igo} 可以用来排版围棋棋谱。\autoref{exa:go_bigpigmouth} 是《玄玄棋经》里的一道死活题。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{
 \centering
 \includegraphics[page=5]{mini.pdf}

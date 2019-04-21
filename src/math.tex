@@ -4,9 +4,9 @@
 今有上禾三秉，中禾二秉，下禾一秉，实三十九斗；上禾二秉，中禾三秉，下禾一秉，实三十四斗；上禾一秉，中禾二秉，下禾三秉，实二十六斗。问上、中、下禾实一秉各几何？
 \begin{gather*}
 \begin{split}
-    3x+2y+z &= 39 \\
-    2x+3y+z &= 34 \\
-    x+2y+3z &= 26 \\
+  3x+2y+z &= 39 \\
+  2x+3y+z &= 34 \\
+  x+2y+3z &= 26 \\
 \end{split}
 \end{gather*}
 \begin{flushright}
@@ -14,7 +14,7 @@
 \end{flushright}
 \end{quotation}
 
-为了使用 \AmSLaTeX 提供的数学功能，我们需要在文档的序言部分加载 \texttt{amsmath} 宏包，其详细用法可参阅其用户手册\citep{AMS_2002}。更全面的数学内容排版可参阅George Grätzer\indexGratzer{} \footnote{匈牙利厄特沃什·罗兰大学 (Eötvös Loránd University) 1960年数学博士，John von Neumann的校友。现任加拿大曼尼托巴大学 (University of Manitoba) 教授。} 的 \emph{More Math into \LaTeX}\citep{Gratzer_2007}。
+为了使用 \AmSLaTeX 提供的数学功能，我们需要在文档的序言部分加载 \texttt{amsmath} 宏包，其详细用法可参阅其用户手册\citep{AMS_amsmath}。更全面的数学内容排版可参阅 George Grätzer\indexGratzer{} \footnote{匈牙利厄特沃什·罗兰大学 (Eötvös Loránd University) 1960年数学博士，John von Neumann 的校友。现任加拿大曼尼托巴大学 (University of Manitoba) 教授。} 的 \emph{More Math into \LaTeX}\citep{Gratzer_more_math}。
 
 \begin{Code}[]
 \usepackage{amsmath}
@@ -29,14 +29,14 @@
 \label{tab:simplemath}
 \centering
 \begin{tabular}{ccccc}
-    \toprule
-    & \TeX{}命令 & \LaTeX 命令 & \LaTeX 环境 & \texttt{amsmath} 环境\\
-    \midrule
-    行间公式       & \verb|$...$|   & \verb|\(...\)| & \texttt{math} & \\
-    无编号独立公式 & \verb|$$...$$| & \verb|\[...\]| & \texttt{displaymath} & 
-        \texttt{equation*}\\
-    有编号独立公式  & & & \texttt{equation} & \texttt{equation} \\
-    \bottomrule
+  \toprule
+  & \TeX{}命令  & \LaTeX 命令    & \LaTeX 环境    & \texttt{amsmath} 环境\\
+  \midrule
+  行间公式      & \verb|$...$|   & \verb|\(...\)| & \texttt{math} & \\
+  无编号独立公式 & \verb|$$...$$| & \verb|\[...\]| & \texttt{displaymath} & 
+    \texttt{equation*}\\
+  有编号独立公式 & & & \texttt{equation} & \texttt{equation} \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -50,7 +50,7 @@ Einstein's $E=mc^2$
 \[ E=mc^2 \]
 \[ \boxed{E=mc^2} \]
 \begin{equation} 
-    E=mc^2 
+  E=mc^2 
 \end{equation}
 \end{RLDemo}
 \caption{数学模式}
@@ -67,30 +67,30 @@ Einstein's $E=mc^2$
 \label{tab:greek}
 \centering
 \begin{tabular}{llllllll}
-    \toprule
-    $\alpha$      & \verb|\alpha|      & $\theta$    & \verb|\theta|    & 
-        $o$         & \verb|o|        & $\tau$     & \verb|\tau| \\
-    $\beta$       & \verb|\beta|       & $\vartheta$ & \verb|\vartheta| & 
-        $\pi$       & \verb|\pi|      & $\upsilon$ & \verb|\upsilon| \\
-    $\gamma$      & \verb|\gamma|      & $\iota$     & \verb|\iota|     & 
-        $\varpi$    & \verb|\varpi|   & $\phi$     & \verb|\phi| \\
-    $\delta$      & \verb|\delta|      & $\kappa$    & \verb|\kappa|    & 
-        $\rho$      & \verb|\rho|     & $\varphi$  & \verb|\varphi| \\
-    $\epsilon$    & \verb|\epsilon|    & $\lambda$   & \verb|\lambda|   & 
-        $\varrho$   & \verb|\varrho|  & $\chi$     & \verb|\chi| \\
-    $\varepsilon$ & \verb|\varepsilon| & $\mu$       & \verb|\mu|       & 
-        $\sigma$    & \verb|\sigma|   & $\psi$     & \verb|\psi| \\
-    $\zeta$       & \verb|\zeta|       & $\nu$       & \verb|\nu|       & 
-        $\varsigma$ & \verb|\varsigma|   & $\omega$   & \verb|\omega| \\
-    $\eta$        & \verb|\eta|        & $\xi$       & \verb|\xi|       & 
-        &                 &            & \\
-    $\Gamma$      & \verb|\Gamma|      & $\Lambda$   & \verb|\Lambda|   & 
-        $\Sigma$    & \verb|\Sigma|   & $\Psi$     & \verb|\Psi| \\
-    $\Delta$      & \verb|\Delta|      & $\Xi$       & \verb|\Xi|       & 
-        $\Upsilon$  & \verb|\Upsilon| & $\Omega$   & \verb|\Omega| \\
-    $\Theta$      & \verb|\Theta|      & $\Pi$       & \verb|\Pi|       & 
-        $\Phi$      & \verb|\Phi|     &            & \\
-    \bottomrule
+  \toprule
+  $\alpha$      & \verb|\alpha|      & $\theta$    & \verb|\theta|    & 
+    $o$         & \verb|o|        & $\tau$     & \verb|\tau| \\
+  $\beta$       & \verb|\beta|       & $\vartheta$ & \verb|\vartheta| & 
+    $\pi$       & \verb|\pi|      & $\upsilon$ & \verb|\upsilon| \\
+  $\gamma$      & \verb|\gamma|      & $\iota$     & \verb|\iota|     & 
+    $\varpi$    & \verb|\varpi|   & $\phi$     & \verb|\phi| \\
+  $\delta$      & \verb|\delta|      & $\kappa$    & \verb|\kappa|    & 
+    $\rho$      & \verb|\rho|     & $\varphi$  & \verb|\varphi| \\
+  $\epsilon$    & \verb|\epsilon|    & $\lambda$   & \verb|\lambda|   & 
+    $\varrho$   & \verb|\varrho|  & $\chi$     & \verb|\chi| \\
+  $\varepsilon$ & \verb|\varepsilon| & $\mu$       & \verb|\mu|       & 
+    $\sigma$    & \verb|\sigma|   & $\psi$     & \verb|\psi| \\
+  $\zeta$       & \verb|\zeta|       & $\nu$       & \verb|\nu|       & 
+    $\varsigma$ & \verb|\varsigma|   & $\omega$   & \verb|\omega| \\
+  $\eta$        & \verb|\eta|        & $\xi$       & \verb|\xi|       & 
+    &                 &            & \\
+  $\Gamma$      & \verb|\Gamma|      & $\Lambda$   & \verb|\Lambda|   & 
+    $\Sigma$    & \verb|\Sigma|   & $\Psi$     & \verb|\Psi| \\
+  $\Delta$      & \verb|\Delta|      & $\Xi$       & \verb|\Xi|       & 
+    $\Upsilon$  & \verb|\Upsilon| & $\Omega$   & \verb|\Omega| \\
+  $\Theta$      & \verb|\Theta|      & $\Pi$       & \verb|\Pi|       & 
+    $\Phi$      & \verb|\Phi|     &            & \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -113,19 +113,19 @@ Einstein's $E=mc^2$
 \begin{RLDemo}[]
 $ \frac{1}{2} \dfrac{1}{2} $
 \[ \frac{1}{2} 
-    \tfrac{1}{2} \]
+  \tfrac{1}{2} \]
 \end{RLDemo}
 \caption{分数}
 \end{example}
 
 \subsection{运算符}
 
-有些小运算符例如 \verb|+ - * / =| 等可以直接输入，另一些则需要特殊命令 (见 \autoref{exa:smallop}) 。更多的数学符号可参考Pakin\indexPakin 的符号列表\citep{Pakin_2008}。
+有些小运算符例如 \verb|+ - * / =| 等可以直接输入，另一些则需要特殊命令 (见 \autoref{exa:smallop}) 。更多的数学符号可参考Pakin\indexPakin 的符号列表\citep{Pakin_comprehensive}。
 
 \begin{example}[h]
 \begin{BTDemo}[]
 \[ \pm\; \times\; \div\; \cdot\; \cap\; \cup\; 
-    \geq\; \leq\; \neq\; \approx\; \equiv \]
+  \geq\; \leq\; \neq\; \approx\; \equiv \]
 \end{BTDemo}
 \caption{小运算符}
 \label{exa:smallop}
@@ -154,14 +154,14 @@ $ \frac{1}{2} \dfrac{1}{2} $
 
 \begin{Code}[]
 \[ \int\int\quad \int\int\int\quad 
-    \int\int\int\int\quad \int\dots\int \]
+  \int\int\int\int\quad \int\dots\int \]
 \[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
 \end{Code}
 
 \begin{example}[h]
 \begin{Demo}
 \[ \int\int\quad \int\int\int\quad 
-    \int\int\int\int\quad \int\dots\int \]
+  \int\int\int\int\quad \int\dots\int \]
 \[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
 \end{Demo}
 \caption{多重积分}
@@ -177,20 +177,20 @@ $ \frac{1}{2} \dfrac{1}{2} $
 \label{tab:arrow}
 \centering
 \begin{tabular}{llll}
-    \toprule
-    $\leftarrow$       & \verb|\leftarrow|      & 
-        $\longleftarrow$       & \verb|\longleftarrow| \\
-    $\rightarrow$      & \verb|\rightarrow|     & 
-        $\longrightarrow$      & \verb|\longrightarrow| \\
-    $\leftrightarrow$  & \verb|\leftrightarrow| & 
-        $\longleftrightarrow$  & \verb|\longleftrightarrow| \\
-    $\Leftarrow$       & \verb|\Leftarrow|      & 
-        $\Longleftarrow$       & \verb|\Longleftarrow| \\
-    $\Rightarrow$      & \verb|\Rightarrow|     & 
-        $\Longrightarrow$      & \verb|\Longrightarrow| \\
-    $\Leftrightarrow$  & \verb|\Leftrightarrow| & 
-        $\Longleftrightarrow$  & \verb|\Longleftrightarrow| \\
-    \bottomrule
+  \toprule
+  $\leftarrow$       & \verb|\leftarrow|      & 
+    $\longleftarrow$       & \verb|\longleftarrow| \\
+  $\rightarrow$      & \verb|\rightarrow|     & 
+    $\longrightarrow$      & \verb|\longrightarrow| \\
+  $\leftrightarrow$  & \verb|\leftrightarrow| & 
+    $\longleftrightarrow$  & \verb|\longleftrightarrow| \\
+  $\Leftarrow$       & \verb|\Leftarrow|      & 
+    $\Longleftarrow$       & \verb|\Longleftarrow| \\
+  $\Rightarrow$      & \verb|\Rightarrow|     & 
+    $\Longrightarrow$      & \verb|\Longrightarrow| \\
+  $\Leftrightarrow$  & \verb|\Leftrightarrow| & 
+    $\Longleftrightarrow$  & \verb|\Longleftrightarrow| \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -212,16 +212,16 @@ $ \frac{1}{2} \dfrac{1}{2} $
 \label{tab:mathaccent}
 \centering
 \begin{tabular}{llllllll}
-    \toprule
-    $\bar{x}$  & \verb|\bar{x}| & $\acute{x}$ & \verb|\acute{x}| &
-        $\mathring{x}$ & \verb|\mathring{x}| \\
-    $\vec{x}$ & \verb|\vec{x}| & $\grave{x}$ & \verb|\grave{x}| &
-        $\dot{x}$  & \verb|\dot{x}| \\
-    $\hat{x}$ & \verb|\hat{x}| & $\tilde{x}$ & \verb|\tilde{x}| &
-        $\ddot{x}$  & \verb|\ddot{x}| \\
-    $\check{x}$ & \verb|\check{x}| & $\breve{x}$ & \verb|\breve{x}| & 
-        $\dddot{x}$ & \verb|\dddot{x}| \\
-    \bottomrule
+  \toprule
+  $\bar{x}$  & \verb|\bar{x}| & $\acute{x}$ & \verb|\acute{x}| &
+    $\mathring{x}$ & \verb|\mathring{x}| \\
+  $\vec{x}$ & \verb|\vec{x}| & $\grave{x}$ & \verb|\grave{x}| &
+    $\dot{x}$  & \verb|\dot{x}| \\
+  $\hat{x}$ & \verb|\hat{x}| & $\tilde{x}$ & \verb|\tilde{x}| &
+    $\ddot{x}$  & \verb|\ddot{x}| \\
+  $\check{x}$ & \verb|\check{x}| & $\breve{x}$ & \verb|\breve{x}| & 
+    $\dddot{x}$ & \verb|\dddot{x}| \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -230,18 +230,20 @@ $ \frac{1}{2} \dfrac{1}{2} $
 \label{tab:notation}
 \centering
 \begin{tabular}{llll}
-    \toprule
-    $\overline{xxx}$        & \verb|\overline{xxx}|        & $\overleftrightarrow{xxx}$ & \verb|\overleftrightarrow{xxx}| \\
-    $\underline{xxx}$       & \verb|\underline{xxx}|       & $\underleftrightarrow{xxx}$ & \verb|\underleftrightarrow{xxx}| \\
-    $\overleftarrow{xxx}$   & \verb|\overleftarrow{xxx}|   & 
-        $\overbrace{xxx}$   & \verb|\overbrace{xxx}| \\
-    $\underleftarrow{xxx}$  & \verb|\underleftarrow{xxx}|  & 
-        $\underbrace{xxx}$  & \verb|\underbrace{xxx}| \\
-    $\overrightarrow{xxx}$  & \verb|\overrightarrow{xxx}|  & 
-        $\widehat{xxx}$     & \verb|\widehat{xxx}| \\
-    $\underrightarrow{xxx}$ & \verb|\underrightarrow{xxx}| & 
-        $\widetilde{xxx}$   & \verb|\widetilde{xxx}| \\
-    \bottomrule
+  \toprule
+  $\overline{xxx}$        & \verb|\overline{xxx}|        & 
+    $\overleftrightarrow{xxx}$ & \verb|\overleftrightarrow{xxx}| \\
+  $\underline{xxx}$       & \verb|\underline{xxx}|       & 
+    $\underleftrightarrow{xxx}$ & \verb|\underleftrightarrow{xxx}| \\
+  $\overleftarrow{xxx}$   & \verb|\overleftarrow{xxx}|   & 
+    $\overbrace{xxx}$   & \verb|\overbrace{xxx}| \\
+  $\underleftarrow{xxx}$  & \verb|\underleftarrow{xxx}|  & 
+    $\underbrace{xxx}$  & \verb|\underbrace{xxx}| \\
+  $\overrightarrow{xxx}$  & \verb|\overrightarrow{xxx}|  & 
+    $\widehat{xxx}$     & \verb|\widehat{xxx}| \\
+  $\underrightarrow{xxx}$ & \verb|\underrightarrow{xxx}| & 
+    $\widetilde{xxx}$   & \verb|\widetilde{xxx}| \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -263,13 +265,13 @@ $ \frac{1}{2} \dfrac{1}{2} $
 
 \begin{Code}[]
 \[ x_1,x_2,\dots,x_n\quad 1,2,\cdots,n\quad 
-    \vdots\quad \ddots \]
+  \vdots\quad \ddots \]
 \end{Code}
 
 \begin{example}[h]
 \begin{Demo}
 \[ x_1,x_2,\dots,x_n\quad 1,2,\cdots,n\quad 
-    \vdots\quad \ddots \]
+  \vdots\quad \ddots \]
 \end{Demo}
 \caption{省略号}
 \label{exa:dots}
@@ -284,14 +286,11 @@ $ \frac{1}{2} \dfrac{1}{2} $
 \label{tab:quad}
 \centering
 \begin{tabular}{llllll}
-    \toprule
-    \verb|\,| & 3/18em & $|\,|$ & 
-        \verb|\quad| & 1em & $|\quad|$ \\
-    \verb|\:| & 4/18em & $|\:|$ & 
-        \verb|\qquad| & 2em & $|\qquad|$ \\
-    \verb|\;| & 5/18em & $|\;|$ & 
-        \verb|\!| & -3/18em & $|\!|$ \\
-    \bottomrule
+  \toprule
+  \verb|\,| & 3/18em & $|\,|$ & \verb|\quad| & 1em & $|\quad|$ \\
+  \verb|\:| & 4/18em & $|\:|$ & \verb|\qquad| & 2em & $|\qquad|$ \\
+  \verb|\;| & 5/18em & $|\;|$ & \verb|\!| & -3/18em & $|\!|$ \\
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -303,11 +302,11 @@ $ \frac{1}{2} \dfrac{1}{2} $
 
 \begin{Code}[]
 \begin{array}[`外部对齐`]{`列对齐`}
-    `行列内容`
+  `行列内容`
 \end{array}
 \end{Code}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[numbers=left]
 \[ \begin{array}{ccc}
 x_1 & x_2 & \dots \\
@@ -321,7 +320,7 @@ x_3 & x_4 & \dots \\
 
 \texttt{amsmath} 的 \texttt{pmatrix}, \texttt{bmatrix}, \texttt{Bmatrix}, \texttt{vmatrix}, \texttt{Vmatrix} 等环境可以在矩阵两边加上各种分隔符，但是它们没有对齐方式参数（见 \autoref{exa:matrix}）。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \LoadBTDemo[numbers=left]{texlet/matrix}
 \caption{更多矩阵}
 \label{exa:matrix}
@@ -329,7 +328,7 @@ x_3 & x_4 & \dots \\
 
 \verb|\smallmatrix| 命令可以生成行间矩阵（见 \autoref{exa:smallmatrix}）。
 
-\begin{example}[h]
+\begin{example}[!h]
 \begin{BTDemo}[]
 Marry has a little matrix $ ( \begin{smallmatrix} 
 a&b\\c&d \end{smallmatrix} ) $.
@@ -347,18 +346,18 @@ a&b\\c&d \end{smallmatrix} ) $.
 
 无须对齐的长公式可以使用 \texttt{multline} 环境（见 \autoref{exa:multline}）。需要对齐的长公式可以使用 \texttt{split} 环境（见 \autoref{exa:split}），它本身不能独立使用，必须包含在其它数学环境内，因此也称作次环境。它用 \verb|\\| 和 \verb|&| 来分行和设置对齐的位置。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \begin{multline}
 x = a+b+c+{} \\
-    d+e+f+g
+  d+e+f+g
 \end{multline}
 \end{RLDemo}
 \caption{无对齐长公式}
 \label{exa:multline}
 \end{example}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \[ \begin{split}
 x ={} &a+b+c+{} \\
@@ -373,7 +372,7 @@ x ={} &a+b+c+{} \\
 
 不需要对齐的公式组可以使用 \texttt{gather} 环境（见 \autoref{exa:gather}），需要对齐的公式组用 \texttt{align} 环境（见 \autoref{exa:align}）。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \begin{gather}
 a = b+c+d \\
@@ -384,7 +383,7 @@ x = y+z
 \label{exa:gather}
 \end{example}
 
-\begin{example}[h]
+\begin{example}[!h]
 \begin{RLDemo}[]
 \begin{align}
 a &= b+c+d \\
@@ -401,11 +400,11 @@ x &= y+z
 
 分段函数通常用 \texttt{cases} 次环境写成分支公式（见 \autoref{exa:cases}）。
 
-\begin{example}[!h]
+\begin{example}[htbp]
 \begin{RLDemo}[]
 \[ y=\begin{cases}
-    -x,\quad x\leq 0 \\
-    x,\quad x>0
+  -x,\quad x\leq 0 \\
+  x,\quad x>0
 \end{cases} \]
 \end{RLDemo}
 \caption{分支公式}
@@ -420,7 +419,7 @@ x &= y+z
 
 下面的代码定制了四个环境：定义、定理、引理和推论，它们都在一个 \texttt{section} 内统一编号，而引理和推论会延续定理的编号。我们在 \autoref{exa:def_theorem} 中定制了一些环境后，可以像 \autoref{exa:use_theorem} 那样使用它们。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Code}[]
 \newtheorem{definition}{`定义`}[section]
 \newtheorem{theorem}{`定理`}[section]
@@ -449,7 +448,7 @@ x &= y+z
 
 \LoadCode[]{texlet/theorem-proof-esc}
 
-\begin{example}[h]
+\begin{example}[htbp]
 \LoadDemo{texlet/theorem-proof}
 \caption{证明}
 \label{exa:proof}
@@ -465,18 +464,18 @@ x &= y+z
 \label{tab:mathfont}
 \centering
 \begin{tabular}{llll}
-    \toprule
-    缺省 & $ABCXYZ$ & 
-    \verb|\mathbf| & $\mathbf{ABCXYZ}$ \\
-    \verb|\mathrm| & $\mathrm{ABCXYZ}$ & 
-    \verb|\mathit| & $\mathit{ABCXYZ}$ \\
-    \verb|\mathsf| & $\mathsf{ABCXYZ}$ & 
-    \verb|\mathbb| & $\mathbb{ABCXYZ}$ \\
-    \verb|\mathtt| & $\mathtt{ABCXYZ}$ & 
-    \verb|\mathfrak| & $\mathfrak{ABCXYZ}$ \\
-    \verb|\mathcal| & $\mathcal{ABCXYZ}$ & 
-    \verb|\mathscr| & $\mathscr{ABCXYZ}$ \\
-    \bottomrule
+  \toprule
+  缺省 & $ABCXYZ$ & 
+  \verb|\mathbf| & $\mathbf{ABCXYZ}$ \\
+  \verb|\mathrm| & $\mathrm{ABCXYZ}$ & 
+  \verb|\mathit| & $\mathit{ABCXYZ}$ \\
+  \verb|\mathsf| & $\mathsf{ABCXYZ}$ & 
+  \verb|\mathbb| & $\mathbb{ABCXYZ}$ \\
+  \verb|\mathtt| & $\mathtt{ABCXYZ}$ & 
+  \verb|\mathfrak| & $\mathfrak{ABCXYZ}$ \\
+  \verb|\mathcal| & $\mathcal{ABCXYZ}$ & 
+  \verb|\mathscr| & $\mathscr{ABCXYZ}$ \\
+  \bottomrule
 \end{tabular}
 \end{table}
 

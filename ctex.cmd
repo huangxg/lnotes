@@ -14,34 +14,33 @@
 @ECHO Invalid option.
 
 :USAGE
-@ECHO TeX Compiler 0.4 (2013-04-07) by Alpha Huang
+@ECHO TeX Compiler 0.5 (2019-04-09) by Alpha Huang
 @ECHO Compile a LaTeX or MetaPost file with xelatex, pdflatex, bibtex or mpost.
 @ECHO.
 @ECHO Usage: ctex OPTION FILE
 @ECHO  -x   xelatex.
 @ECHO  -p   pdflatex.
 @ECHO  -b   bibtex.
+@ECHO  -m   mpost.
 
-@GOTO END
+@GOTO :EOF
 
 :XELATEX
 @REM xelatex -aux-directory=%AUXDIR% -include-directory=%SRCDIR% -interaction=%INTERACTION% -output-driver=%DRIVER% -quiet %2
 xelatex -aux-directory=%AUXDIR% -include-directory=%SRCDIR% -interaction=%INTERACTION% -quiet %2
-@GOTO END
+@GOTO :EOF
 
 :PDFLATEX
 pdflatex -aux-directory=%AUXDIR% -include-directory=%SRCDIR% -interaction=%INTERACTION% %2
-@GOTO END
+@GOTO :EOF
 
 :BIBTEX
 bibtex -include-directory=%SRCDIR% %2
-@GOTO END
+@GOTO :EOF
 
 :METAPOST
 @SET MPINPUTS=%SRCDIR%
 mpost -interaction=%INTERACTION% %2
 @MOVE fig.log %AUXDIR%
 @MOVE fig.mpx %AUXDIR%
-@GOTO END
-
-:END
+@GOTO :EOF

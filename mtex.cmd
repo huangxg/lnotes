@@ -7,7 +7,7 @@
 @IF "%1" == "-build" GOTO BUILD
 
 :USAGE
-@ECHO TeX Manager 0.6 (2013-04-07) by Alpha Huang
+@ECHO TeX Manager 0.7 (2019-04-12) by Alpha Huang
 @ECHO Manage workflow of LaTeX Notes 2.
 @ECHO.
 @ECHO Usage: mtex [ACTION] [TARGET]
@@ -19,33 +19,51 @@
 @GOTO END
 
 :CLEAN
-@IF "%2" == "main" GOTO CLEAN_MAIN
-@IF "%2" == "graph" GOTO CLEAN_GRAPH
-@IF "%2" == "all" GOTO CLEAN_ALL
-@ECHO Invalid TARGET
-@GOTO USAGE
+@IF "%2" == "main" (
+  CALL :CLEAN_MAIN
+  @GOTO :EOF
+) ELSE @IF "%2" == "graph" (
+  CALL :CLEAN_GRAPH
+  @GOTO :EOF
+) ELSE @IF "%2" == "all" (
+  CALL :CLEAN_MAIN
+  CALL :CLEAN_GRAPH
+  @GOTO :EOF
+) ELSE (
+  @ECHO Invalid TARGET
+  @ECHO. 
+  @GOTO USAGE
+)
 
 :CLEAN_MAIN
 @DEL tmp\*.*
-@GOTO END
+@ECHO main temporary files cleaned.
+@EXIT /B
 
 :CLEAN_GRAPH
 @DEL graph\tmp\*.*
-@GOTO END
-
-:CLEAN_ALL
-@DEL tmp\*.*
-@DEL graph\tmp\*.*
-@GOTO END
+@ECHO graph temporary files cleaned.
+@EXIT /B
 
 :BUILD
-@IF "%2" == "main" GOTO BUILD_MAIN
-@IF "%2" == "graph" GOTO BUILD_GRAPH
-@IF "%2" == "all" GOTO BUILD_ALL
-@ECHO Invalid TARGET
-@GOTO USAGE
+@IF "%2" == "main" (
+  CALL :BUILD_MAIN
+  @GOTO :EOF
+) ELSE @IF "%2" == "graph" (
+  CALL :BUILD_GRAPH
+  @GOTO :EOF
+) ELSE @IF "%2" == "all" (
+  CALL :BUILD_MAIN
+  CALL :BUILD_GRAPH
+  @GOTO :EOF
+) ELSE (
+  @ECHO Invalid TARGET
+  @ECHO.
+  @GOTO USAGE
+)
 
 :BUILD_MAIN
+@ECHO building main
 @MOVE tmp\*.* . > NUL
 
 @REM texify -pqV --tex-option=%OPTIONS% %MAINFILE%
@@ -69,9 +87,13 @@ texify -pqV %MAINFILE%
 @MOVE *.out tmp > NUL
 @MOVE *.toc tmp > NUL
 
-@GOTO END
+@ECHO.
+@ECHO done
+@EXIT /B
 
 :BUILD_GRAPH
+@ECHO building graph
+
 @CD graph
 CALL ctex -x mini
 CALL ctex -m fig
@@ -89,10 +111,7 @@ CALL ctex -x cv-casual
 CALL ctex -x cv-classic
 CALL ctex -x cv-old
 @CD ..
-@GOTO END
 
-:BUILD_ALL
-
-@GOTO END
-
-:END
+@ECHO.
+@ECHO done
+@EXIT /B
