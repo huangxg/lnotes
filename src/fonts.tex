@@ -65,7 +65,7 @@ IETF\indexIETF 要求所有网络协议都支持 UTF-8，互联网电子邮件�
 
 Type 1 和 Type 3 把字体的尺寸 (metrics) 信息和字形 (glyph) 信息分别存储。字体尺寸文件有 AFM (Adobe font metrics) 和 PFM (printer font metrics) ，字形文件有 PFA (printer font ASCII) 和 PFB (printer font binary) 。\LaTeX 使用的尺寸格式是 TFM (TeX font metrics) 。
 
-TrueType 和 OpenType 则将字体数据都存在一个文件里，它们的文件后缀分别是是.ttf和.otf。\MF{}虽然用矢量图形来定义字形，实际输出的却是一种点阵格式：PK (packed raster) 。
+TrueType 和 OpenType 则将字体数据都存在一个文件里，它们的文件后缀分别是是.ttf和.otf。\MF 虽然用矢量图形来定义字形，实际输出的却是一种点阵格式：PK (packed raster) 。
 
 这些字体格式按照技术先进性，从高到低依次为：OpenType, TrueType, Type 1, Type 3, PK，所以我们要优先选用 OpenType 和 TrueType。
 
@@ -122,7 +122,7 @@ PostScript 文件可以包含 Type 1 和 Type 3 字体，而 PDF 除了这两种
 
 缺省情况下，\texttt{dvips} 也会查找 \texttt{.pk}，或调用 \MF 自动生成；然后把 PK 转换成包含点阵字体的 Type 3，它的参数 \texttt{-D} 可以用来控制该点阵字体的分辨率。用 \texttt{ps2pdf} 处理含 Type 3 的 PostScript 时，输出的自然是含 Type 3 的 PDF。
 
-GSview 在低分辨率下可以很好地渲染 Type 3，Adobe Reader 或 Acrobat 却不能，因为它们使用的 Adobe Type Manager 不支持包含完整 PostScript 的 Type 3。因此含 Type 3 的 PDF 看起来会有些模糊，所以应尽量避免使用。
+GSview\footnote{该软件已经停止更新，包老师正在寻找替代品。} 在低分辨率下可以很好地渲染 Type 3，Adobe Reader 或 Acrobat 却不能，因为它们使用的 Adobe Type Manager 不支持包含完整 PostScript 的 Type 3。因此含 Type 3 的 PDF 看起来会有些模糊，所以应尽量避免使用。
 
 \texttt{dvips} 的另一个参数 \texttt{-Ppdf} 把 Type 1 嵌入生成的 PostScript，这样再 \texttt{ps2pdf} 就能生成含 Type 1 的 PDF。
 
@@ -198,7 +198,7 @@ fc-cache -r
 
 xeCJK 宏包的详细用法可参考其用户手册\citep{Sun_xecjk}。另外 Yin Dian 的 zhspacing 宏包也可以完成类似功能，具体用法可参考其文档\citep{Yin_zhspacing}。
 
-C\Tex 开发小组的C\TeX 宏集是一个面向中文排版的通用 \LaTeX 排版框架，汉字输出支持、标点压缩、字体字号命令、标题文字汉化、中文版式调整、数字日期转换等支持功能，可适应论文、报告、书籍、幻灯片等不同类型的中文文档。包老师最近 (2019年) 才开始试用，读者请参考其手册\citep{CTeX_ctex}。
+C\Tex 开发小组的 C\TeX 宏集是一个面向中文排版的通用 \LaTeX 排版框架，汉字输出支持、标点压缩、字体字号命令、标题文字汉化、中文版式调整、数字日期转换等支持功能，可适应论文、报告、书籍、幻灯片等不同类型的中文文档。包老师最近 (2019年) 才开始试用，读者请参考其手册\citep{CTeX_ctex}。
 
 \bibliographystyle{unsrtnat}
 \bibliography{lnotes2}

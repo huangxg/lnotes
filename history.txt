@@ -1,4 +1,4 @@
-2019-04-14 v2.50
+2019-04-29 v2.56
 - 换用 Adobe Source 字体
 - 换用 CTeX 宏集
 - 更新 ctex.cmd, mtex.cmd
@@ -7,6 +7,10 @@
 - 更新软件列表
 - 代码缩进改为两个空格
 - 一些顿号换为英文逗号
+- 采用 git by 李峰
+- 2.5.2节和附录B, identfirst -> indentfirst by Wang Chenlin
+- 5.3.1节 CMYK 四分色模型的描述 by Naitree Zhu
+- 加入友人评论、序言。
 
 2013-09-04 v2.03
 - 更正了xeCJK-listings导致的代码列表格式错误

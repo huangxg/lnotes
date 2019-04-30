@@ -60,8 +60,17 @@
 % **************************************
 % Structure
 % **************************************
-\usepackage[bookmarksnumbered, pdfencoding=auto, pdfpagelayout=TwoPageRight,
-breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
+%\usepackage{xurl} % not working with url
+%\PassOptionsToPackage{hyphens}{url}
+\usepackage[
+  bookmarksnumbered, 
+  pdfencoding=auto, 
+  pdfpagelayout=TwoPageRight,
+  breaklinks, 
+  colorlinks, 
+  linkcolor=RoyalBlue, 
+  urlcolor=blue]
+{hyperref}
 \usepackage{multicol}               % need etex
 \usepackage{multind}
 \makeindex{people}
@@ -70,7 +79,7 @@ breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
 % \usepackage{titlesec}
 
 \newcommand{\lnotesauthor}{包 太 雷}
-\newcommand{\lnotesversion}{v2.50}
+\newcommand{\lnotesversion}{v2.56}
 \newcommand{\lnotesdate}{2019年4月}
 
 % replaced by ctexbook
@@ -240,8 +249,9 @@ breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
 \setlength{\parindent}{2em}
 
 \include{forward}
+\include{preface-fan}
 \include{preface}
-\include{oldpreface}
+\include{preface-old}
 \include{acknowledgements}
 
 \makeatletter
@@ -282,7 +292,7 @@ breaklinks, colorlinks, linkcolor=RoyalBlue, urlcolor=blue]{hyperref}
 %\renewcommand{\chaptername}{附录{\thechapter}}
 
 \include{postscript}
-\include{oldpostscript}
+\include{postscript-old}
 
 \singlespacing
 \setlength{\parskip}{\oldparskip}

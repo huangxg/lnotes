@@ -264,7 +264,7 @@ ebb fig.png
 
 \subsection{基本命令}
 
-上文提到 Knuth 留下了后门 \verb|\special|，但是直接用它来插入图形不够含蓄优雅，于是 \LaTeX v2.09 推出了\texttt{epsf} 和 \texttt{psfig} 宏包。之后 David P. Carlisle (1961--)\indexCarlisle{} \footnote{1985年曼彻斯特大学数学博士，剑桥博士后，1998年加入数字算法公司 (Numerical Algorithms Group) 。} 和 Sebastian P. Rahtz\indexRahtz{} \footnote{1970年代牛津大学希腊语学士，考古学硕士。1980年代南安普敦大学人类学讲师，后跳到 CERN、爱思维尔出版公司 (Elsevier) ，现任牛津大学信息主管。TUG 和 CTAN 的重要成员。} 推出了面向 \LaTeXe 的 \texttt{graphics} 和 \texttt{graphicx} 宏包；后者基于前者，语法更简单，功能更强大，所以一般推荐用它。
+上文提到 Knuth 留下了后门 \verb|\special|，但是直接用它来插入图形不够含蓄优雅，于是 \LaTeX{} v2.09 推出了\texttt{epsf} 和 \texttt{psfig} 宏包。之后 David P. Carlisle (1961--)\indexCarlisle{} \footnote{1985年曼彻斯特大学数学博士，剑桥博士后，1998年加入数字算法公司 (Numerical Algorithms Group) 。} 和 Sebastian P. Rahtz\indexRahtz{} \footnote{1970年代牛津大学希腊语学士，考古学硕士。1980年代南安普敦大学人类学讲师，后跳到 CERN、爱思维尔出版公司 (Elsevier) ，现任牛津大学信息主管。TUG 和 CTAN 的重要成员。} 推出了面向 \LaTeXe 的 \texttt{graphics} 和 \texttt{graphicx} 宏包；后者基于前者，语法更简单，功能更强大，所以一般推荐用它。
 
 插图命令基本用法如下，
 
@@ -416,9 +416,9 @@ ebb fig.png
 
 \subsection{色彩模型}
 
-在图形、表格甚至文字中我们都可以使用色彩，所以应该对色彩模型有所了解。一般而言，色彩模型分两大类：一种是广泛应用于照相、摄影、电视和电脑的RGB三原色模型（\autoref{fig:rgb}），另一种是用于彩色印刷的CMYK四分色模型（\autoref{fig:cmyk}）。前者是加色模型，后者是减色模型。
+在图形、表格甚至文字中我们都可以使用色彩，所以应该对色彩模型有所了解。一般而言，色彩模型分两大类：一种是广泛应用于照相、摄影、电视和电脑的 RGB 三原色模型（\autoref{fig:rgb}），另一种是用于彩色印刷的 CMYK 四分色模型（\autoref{fig:cmyk}）。前者是加色模型，后者是减色模型。
 
-RGB模型认为色彩世界原本是无任何光线的黑色，如果把红、绿、蓝三种颜色的光以不同比例叠加，就可以得到任何颜色。比如红、绿叠加得到黄，绿、蓝叠加得到青，蓝、红叠加得到洋红，红、绿、蓝叠加得到白。
+RGB 模型认为色彩世界原本是无任何光线的黑色，如果把红、绿、蓝三种颜色的光以不同比例叠加，就可以得到任何颜色。比如红、绿叠加得到黄，绿、蓝叠加得到青，蓝、红叠加得到洋红，红、绿、蓝叠加得到白。
 
 \begin{figure}[htbp]
 \centering
@@ -437,7 +437,7 @@ RGB模型认为色彩世界原本是无任何光线的黑色，如果把红、�
 
 在24位真彩模型中，三原色各使用一个8位，取值从0到255。比如红、绿、蓝、黑、白分别为：(255,0,0), (0,255,0), (0,0,255), (0,0,0), (255,255,255) 。如果使用 HTML 中常用的16进制表示，就是FF0000, 00FF00, 0000FF, 000000, FFFFFF。
 
-RGB模型用的是笛卡尔坐标，色彩的变化对人眼来说不够连续，人们就提出把它的坐标系改为圆柱坐标，这就是 HSL 和 HSV 模型。基于这种模型，人们可以用色轮选色（\autoref{fig:colorwheel}），并美其名曰色轮常转。
+RGB 模型用的是笛卡尔坐标，色彩的变化对人眼来说不够连续，人们就提出把它的坐标系改为圆柱坐标，这就是 HSL 和 HSV 模型。基于这种模型，人们可以用色轮选色（\autoref{fig:colorwheel}），并美其名曰色轮常转。
 
 \begin{figure}[htbp]
 \centering
@@ -446,7 +446,7 @@ RGB模型用的是笛卡尔坐标，色彩的变化对人眼来说不够连续�
 \label{fig:colorwheel}
 \end{figure}
 
-CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种颜料就会减少这种颜色光的反射，看上去就会是它的补色。印青色就会得到红色，印洋红得到绿，印黄得到蓝，青、洋红、黄三种颜色都印上就会得到黑色。彩色印刷有分色和套色过程，如果图形上有黑色直接拿黑颜料印刷会减少成本。CMYK 中的字母 K 就代表 key black。
+CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种颜料就会减少其补色的反射。印青色就会减少红色，印洋红减少绿，印黄色减少蓝，青、洋红、黄三种颜色都印上就会得到黑色。彩色印刷有分色和套色过程，如果图形上有黑色直接拿黑颜料印刷会减少成本。CMYK 中的字母 K 就代表 key black。
 
 在 \LaTeX 中，上述模型可以用不同的模式表示。比如 RGB 模型有三种模式：10进制的 RGB 模式，16进制的 HTML 模式，$[0,1]$实数的 rgb 模式。因为各种驱动支持不同的模式，用起来会很麻烦，\texttt{color} 宏包提供了驱动独立的使用界面。Uwe Kern\indexKern{} \footnote{1993年维尔茨堡大学 (University of Würzburg) 数学博士。} 的 \texttt{xcolor} 宏包更进一步，整合了12种色彩模式 (rgb, cmy, cmyk, hsb, Hsb, tHsb, gray, RGB, HTML, HSB, Gray, wave)，提供了丰富的预定义颜色和命令。
 

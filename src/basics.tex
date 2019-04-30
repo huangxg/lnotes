@@ -31,7 +31,7 @@ Output written on hello_world.pdf (1 page).
 Transcript written on hello_world.log.
 \end{Code}
 
-\TeX 系统针对不同格式和引擎的组合，提供了一系列的命令行程序，完成不同的编译和转换功能。比如源文件是 plain \TeX 格式时，可以分别用 \texttt{tex, pdftex, xetex} 程序调用 \TeX, pdfTeX, \XeTeX 引擎；源文件是 \LaTeX 格式时，相应的程序则是 \texttt{latex, pdflatex, xelatex} \footnote{现在的发行包大多以pdfTeX为缺省引擎，所以 \texttt{latex} 命令缺省调用的其实是pdfTeX，而不是 \TeX 。}。选择编译和转换程序时可以参考 \autoref{fig:compile}，一般有直接方法可用时，不必非要排个转折亲使用间接方法。
+\TeX 系统针对不同格式和引擎的组合，提供了一系列的命令行程序，完成不同的编译和转换功能。比如源文件是 plain \TeX 格式时，可以分别用 \texttt{tex, pdftex, xetex} 程序调用 \TeX, pdfTeX, \XeTeX 引擎；源文件是 \LaTeX 格式时，相应的程序则是 \texttt{latex, pdflatex, xelatex} \footnote{现在的发行包大多以pdfTeX为缺省引擎，所以 \texttt{latex} 命令缺省调用的其实是 pdfTeX，而不是 \TeX 。}。选择编译和转换程序时可以参考 \autoref{fig:compile}，一般有直接方法可用时，不必非要排个转折亲使用间接方法。
 
 \begin{figure}[htbp]
 \centering
@@ -158,7 +158,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 
 文档中可以输入的文字符号大致可以分为：普通字符、控制符、特殊符号、预定义字符串、注音符号等。
 
-普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个 \verb|\|。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是  Pascal。}。
+普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个 \verb|\|。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
 
 \begin{Code}[]
 \# \$ \^ \& \_ \{ \} \~ \textbackslash \%
@@ -338,7 +338,7 @@ $1-1=0$
 \LaTeX 正文中第一个段落缺省不缩进首行，我们可以用 \texttt{identfirst} 宏包使得第一段也缩进首行。段落首行缩进的距离可以用 \verb|\parindent| 变量来控制，段落之间的距离可以用 \verb|\parskip| 变量来控制。
 
 \begin{Code}[]
-\usepackage{identfirst}
+\usepackage{indentfirst}
 ...
 \setlength{\parindent}{2em}
 \addtolength{\parskip}{3pt}

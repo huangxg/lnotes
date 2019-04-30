@@ -155,13 +155,13 @@ Knuth 在软件工程方面也独树一帜。一般认为，编程语言大致�
 
 \TeX 是一种语言也是一个排版引擎 (engine) ，引擎的基本功能就是把字排成行，把行排成页，涉及到断字、断行、分页等算法。基本的 \TeX 系统只有300多个元命令 (primitive) ，十分精悍，但是很难读懂，只适于非正常人类。所以 Knuth 提供了一种格式 (format，宏命令的集合) 对 \TeX 进行了封装，这就是 Plain \TeX ，包含600多个宏命令，然而它还是不够高级。
 
-1980年代初期，斯坦福研究院 (Stanford Research Institute, SRI) 的 Leslie Lamport (1941--)\indexLamport{} \footnote{1960年 MIT 数学学士，布兰迪斯大学 (Brandeis University) 数学系1963年硕士，1972年博士。1970年加入麻省计算机同伙公司 (Massachusetts Computer Associates, MCA) ，1977年跳到SRI，1985年到DEC，2001年到微软。2008年获冯·诺依曼奖，2013年图灵奖。美国科学院院士。} 开发了一种新的格式，也就是 \LaTeX。1992年 \LaTeX{} 2.09发布后，Lamport 退居二线，之后的开发活动由 Frank Mittelbach\indexMittelbach{} \footnote{毕业于美因茨大学 (Johannes-Gutenberg University of Mainz) 。1989年加入电子数据系统公司 (Electronic Data Systems, EDS) 。} 等人接管。他们发布的最后版本是1994年的 \LaTeXe，\LaTeX 3 的开发也在进行中，只是正式版看起来遥遥无期。
+1980年代初期，斯坦福研究院 (Stanford Research Institute, SRI) 的 Leslie Lamport (1941--)\indexLamport{} \footnote{1960年 MIT 数学学士，布兰迪斯大学 (Brandeis University) 数学系1963年硕士，1972年博士。1970年加入麻省计算机同伙公司 (Massachusetts Computer Associates, MCA) ，1977年跳到SRI，1985年到DEC，2001年到微软。2008年获冯·诺依曼奖，2013年图灵奖。美国科学院院士。} 开发了一种新的格式，也就是 \LaTeX。1992年 \LaTeX{} v2.09发布后，Lamport 退居二线，之后的开发活动由 Frank Mittelbach\indexMittelbach{} \footnote{毕业于美因茨大学 (Johannes-Gutenberg University of Mainz) 。1989年加入电子数据系统公司 (Electronic Data Systems, EDS) 。} 等人接管。他们发布的最后版本是1994年的 \LaTeXe，\LaTeX 3 的开发也在进行中，只是正式版看起来遥遥无期。
 
 \subsubsection{宏包}
 
-\LaTeX 出现之后，在它的基础上出现了很多宏包 (package) 。起初，美国数学学会 (American Mathematical Society，AMS)\indexAMS{} 看着 \TeX 是好的，就派Michael D. Spivak (1940--)\indexSpivak{} \footnote{1964年普林斯顿数学博士。} 开发基于Plain \TeX 的宏包 \AmSTeX{}，它的开发进行了两年 (1983--1985) 。后来与时俱进的AMS又看着 \LaTeX 是好的，就想转移阵地，但是他们的字体遇到了麻烦。
+\LaTeX 出现之后，在它的基础上出现了很多宏包 (package) 。起初，美国数学学会 (American Mathematical Society，AMS)\indexAMS{} 看着 \TeX 是好的，就派Michael D. Spivak (1940--)\indexSpivak{} \footnote{1964年普林斯顿数学博士。} 开发基于Plain \TeX 的宏包 \AmSTeX，它的开发进行了两年 (1983--1985) 。后来与时俱进的AMS又看着 \LaTeX 是好的，就想转移阵地，但是他们的字体遇到了麻烦。
 
-恰好 Mittelbach 和 Rainer Schöpf\indexSchopf{} \footnote{\LaTeX 3的开发者之一。} 刚刚搞了个字体系统 new font selection scheme for \LaTeX{} (NFSS) ，AMS 看着还不错，就拜托他们把 AMSFonts加入 \LaTeX，继而在1989年请他们开发 \AmSLaTeX{}。次年 \AmSLaTeX 正式发布，之后它被整合为 \AmS 宏包。
+恰好 Mittelbach 和 Rainer Schöpf\indexSchopf{} \footnote{\LaTeX 3的开发者之一。} 刚刚搞了个字体系统 new font selection scheme for \LaTeX{} (NFSS) ，AMS 看着还不错，就拜托他们把 AMSFonts 加入 \LaTeX，继而在1989年请他们开发 \AmSLaTeX。次年 \AmSLaTeX 正式发布，之后它被整合为 \AmS 宏包。
 
 \subsubsection{驱动}
 
