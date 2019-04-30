@@ -1,9 +1,6 @@
 1. 简介
 
-根目录文件：
-README.md   项目说明
-LICENSE.md  许可证
-history.txt 版本历史
+根目录相关文件
 build.txt   编译说明
 ctex.cmd    视窗命令行脚本，编译单个文件
 mtex.cmd    视窗命令行脚本，编译部分或整个项目
