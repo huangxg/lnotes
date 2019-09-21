@@ -35,7 +35,7 @@ PSTricks 中缺省长度单位是 1cm，我们也可以设置自己的单位。�
 
 另外需要注意的是，嵌入 \LaTeX 的PSTricks生成的是PostScript，\texttt{dvips} 认得自家人，\texttt{xdvipdfmx} 也可以处理。\texttt{dvipdfm} 和 \texttt{pdflatex} 则不能；如果使用后两种驱动，需要先行生成EPS或PDF。
 
- \texttt{pst-eps} 宏包能够在线处理 PSTricks 代码并生成 EPS，这样用户就可以在同一 \LaTeX 源文件中插入该 EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的 EPS，它和 \verb|\rput, \verb|\uput|, \verb|\psaxes| 等命令都不兼容。
+ \texttt{pst-eps} 宏包能够在线处理 PSTricks 代码并生成 EPS，这样用户就可以在同一 \LaTeX 源文件中插入该 EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的 EPS，它和 \verb|\rput|, \verb|\uput|, \verb|\psaxes| 等命令都不兼容。
 
 \begin{example}[h]
 \begin{Code}[numbers=left]
