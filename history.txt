@@ -1,3 +1,10 @@
+2021-09-20 v2.61
+- 2.5.2节正文中identfirst -> indentfirst by 赵梓琪
+- 版权页All right -> All rights by shuangwen
+- 例12.1标点符号 by GasinAn
+- 3.5节\Tex -> \TeX by boltomli
+- 7.1节\rput后遗漏竖线符号 by boltomli
+
 2019-04-29 v2.56
 - 换用 Adobe Source 字体
 - 换用 CTeX 宏集
