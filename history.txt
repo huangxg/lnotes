@@ -1,3 +1,6 @@
+2021-09-21 v2.62
+- 修正LaTeX 2020某次更新导致的表格编译错误，见https://tex.stackexchange.com/questions/567985
+
 2021-09-20 v2.61
 - 2.5.2节正文中identfirst -> indentfirst by 赵梓琪
 - 版权页All right -> All rights by shuangwen
