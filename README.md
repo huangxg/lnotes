@@ -2,7 +2,7 @@
 雷太赫排版系统简介 An introduction to TeX/LaTeX typesetting system
 
 ## 内容纲要 topics
-1. 简介 Breif history of tysetting systems
+1. 简介 Brief history of typesetting systems
 2. 入门 Basic text typesetting
 3. 字体 Chinese language and fonts
 4. 数学 Mathematics
