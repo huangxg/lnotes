@@ -24,7 +24,7 @@ mtex.cmd    视窗命令行脚本，编译部分或整个项目
     
 
 2.3 Simpsons Package https://ctan.org/tex-archive/usergrps/uktug/baskervi/4_4/
-    最新版 MilTeX 能够自动下载该宏包；或者也可用以下方法，
+    最新版 MikTeX 能够自动下载该宏包；或者也可用以下方法，
     1) 下载 simpsons.sty，放到 MIKTEX-ROOT/tex/latex/simpsons目录.
     2) MikTeX -> Maintainence -> Settings -> General -> Refresh FNDB 或在命令行下执行 initexmf --update-fndb.
 
