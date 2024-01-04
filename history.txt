@@ -1,3 +1,12 @@
+2024-01-03 v2.66
+- 修正例12.1标点符号 by GasinAn
+
+2024-01-02 v2.65
+- 修正build.txt和友人序中错误 by GasinAn
+
+2021-10-24 v2.63
+- 修正README拼写错误 by boltomli
+
 2021-09-21 v2.62
 - 修正LaTeX 2020某次更新导致的表格编译错误，见https://tex.stackexchange.com/questions/567985
 
