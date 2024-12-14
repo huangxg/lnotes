@@ -63,7 +63,7 @@ IETF\indexIETF 要求所有网络协议都支持 UTF-8，互联网电子邮件�
 
 早在1984年 Knuth 就发布了 \MF ，它与 TrueType 和 OpenType 的区别是，不直接描述字形轮廓，而描述生成轮廓的笔的轨迹。笔的形状可以是椭圆形或多边形，尺寸缩放自如，字形边缘也柔和一些。两种字体可以用同一个 \MF 文件，当然还有不同的参数。\MF 技术如此先进，却没有流行开来。对此 Knuth 解释道，要求一位设计字体的艺术家掌握60个参数太变态了，那是用来折磨数学家的。
 
-Type 1 和 Type 3 把字体的尺寸 (metrics) 信息和字形 (glyph) 信息分别存储。字体尺寸文件有 AFM (Adobe font metrics) 和 PFM (printer font metrics) ，字形文件有 PFA (printer font ASCII) 和 PFB (printer font binary) 。\LaTeX 使用的尺寸格式是 TFM (TeX font metrics) 。
+Type 1 和 Type 3 把字体的尺寸 (metrics) 信息和字形 (glyph) 信息分别存储。字体尺寸文件有两种：AFM (Adobe font metrics) 和 PFM (printer font metrics)，字形文件也有两种：PFA (printer font ASCII) 和 PFB (printer font binary) 。\LaTeX 使用的尺寸格式是 TFM (TeX font metrics) 。
 
 TrueType 和 OpenType 则将字体数据都存在一个文件里，它们的文件后缀分别是是.ttf和.otf。\MF 虽然用矢量图形来定义字形，实际输出的却是一种点阵格式：PK (packed raster) 。
 
@@ -167,7 +167,7 @@ fc-cache -r
 \label{exa:xelatex_font}
 \end{example}
 
-\autoref{exa:xelatex_font} 中的代码分别设置了衬线、无衬线和等宽字体样式对应的字体。在 \ref{sec:char_input} 节 \autoref{exa:dash} 中我们学过中划线和短划线可以用 \texttt{--} 和 \texttt{---} 来输入。\TeX 中几个短划线是相连的，\XeTeX 中缺省它们之间是有空隙的。\autoref{exa:xelatex_font} 用 \texttt{Mapping} 参数指示改回 \TeX 的方式，即去掉短划线之间的空隙。
+\autoref{exa:xelatex_font} 中的代码分别设置了衬线、无衬线和等宽字体样式对应的字体。在 \ref{sec:char_input} 节 \autoref{exa:dash} 中我们学过中划线和破折号可以用 \texttt{--} 和 \texttt{---} 来输入。\TeX 中几个短划线是相连的，\XeTeX 中缺省它们之间是有空隙的。\autoref{exa:xelatex_font} 用 \texttt{Mapping} 参数指示改回 \TeX 的方式，即去掉短划线之间的空隙。
 
 \section{中文解决方案}
 

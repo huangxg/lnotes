@@ -281,12 +281,6 @@ ebb fig.png
 
 \verb|\includegraphics| 命令有一些参数选项 (见 \autoref{tab:graph_options}) 可以用于缩放、旋转、裁剪等图形操作，简要说明如下：
 
-\begin{itemize}
-\item 如果不设置任何尺寸参数，\texttt{latex} 按范围框处理；\texttt{dvipdfm(x)} 和 \texttt{pdflatex} 按缺省输出尺寸处理。如果图形文件缺少PPI，后面这两位会按 72 PPI 计算输出尺寸。
-\item 我们可以用 \texttt{scale} 来缩放输出尺寸，但是如果范围框或 PPI 不准，结果会出乎意料。所以包老师建议还是用绝对尺寸参数比较好。
-\item \XeTeX 目前不支持裁剪，用户只好自己先行处理。
-\end{itemize}
-
 \begin{table}[htbp]
 \caption{图形操作选项}
 \label{tab:graph_options}
@@ -307,6 +301,16 @@ ebb fig.png
 \end{tabularx}
 \end{table}
 
+\begin{itemize}
+  \item 如果不设置任何尺寸参数，\texttt{latex} 按范围框处理；\texttt{dvipdfm(x)} 和 \texttt{pdflatex} 按缺省输出尺寸处理。如果图形文件缺少PPI，后面这两位会按 72 PPI 计算输出尺寸。
+  \item 我们可以用 \texttt{scale} 来缩放输出尺寸，但是如果范围框或 PPI 不准，结果会出乎意料。所以包老师建议还是用绝对尺寸参数比较好。
+  \item \XeTeX 目前不支持裁剪，用户只好自己先行处理。
+\end{itemize}
+  
+插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅因为同时使用了宽度和高度选项而产生了变形。
+
+插图的旋转操作见 \autoref{exa:graph_rotate}，其中前三幅图的旋转中心在左下角，后三幅的在图中心。
+
 \begin{example}[htbp]
 \LoadFBTDemo[]{texlet/fig-zoom}
 \caption{图形缩放}
@@ -318,10 +322,6 @@ ebb fig.png
 \caption{图形旋转}
 \label{exa:graph_rotate}
 \end{example}
-
-插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅因为同时使用了宽度和高度选项而产生了变形。
-
-插图的旋转操作见 \autoref{exa:graph_rotate}，其中前三幅图的旋转中心在左下角，后三幅的在图中心。
 
 \subsection{文件名和路径}
 
@@ -476,7 +476,7 @@ CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种
 
 \subsubsection{彩色文字}
 
-设置文字的颜色可以使用 \verb|\textcolor| 命令，\autoref{exa:textcolor} 中代码第2--4行和第5--7行输出效果相同。后三行的方法又称为抛弃型颜色定义法，因为只能用一次；事先定义了名字的话还可以重用。
+设置文字的颜色可以使用 \verb|\textcolor| 命令，\autoref{exa:textcolor} 中代码前三行和后三行输出效果相同。后三行的方法又称为抛弃型颜色定义法，因为只能用一次；事先定义了名字的话还可以重用。
 
 \verb+语法: \textcolor{名称}|[模式]{代码}{文字}+
 
@@ -513,7 +513,7 @@ CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种
 与 \LaTeX 配套使用的矢量绘图工具中包老师较熟悉的有三种：\MP, PSTricks, PGF。限于篇幅和作者知识面，本文只对这三种工具作简单介绍。\MP, PSTricks, PGF 的主要特点如下：
 
 \begin{itemize}
-\item 工作方式：\MP 离线绘图，生成的MPS (一种特殊的EPS) ；PSTricks 和 PGF 都采用在线绘图的方式，也就是在 \LaTeX 文档内直接使用绘图命令。
+\item 工作方式：\MP 离线绘图，生成MPS (一种特殊的EPS) ；PSTricks 和 PGF 都采用在线绘图的方式，也就是在 \LaTeX 文档内直接使用绘图命令。
 \item 兼容性：\MP 生成的 MPS 需要先转为 PDF 才能被 \texttt{pdflatex}使用；PSTricks 生成的 EPS 和 \texttt{pdflatex}不兼容；PGF 提供针对各种驱动的接口，兼容性最好。
 \item 功能：PSTricks 有 PostScript 作后盾，功能最强；\MP 擅长处理数学内容；PGF的流程图有独到之处。
 \end{itemize}

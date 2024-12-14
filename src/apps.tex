@@ -367,15 +367,15 @@ Cousin Muscles\\Hogan's Alley}
 \cventry{1911--1919}{`博士（有机化学）`}{`清华学堂`}{}{}{}
 \cventry{1898--1900}{`硕士（天体物理）`}{`京师大学堂`}{}{}{}
 \cventry{1895--1898}{`学士（应用数学）`}{`北洋大学`}{}{}{}
+\end{Code}
 
+\begin{Code}[numbers=left, firstnumber=last]
 \section{`壮士出站报告`}
 \cvitem{`题目`}{\emph{`马尾巴的功能`}}
 \cvitem{`导师`}{`达文西`}
 \cvitem{`摘要`}{`创造性地结合白马非马论和DNA双螺旋结构，系统性地分析`
 `了马尾巴的功能。`}
-\end{Code}
 
-\begin{Code}[numbers=left, firstnumber=last]
 \section{`工作经历`}
 \subsection{`全职工作`}
 \cventry{1936--1937}{`首席咨询顾问`}{`北美某大型财务公司`}{
@@ -412,45 +412,47 @@ MacOS, Unix, Windows}
 FoxPro, MySQL, Oracle}
 \cvdoubleitem{`标记语言`}{HTML, \LaTeX, XML}{NoSQL}{
 Cassandra, HBase, MongoDB}
+\end{Code}
 
+\begin{Code}[numbers=left, firstnumber=last]
 \section{`荣誉称号`}
 \cvlistitem{`二级中老年妇女心理咨询师`}
 \cvlistitem{`崂山学者（副处级待遇）`}
 \cvlistitem{`县级三好学生`}
-\end{Code}
 
-\begin{Code}[numbers=left, firstnumber=last]
 \section{`业余爱好`}
 \cvlistdoubleitem{`搬砖砌墙`}{`挖坑灌水`}
 \cvlistdoubleitem{`割草喂猪`}{`吟诗作画`}
 \end{document}
 \end{Code}
 
-\begin{example}[!h]
-\begin{Demo}
-\centering
-\includegraphics[scale=.6, trim=0 40 0 0, clip]{cv-casual.pdf}
-\end{Demo}
-%\caption{简历}
-%\label{exa:cv_casual}
+\begin{example}[htbp]
+  \begin{Demo}
+  \centering
+  \includegraphics[scale=.6, trim=0 40 0 0, clip]{cv-casual.pdf}
+  \end{Demo}
+  %\caption{简历}
+  %\label{exa:cv_casual}
 \end{example}
 
 \begin{example}[htbp]
-\begin{Demo}
-\centering
-\adjustbox{scale=.6, trim=0 450 0 0, clip}{\includegraphics[page=2]{cv-casual.pdf}}
-\end{Demo}
-\caption{简历}
-\label{exa:cv_casual}
+  \begin{Demo}
+  \centering
+  \adjustbox{scale=.6, trim=0 450 0 0, clip}{\includegraphics[page=2]{cv-casual.pdf}}
+  \end{Demo}
+  \caption{简历}
+  \label{exa:cv_casual}
 \end{example}
-
-这个例子比较长，包老师没找到好的排版办法，同学们凑合着看吧。在 \autoref{exa:cv_casual} 代码中，我们引入文档类后用 \verb|\moderncvstyle| 和 \verb|\moderncvcolor| 命令设置了简历的样式和颜色；还用 \texttt{geometry} 宏包设置了页边距，因为一般简历的页面都会撑得比较满。
+  
+这个例子比较长，包老师没找到好的排版办法，同学们凑合着看吧。在 \autoref{exa:cv_casual} 代码中，我们引入文档类后用 \verb|\moderncvstyle| 命令设置了简历的样式，用 \verb|\moderncvcolor| 设置了简历颜色；还用 \texttt{geometry} 宏包设置了页边距，因为一般简历的页面都会撑得比较满。
 
 然后，我们用 \verb|\familyname| 命令设置了姓名。因为中国人喜欢把姓放在名前面，这里没用上 \verb|\firstname| 。紧接着的照片、简历标题和摘引等，用户可根据需要有所取舍。同样地，下面的地址、电话、传真、电邮、主页等也不一定都需要。
 
 在正文中，我们先用 \verb|\makecvtitle| 命令打印了简历标题，然后用 \verb|\section| 和 \verb|\subsection| 设置了节和小节。在教育背景一节中，我们用 \verb|\cventry| 命令列出一些学历信息，它的一般用法如下：
 
-\verb|语法：\cventry{时间}{职位/头衔}{雇主/学校}{地点}{短说明}{长说明，另起一行}|
+\verb|语法：\cventry{时间}{职位/头衔}{雇主/学校}{地点}{短说明}|
+\newline
+\verb|                      {长说明，另起一行}|
 
 在出站报告一节中，我们使用了 \verb|\cvitem| 命令，它只有两个参数：
 
@@ -464,7 +466,7 @@ Cassandra, HBase, MongoDB}
 
 \verb|语法：\cvitemwithcomment{项目标题}{说明}{注释}|
 
-对于比较简短的项目，我们可以像电脑技术一节那样使用 \verb|\cvdoubleitem| 命令，这样的双栏排列可以省点儿地方。
+在简短的项目中，我们可以像电脑技术一节那样使用 \verb|\cvdoubleitem| 命令，这样的双栏排列可以省点儿地方。
 
 \verb|语法：\cvdoubleitem{项目标题}{说明}{项目标题}{说明}|
 
@@ -476,9 +478,7 @@ Cassandra, HBase, MongoDB}
 
 \verb|语法：\cvlistdoubleitem{列表项目}{列表项目}|
 
-看完枯燥的语法，给大家来点轻松的：\autoref{exa:cv_classic} 是 \texttt{classic} 样式加绿色，\autoref{exa:cv_oldstyle} 是 \texttt{oldstyle} 样式加灰色，\autoref{exa:cv_banking} 是 \texttt{banking} 样式加橙色。它们的代码见源码包。
-
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \adjustimage{scale=.6, trim=0 420 0 0, clip}{cv-classic.pdf}
@@ -487,7 +487,9 @@ Cassandra, HBase, MongoDB}
 \label{exa:cv_classic}
 \end{example}
 
-\pagebreak
+看完枯燥的语法，给大家来点轻松的：\autoref{exa:cv_classic} 是 \texttt{classic} 样式加绿色，\autoref{exa:cv_oldstyle} 是 \texttt{oldstyle} 样式加灰色，\autoref{exa:cv_banking} 是 \texttt{banking} 样式加橙色。它们的代码见源码包。
+
+% \pagebreak
 
 \begin{example}[htbp]
 \begin{Demo}
@@ -498,7 +500,7 @@ Cassandra, HBase, MongoDB}
 \label{exa:cv_oldstyle}
 \end{example}
 
-\begin{example}[!h]
+\begin{example}[htbp]
 \begin{Demo}
 \centering
 \adjustimage{scale=.6, trim=0 440 0 0, clip}{cv-banking.pdf}
@@ -534,7 +536,7 @@ Cassandra, HBase, MongoDB}
 \label{exa:go_bigpigmouth}
 \end{example}
 
-代码第二、三行用 \verb|\black| 和 \verb|\white| 命令排出大猪嘴的基本形状。第四行中的命令多了个显示手数的参数，这三步棋是一本道，下面白的应法有两种。\verb|copytogoban| 命令用来保存分支前的形状。第六行是一个分支，其后的 \verb|\showgoban| 命令用来输出棋盘。\verb|\usegoban| 命令重用了之前保存的形状，第十行是另一个分支，最后一行输出另一个棋盘。
+代码第二、三行用 \verb|\black| 和 \verb|\white| 命令排出大猪嘴的基本形状。第四行中的命令多了个显示手数的参数，这三步棋是一本道，下面白的应法有两种。\verb|\copytogoban| 命令用来保存分支前的形状。第六行是一个分支，其后的 \verb|\showgoban| 命令用来输出棋盘。\verb|\usegoban| 命令重用了之前保存的形状，第十行是另一个分支，最后一行输出另一个棋盘。
 
 该宏包还有设置棋盘路数，棋子和字体尺寸，打印特殊符号等其他功能，感兴趣的读者可以自行查阅其手册。
 

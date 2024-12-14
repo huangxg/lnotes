@@ -1,3 +1,37 @@
+2024-12-14 2.101
+- 友人序拼写错误 by Hongdong Ji
+- 再版序章节数目 by Hongdong Ji
+- 1.1.1节Warnock和Geschke生卒年份 by Hongdong Ji
+- 1.1.2节Aho年份 by Hongdong Ji
+- 1.1.2节Reid脚注“厅外”应为“庭外” by Hongdong Ji
+- 1.1.3节Spivak生卒年份 by Hongdong Ji
+- 11页行首符号 by Hongdong Ji
+- 表2.7: 计数器显示格式第三行“小写英文”应为“大写英文” by Hongdong Ji
+- 3.4.2节最后一段“短划线”应为“破折号” by Hongdong Ji
+- 4.2.7节，“命令”改为“符号或命令” by Hongdong Ji
+- 5.3.1节彩色文字小节行数错误 by Hongdong Ji
+- 5.3.2节第二段多了个“的”字 by Hongdong Ji
+- 例6.3第二行，beginfig序号从2改为3 by Hongdong Ji
+- 例6.4代码最后漏了endfig by Hongdong Ji
+- 例6.8beginfig漏了分号 by Hongdong Ji
+- 8.2.1节最后一段第二行cycle的起始点应为(5,0) by Hongdong Ji
+- 例10.4代码加回\usepackage, 之前去掉它是为了调整分页。但是去掉之后忘记改正文中引用该例的行数 by Hongdong Ji
+- 10.4.1, 10.4.2节\bibtem应为\bibitem by Hongdong Ji
+- 131页多了个“等”字 by Hongdong Ji
+- 例10.12代码第四行，“部”应为“部分” by Hongdong Ji
+- 11.2节最后一段，“第11行”应为“第12行” by Hongdong Ji
+- 12.4节，“copytogoban命令”应为“\copytogoban命令” by Hongdong Ji
+- B.1.1节，“毕升”应为“毕昇”，“宝元年间”应为“庆历年间” by Hongdong Ji
+- B.2.1节第一段漏了“下面的盒子里”；最后一段“术后”应为“书后” by Hongdong Ji
+- B.2.2节倒数第二行Linotype-Hell AG超出页边 by Hongdong Ji
+- B.3.3节最后一段文字略调整 by Hongdong Ji
+- B.3.4节第一段漏了一个“年”字 by Hongdong Ji
+- 再版跋最后一段文字略调整 by Hongdong Ji
+- 版权页年份 by GasinAn
+- xeCJK punctstyle从hangmobanjiao改为plain, 之前有些句号离后面文字太近。有些图周围空白不好调整；反正是电子版，多些布白也无妨，总好过拥挤。
+- 6.6.1节文字略调整，以避免一个突出行尾的句号
+- 12.3节页面略调整
+
 2024-01-03 v2.66
 - 修正例12.1标点符号 by GasinAn
 
@@ -61,7 +95,7 @@
 2012-08-20 更新至第12章
 - 17页例2.1标题拼写错误 by Sofoot
 - 40页例3.2去掉了已废弃的CJKaddspaces选项 by milksea
-- 167页少了一个“年”字 by jihongdong
+- 167页少了一个“年”字 by Hongdong Ji
 
 2012-01-17
 - 第1页行首句号 by zoho
@@ -72,7 +106,7 @@
 2011-04-03 更新至第七章结构
 - 更正了22页表2.2, 2.3中的乱码字符 by IMB, tex
 - 112页例6.5中代码手工断了行 by milksea
-- 121页“例6.9中代码第14行”更正为“第12行” by IMB, jihongdong
+- 121页“例6.9中代码第14行”更正为“第12行” by IMB, Hongdong Ji
 - 若干\footnote上标, \texttt, \verb与周围文字间距过窄
 
 2010-10-23 更新至第六章表格
@@ -85,7 +119,7 @@
 
 2010-06-01 更新至第四章数学
 - 第三章字体结构内容略作调整 by milksea
-- 1、2页多了两个顿号，5页一个错别字 by jihongdong
+- 1、2页多了两个顿号，5页一个错别字 by Hongdong Ji
 - 校对了脚注和索引
 
 2010-05-16 更新至第三章字体

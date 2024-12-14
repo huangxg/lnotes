@@ -84,7 +84,7 @@ endfig;
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{predefined.mps}}
 filenametemplate "predefined.eps";
-beginfig(3);
+beginfig(2);
 pickup pencircle scaled .8pt;
 draw fullcircle scaled 2u;
 draw halfcircle scaled 2u shifted (3u,0);
@@ -132,6 +132,7 @@ drawdot (18u,2u); drawdot (20u,3u); drawdot (24u,3u);
 drawdot (0,4u); drawdot (4u,5u); drawdot (8u,4u);
 drawdot (9u,4u); drawdot (13u,5u); drawdot (17u,4u);
 drawdot (18u,4u); drawdot (22u,5u); drawdot (26u,4u);
+endfig;
 \end{FBTDemo}
 \caption{\MP 曲线}
 \label{exa:mp_curve}
@@ -208,7 +209,7 @@ endfig;
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{fill.mps}}
 filenametemplate "fill.eps";
-beginfig(7)
+beginfig(7);
 path p;
 p := (0,0)--(2,0)--(1,1.732)--cycle;
 fill p scaled u;
@@ -308,7 +309,7 @@ mpost \prologues:=3; input fig.mp
 \section{编程}
 \subsection{数据类型和变量}
 
-\MP 中有十种基本数据类型：\texttt{numeric, pair, path, pen, color, cmykcolor, transform, string, boolean, picture}。我们已经接触过其中几种，比如缩放系数 \texttt{u} 是 \texttt{numeric}，点的坐标是 \texttt{pair}，几个点用直线连起来是一个 \texttt{path}，\texttt{pencircle} 是一种 \texttt{pen}，红、绿、蓝都是 \texttt{color}，\texttt{scaled, shifted, rotated} 都是 \texttt{transform}。
+\MP 的基本数据类型有：\texttt{numeric}, \texttt{pair}, \texttt{path}, \texttt{pen}, \texttt{color}, \texttt{cmykcolor}, \texttt{transform}, \texttt{string}, \texttt{boolean}, \texttt{picture}。我们已经接触过其中几种，比如缩放系数 \texttt{u} 是 \texttt{numeric}，点的坐标是 \texttt{pair}，几个点用直线连起来是一个 \texttt{path}，\texttt{pencircle} 是一种 \texttt{pen}，红、绿、蓝都是 \texttt{color}，\texttt{scaled, shifted, rotated} 都是 \texttt{transform}。
 
 numeric 类型变量的精度是1/65536，它的绝对值不能超过4096，在计算过程中数值可以达到32768。这样的规定也应归功于当年的电脑硬件，不过对于科技文档插图而言，4096一般还是够用的。
 

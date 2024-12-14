@@ -90,6 +90,7 @@ $\ddagger$Preston University, Los Angeles, CA}
 \verb|语法：\DeclareCaptionType[选项]{环境}[名称][目录名]|
 \begin{example}[htbp]
 \begin{Code}[numbers=none]
+\usepackage{caption}
 \DeclareCaptionType[fileext=loe]{example}[`例`][`例目录`]
 \begin{example}[htbp]
 ...
@@ -107,7 +108,7 @@ $\ddagger$Preston University, Los Angeles, CA}
 在学术文档中人们经常要用到参考文献 (bibliography) ，这样做既可以有选择地提供事实，作客观公证科学严谨状，还可以拉帮结派党同伐异。
 
 \LaTeX 中最原始的方法是用 
-\texttt{thebibliography} 环境和 \verb|\bibtem| 命令来定义参考文献条目。在 \autoref{exa:thebibliography} 中，第一行的参数 \texttt{9} 是参考文献条目编号的宽度；如果有几十个条目，可以把该参数改为 \texttt{99}。
+\texttt{thebibliography} 环境和 \verb|\bibitem| 命令来定义参考文献条目。在 \autoref{exa:thebibliography} 中，第一行的参数 \texttt{9} 是参考文献条目编号的宽度；如果有几十个条目，可以把该参数改为 \texttt{99}。
 
 \begin{example}[htbp]
 \begin{BTDemo}[]
@@ -242,11 +243,11 @@ Oren Patashnik (1954--)\indexPatashnik{} \footnote{1976年毕业于耶鲁，1990
 \bibliography{myref}
 \end{Code}
 
-前文中我们提到含有交叉引用的文档需要编译两遍。含有参考文献的文档更麻烦，它需要依次执行等四次编译操作。
+前文中我们提到含有交叉引用的文档需要编译两遍。含有参考文献的文档更麻烦，它需要依次执行四次编译操作。
 
 \begin{enumerate}
   \item 第一遍 \texttt{xelatex} 把参考文献条目的关键字写到中间文件 \texttt{.aux}  里去。
-  \item \texttt{bibtex} 根据 \texttt{.aux, .bib, .bst} 生成一个 \texttt{.bbl}  文件，即参考文献列表。它的内容就是 \texttt{thebibliography} 环境和一些 \verb|\bibtem| 命令。
+  \item \texttt{bibtex} 根据 \texttt{.aux, .bib, .bst} 生成一个 \texttt{.bbl}  文件，即参考文献列表。它的内容就是 \texttt{thebibliography} 环境和一些 \verb|\bibitem| 命令。
   \item 第二遍 \texttt{xelatex} 把交叉引用写到 \texttt{.aux} 中去。
   \item 第三遍 \texttt{xelatex} 则在正文中正确地显示引用。
 \end{enumerate}
@@ -394,7 +395,7 @@ Rahtz\indexRahtz 和 Heiko Oberdiek\indexOberdiek{} \footnote{pdfTeX 开发者�
 \renewcommand{\contentsname}{`目录`}
 \renewcommand{\listfigurename}{`图目录`}
 \renewcommand{\listtablename}{`表目录`}
-\renewcommand{\partname}{`第` \thepart `部`}
+\renewcommand{\partname}{`第` \thepart `部分`}
 \renewcommand{\chaptername}{`第` \thechapter `章`}
 \renewcommand{\figurename}{`图`}
 \renewcommand{\tablename}{`表`}
