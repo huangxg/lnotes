@@ -1,3 +1,17 @@
+2025-06-30 2.113
+- 1.1.1节最后一段，1978后面漏了“年”字 by Hongdong Ji
+- 1.1.1节脚注1, "1973--75"应为"1973-1975" by Hongdong Ji. 省略年份范围中第二个年份的前两位常见于英文出版，中文通常不省略。
+- 1.1.1节脚注1，苏泽兰公司的描述移至正文第4段，改善可读性 by Hongdong Ji
+- 1.1.1节最后一段，DVI的列表项，调整行首逗号 by Hongdong Ji
+- 1.1.2节SGML系列最后一段，多了一个“的”字 by Hongdong Ji
+- 1.1.3节格式小节，LaTeX 2.09 发布年份应为1985 by Hongdong Ji
+- 1.1.3节驱动小节第三段，Funch 应为 Fuchs by Hongdong Ji
+- 1.1.3节, 11页倒数第二段，文字溢出版心 by Hongdong Ji
+- 1.4节，中文论坛状态 by Hongdong Ji
+- 1.4节，马克思引言多了“那些”两字 by Hongdong Ji
+- B.3.3节倒数第二段多了个“从”字 by Hongdong Ji
+- B.4节最后一段“他们”应为“它们” by Hongdong Ji
+
 2024-12-14 2.101
 - 友人序拼写错误 by Hongdong Ji
 - 再版序章节数目 by Hongdong Ji
