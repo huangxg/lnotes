@@ -108,7 +108,7 @@ PostScript 文件可以包含 Type 1 和 Type 3 字体，而 PDF 除了这两种
 
 \section{字体的应用}
 
-从理论上讲，任何电脑字体只要有TFM，\TeX 就可以使用它。然而早期的 \TeX 只能使用 \MF 生成的字体。直到 \LaTeXe 时代NFSS的出现后，Type 1 和 Type 3 才在 \LaTeX 中得到广泛应用。后起之秀 \XeTeX 则极大程度地简化了 TrueType 和 OpenType 的配置，而且它还支持 Unicode。
+从理论上讲，任何电脑字体只要有TFM，\TeX 就可以使用它。然而早期的 \TeX 只能使用 \MF 生成的字体。直到 \LaTeXe 时代 NFSS 出现后，Type 1 和 Type 3 才在 \LaTeX 中得到广泛应用。后起之秀 \XeTeX 则极大程度地简化了 TrueType 和 OpenType 的配置，而且它还支持 Unicode。
 
 \texttt{latex}, \texttt{pdflatex}, \texttt{xelatex} 编译程序，\texttt{dvips} 和 \texttt{dvipdfmx} 驱动，DVI 阅读器等分别采用不同的字体技术路线。本文主推 \XeLaTeX ，对其他早期技术只作简要介绍，聊以忆苦思甜。
 
@@ -140,7 +140,7 @@ pdflatex 支持 Type 1, TrueType，也在一定程度上支持 OpenType。它的
 
 \XeTeX 可以直接使用电脑系统字体，不再需要 TFM 文件。我们首先需要知道电脑上有哪些字体，\XeTeX 用一个XML文件记录系统字体路径，MikTeX 用的是\texttt{localfonts.conf}，TeXlive 用的是 \texttt{fonts.conf}。
 
-我们设置字体时需要字体的引用名，它和字体的文件名是不同的概念。\texttt{fc-list} 程序可以用来获取字体引用名，比如下面命令生成的 \texttt{myfonts.txt} 文件就是一份字体引用名列表。
+我们设置字体时需要字体的引用名，它和字体的文件名是不同的概念。\texttt{fc-list} 程序可以用来获取字体引用名，比如下面命令生成的文件 \texttt{myfonts.txt} 就是一份字体引用名列表。
 
 \begin{Code}[]
 fc-list > myfonts.txt

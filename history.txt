@@ -1,10 +1,16 @@
-2025-07-04 2.119
+2025-07-04 2.125
 - 2.2.3节最后一段，插图和表格目录的生成，文字略作调整 by Hongdong Ji
 - 2.3.1节第二段，文字溢出版心 by Hongdong Ji
 - 2.3.1节第四段，hyphen拼写错误 by Hongdong Ji
 - 表2.4，第三行第二列与其它行没对齐 by Hongdong Ji
 - 2.5.1节，文字溢出版心 by Hongdong Ji
-- 例2.17，左边代码中的注释行花括号斜体 by Hongdong Ji 
+- 例2.17，左边代码中的注释行花括号斜体 by Hongdong Ji
+- 3.4节第一段，多了一个“的”字 by Hongdong Ji
+- 3.4.1节dvips小节第二段，文字溢出版心 by Hongdong Ji
+- 3.4.2节第二段，文字溢出版心 by Hongdong Ji
+- 4.1节第二段，文字溢出版心 by Hongdong Ji
+- 61页列表第3项，数字0.5后缺了in单位 by Hongdong Ji
+- 5.2.1节第一段，“出现的”应为“出现得” by Hongdong Ji
 
 2025-06-30 2.113
 - 1.1.1节最后一段，1978后面漏了“年”字 by Hongdong Ji
