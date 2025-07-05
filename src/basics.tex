@@ -142,7 +142,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 \subsubsection*{...}
 \end{Code}
 
-类似地，我们也可以用下面的命令生成插图和表格目录，插图和表格功能将在后面相关章节中介绍。这两种目录也都需要编译两遍。
+类似地，我们也可以用下面的命令生成插图和表格目录，插图和表格功能将在后面相关章节中介绍。这两种目录也都需要编译两遍才能获得正确结果。
 
 \begin{Code}[]
 \listoffigures
@@ -158,7 +158,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 
 文档中可以输入的文字符号大致可以分为：普通字符、控制符、特殊符号、预定义字符串、注音符号等。
 
-普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个 \verb|\|。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
+普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个反斜杠 \verb|\| 来转义。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
 
 \begin{Code}[]
 \# \$ \^ \& \_ \{ \} \~ \textbackslash \%
@@ -205,7 +205,7 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 \rmfamily
 \end{table}
 
-\LaTeX 中有短划线 (hypen) 、中划线 (en-dash) 和长划线 (em-dash) 。短划线又称连字符，用来连接单词；中划线用来连接数字，可以通过重复两次短划线得到；长划线类似于中文的破折号，重复三次短划线。为了便于比较，这里也给出数学模式的减号。
+\LaTeX 中有短划线 (hyphen) 、中划线 (en-dash) 和长划线 (em-dash) 。短划线又称连字符，用来连接单词；中划线用来连接数字，可以通过重复两次短划线得到；长划线类似于中文的破折号，重复三次短划线。为了便于比较，这里也给出数学模式的减号。
 
 \begin{example}[!h]
 \begin{RLDemo}[]
@@ -237,7 +237,7 @@ $1-1=0$
     \textbf{bold face} & \verb|\textbf{...}| \\
   \textsf{sans serif} & \verb|\textsf{...}| & 
     \textmd{medium weight} & \verb|\textmd{...}| \\
-  \texttt{typewriter} & \verb| \texttt{...}| & 
+  \texttt{typewriter} & \verb|\texttt{...}| & 
     \textit{italic} & \verb|\textit{...}| \\
   \textsc{Small Caps} & \verb|\textsc{...}| & 
     \textsl{slanted} & \verb|\textsl{...}| \\
@@ -323,7 +323,9 @@ $1-1=0$
 
 \subsection{段落对齐}
 
-\LaTeX 中的段落缺省两端对齐 (fully justified) ，下面的三个环境可以让段落分别居左、居右或居中对齐。另有三个命令 (\verb|\raggedright|, \verb|\centering|, \verb|\raggedleft|) 可以完成同样功能。
+\LaTeX 中的段落缺省两端对齐 (fully justified) ，下面的三个环境可以让段落分别居左、居右或居中对齐。
+
+另有三个命令 \verb|\raggedright|、\verb|\centering|、\verb|\raggedleft| 也可以完成同样功能。
 
 \begin{example}[h]
 \LoadFRLDemo[]{texlet/par-left}
