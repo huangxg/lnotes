@@ -1,3 +1,16 @@
+2025-07-07 2.136
+- 6.2.3节最后一段，代码行号中文和阿拉伯数字混用 by Hongdong Ji
+- 6.3.3节第三段，封闭路径填充部分文字略作调整 by Hongdong Ji
+- 90页最后一段，文字溢出版心 by Hongdong Ji
+- 8.5.2节第一段，例8.12应为8.14 by Hongdong Ji
+- 8.6.2节第二段，文字溢出版心 by Hongdong Ji
+- 9.1节第二段，一句话两个“和”字略显重复 by Hongdong Ji
+- 11.1.2节第二段，文字溢出版心 by Hongdong Ji
+- 141页最后一段，文字溢出版心 by Hongdong Ji
+- 例11.1代码中，“美若天仙”应为“貌似天仙” by Hongdong Ji
+- 例11.2和例11.3中，\hfil应为\hfill by Hongdong Ji
+- 144页第二段，5--10行应为4--9行 by Hongdong Ji
+
 2025-07-04 2.125
 - 2.2.3节最后一段，插图和表格目录的生成，文字略作调整 by Hongdong Ji
 - 2.3.1节第二段，文字溢出版心 by Hongdong Ji

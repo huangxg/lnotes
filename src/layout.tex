@@ -29,7 +29,7 @@ A 系列常用于公文；B 系列常用于海报和护照 (B7, 88mm x 125mm)；
 
 当今世界大多数国家都采用此项国际标准，冥顽不化的只有美国和它的几个小弟，在这些地方流行的是比 A4 胖一点的 Letter (8.5in x 11in) 。Letter 追溯上去应该源于大英帝国，只是英国在1950年代末就已经全面接受了公制标准。窃以为一小撮美洲人对英制情有独钟的原因是他们的历史短，所以但凡有把年纪的东西都颇为珍惜。
 
-IEEE\indexIEEE{}定义过一个Government-Letter (8in x 10.5in) ，主要用于儿童读物。想来儿童读的东西信息量少，不需要 Letter 那么大的纸。Herbert Hoover (1874--1964)\indexHoover{} \footnote{美国第31任总统，历任总统中罕见的工科 WSN。1895年斯坦福地质学士，自称是该校首名学生。在校期间曾担任棒球队经理，向前总统 Benjamin Harrison 追讨两毛五门票钱。} 在1920年代担任商务部长期间，规定政府公文也采用此规格。我今天量过《时代周刊》和《商业周刊》，也是这个规格。
+IEEE\indexIEEE{}定义过一个Government-Letter (8in x 10.5in) ，主要用于儿童读物。想来儿童读的东西信息量少，不需要 Letter 那么大的纸。Herbert\linebreak Hoover (1874--1964)\indexHoover{} \footnote{美国第31任总统，历任总统中罕见的工科 WSN。1895年斯坦福地质学士，自称是该校首名学生。在校期间曾担任棒球队经理，向前总统 Benjamin Harrison 追讨两毛五门票钱。} 在1920年代担任商务部长期间，规定政府公文也采用此规格。我今天量过《时代周刊》和《商业周刊》，也是这个规格。
 
 1980年代初Ronald Reagan (1911--2004)\indexReagon{} 上台后，认为美利坚乃天朝上国，用小纸太丢脸，于是政府公文改用 Letter。我对 Letter 没啥意见，在写本章之前用的就是它，现在改用 A4 是为了照顾中文读者的习惯。坑爹的是 Legal (8.5in x 14in) ，比普通文件夹都长一大截，它主要用于法律文件。
 
@@ -111,7 +111,7 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 
 \autoref{tab:pagestyle} 中的样式是通过重定义四个宏变量 \texttt{@oddhead}, \texttt{@evenhead}, \texttt{@oddfoot}, \texttt{@evenfoot} 来设置奇偶页的页眉与页脚。
 
-我们也可以用 \autoref{exa:def_pagestyle} 中的方法来自定义样式。其中第二行代码定义了 \texttt{permanentdamagedhead} 样式，定义这个特殊命令时一定要写成 \verb|\ps@style| 的样子；而在引用时，则写成 \verb|\pagestyle{style}|。第三至六行分别定义了奇偶页的页眉和页脚；单面文档奇偶页样式一样，所以需要且只需要定义奇数页的页眉和页脚，偶数页的定义不起作用。
+我们也可以用 \autoref{exa:def_pagestyle} 中的方法来自定义样式。其中第2行代码定义了 \texttt{permanentdamagedhead} 样式，定义这个特殊命令时，一定要写成 \verb|\ps@style| 的样子；而在引用时，则写成 \verb|\pagestyle{style}|。第3--6行分别定义了奇偶页的页眉和页脚；单面文档奇偶页样式一样，所以需要且只需要定义奇数页的页眉和页脚，偶数页的定义不起作用。
 
 \begin{example}[htbp]
 \LoadFBTDemo[]{texlet/layout-pagestyle}
@@ -150,14 +150,14 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 
 需要注意的是，引用时要用 \verb|\leftmark| 和 \verb|\rightmark|，定义时要用 \verb|\markboth| 和 \verb|\markright|。为什么会这样呢？因为 Lamport 是个怪叔叔。另外为什么没有 \verb|\markleft| 呢？其实这个命令在AMS的几个文档类里是有的。这个故事告诉我们：AMS 是左派进步青年，Lamport 是右倾分子，所以他后来脱离革命加入了微软。
 
-\autoref{exa:headings} 是 \texttt{book} 文档类中双面打印时 \texttt{headings} 样式定义的节选。其中第二行清空页脚；第三行定义偶数页（也就是左页）页眉，页码居左，左标记居右；第四行定义奇数页（右页）页眉，右标记居左，页码居右。这样页码总是在书的外侧，便于阅读时翻页定位。 
+\autoref{exa:headings} 是 \texttt{book} 文档类中双面打印时 \texttt{headings} 样式定义的节选。其中第2行清空页脚；第3行定义偶数页（也就是左页）页眉，页码居左，左标记居右；第4行定义奇数页（右页）页眉，右标记居左，页码居右。这样页码总是在书的外侧，便于阅读时翻页定位。 
 
 \begin{example}[htbp]
 \begin{Code}[]
 \def\ps@headings{%
   \let\@oddfoot\@empty\let\@evenfoot\@empty
-  \def\@evenhead{\thepage\hfil\slshape\leftmark}%
-  \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+  \def\@evenhead{\thepage\hfill\slshape\leftmark}%
+  \def\@oddhead{{\slshape\rightmark}\hfill\thepage}%
   ...
 \end{Code}
 \caption{\texttt{headings} 样式}
@@ -170,8 +170,8 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 \begin{Code}[]
 \def\ps@myheadings{%
   \let\@oddfoot\@empty\let\@evenfoot\@empty
-  \def\@evenhead{\thepage\hfil\slshape\leftmark}%
-  \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+  \def\@evenhead{\thepage\hfill\slshape\leftmark}%
+  \def\@oddhead{{\slshape\rightmark}\hfill\thepage}%
   \let\@mkboth\@gobbletwo
   \let\chaptermark\@gobble
   \let\sectionmark\@gobble
@@ -198,11 +198,11 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 \label{exa:fancyhdr}
 \end{example}
 
-在 \autoref{exa:fancyhdr} 的代码中，第三行将页面样式设置为 \texttt{fancyhdr} 宏包定义的 \texttt{fancy} 样式；第五至十行分别定制了页眉和页脚；最后两行定制了页眉下方和页脚上方的横线。
+在 \autoref{exa:fancyhdr} 的代码中，第3行将页面样式设置为 \texttt{fancyhdr} 宏包定义的 \texttt{fancy} 样式；第4--9行分别定制了页眉和页脚；最后两行定制了页眉下方和页脚上方的横线。
 
 左右标记里除了页码，通常还会有章节编号和名称等，这时我们就要用到另两个命令 \verb|\chaptermark| 和 \verb|\sectionmark|，其用法见 \autoref{exa:chaptermark}。
 
-在这段代码中，第三行清空了页眉和页脚；第四行将页码置于偶数页左上和奇数页右上，第五行将左标记置于偶数页右上，第六行将右标记置于奇数页左上。
+在这段代码中，第3行清空了页眉和页脚；第4行将页码置于偶数页左上和奇数页右上，第5行将左标记置于偶数页右上，第6行将右标记置于奇数页左上。
 
 \begin{example}[htbp]
 \LoadFBTDemo[]{texlet/layout-chaptermark}
@@ -211,7 +211,7 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 \label{exa:chaptermark}
 \end{example}
 
-\texttt{fancyhdr} 宏包将每章起始页的样式设为 \texttt{plain}，若想去掉页脚中间的页码，可以重定义 \texttt{plain} 样式。代码第七至十行清空了 \texttt{plain} 页的页眉和页脚，还去掉了页眉下方的横线。
+\texttt{fancyhdr} 宏包将每章起始页的样式设为 \texttt{plain}，若想去掉页脚中间的页码，可以重定义 \texttt{plain} 样式。代码第7--10行清空了 \texttt{plain} 页的页眉和页脚，还去掉了页眉下方的横线。
 
 第11行重定义了章标记，它传给 \verb|\markboth| 命令的参数是章的名称，这样章名就会出现在左标记里。章名最初是从哪里来的呢？它是用 \verb|\chapter{章名}| 命令定义的。章名从 \verb|\chapter{}| 传到 \verb|\chaptermark|，再传到 \verb|\markboth|，最后到了 \verb|\leftmark| 那里。它这样一路走来，不畏艰险，踏平坎坷，战胜妖魔，最终修成正果。
 
@@ -227,7 +227,7 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 
 Mittelbach\indexMittelbach 的 \texttt{multicol} 宏包提供了更多的功能，比如它支持多达十个栏位，栏位数目可以任意切换；各栏长度相同，最后一页看起来会左右平衡一些。
 
-\autoref{exa:cols} 中第二行代码将栏位之间的距离设为 12pt（缺省是 10pt），第三行将栏位之间的分割线宽度设为 1pt（缺省 0pt，也就是不显示）；下面几行使用了 \texttt{multicols} 环境，注意环境名和宏包名是不同的。
+\autoref{exa:cols} 中第2行代码将栏位之间的距离设为 12pt（缺省是 10pt），第3行将栏位之间的分割线宽度设为 1pt（缺省 0pt，也就是不显示）；下面几行使用了 \texttt{multicols} 环境，注意环境名和宏包名是不同的。
 
 \begin{example}[htbp]
 \LoadFBTDemo[]{texlet/layout-cols}

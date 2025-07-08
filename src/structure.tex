@@ -84,7 +84,7 @@ $\ddagger$Preston University, Los Angeles, CA}
 
 当章节或图表等结构发生变化时，我们需要执行两次编译命令以获得正确的目录。其中第一次编译生成一些中间文件，后缀分别为 \texttt{.toc} (目录), \texttt{.lof} (图目录), \texttt{.lot} (表目录) ；第二次编译则把这些中间文件和其他内容整合起来。\LaTeX 之所以设计成这样可能是因为当时的电脑内存容量有限。
 
-另外我们也可以利用 Axel Sommerfeldt\indexSommerfeldt 的 \texttt{caption} 宏包\citep{Sommerfeldt_caption}来自定义类似于插图和表格的浮动环境。本文中的例子浮动环境就是用 \autoref{exa:float} 中的方法生成的，第二行代码指定 \texttt{loe}为例目录中间文件后缀，\texttt{example} 为环境名，\texttt{例}为浮动环境标题前缀，\texttt{例目录}是目录的标题。定义该环境后，其使用方法与插图、表格浮动环境一样，见第3--5行。
+另外我们也可以利用 Axel Sommerfeldt\indexSommerfeldt 的 \texttt{caption} 宏包\citep{Sommerfeldt_caption}来自定义类似于插图和表格的浮动环境。本文中的例子浮动环境就是用 \autoref{exa:float} 中的方法生成的，第2行代码指定 \texttt{loe}为例目录中间文件后缀，\texttt{example} 为环境名，\texttt{例}为浮动环境标题前缀，\texttt{例目录}是目录的标题。定义该环境后，其使用方法与插图、表格浮动环境一样，见第3--5行。
 
 \noindent
 \verb|语法：\DeclareCaptionType[选项]{环境}[名称][目录名]|
@@ -108,7 +108,7 @@ $\ddagger$Preston University, Los Angeles, CA}
 在学术文档中人们经常要用到参考文献 (bibliography) ，这样做既可以有选择地提供事实，作客观公证科学严谨状，还可以拉帮结派党同伐异。
 
 \LaTeX 中最原始的方法是用 
-\texttt{thebibliography} 环境和 \verb|\bibitem| 命令来定义参考文献条目。在 \autoref{exa:thebibliography} 中，第一行的参数 \texttt{9} 是参考文献条目编号的宽度；如果有几十个条目，可以把该参数改为 \texttt{99}。
+\texttt{thebibliography} 环境和 \verb|\bibitem| 命令来定义参考文献条目。在 \autoref{exa:thebibliography} 中，第1行的参数 \texttt{9} 是参考文献条目编号的宽度；如果有几十个条目，可以把该参数改为 \texttt{99}。
 
 \begin{example}[htbp]
 \begin{BTDemo}[]
@@ -388,7 +388,7 @@ Rahtz\indexRahtz 和 Heiko Oberdiek\indexOberdiek{} \footnote{pdfTeX 开发者�
 
 \autoref{exa:structure_name} 列出了标准文档类中定义的结构名变量，其中 \verb|\bibname| 是 \texttt{book} 文档类的专有变量；\verb|\abstractname| 和 \verb|\refname| 是 \texttt{report} 和 \texttt{article} 文档类专有的；其他变量对这三种文档类都适用。
 
-如果我们想改变这些变量的值，比如中文文档需要中文结构名，可以用 \autoref{exa:structure_name} 中的方法来重定义这些结构名变量。例中第四、五行代码是为了顺应中文的习惯。
+如果我们想改变这些变量的值，比如中文文档需要中文结构名，可以用 \autoref{exa:structure_name} 中的方法来重定义这些结构名变量。例中第4, 5行代码是为了顺应中文的习惯。
 
 \begin{example}[htbp]
 \begin{Code}[]

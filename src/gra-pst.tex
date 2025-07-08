@@ -77,7 +77,7 @@ ps2pdf fig.eps fig.pdf
 \label{exa:preview}
 \end{example}
 
-使用 \texttt{dvips} 或 \texttt{xdvipdfmx} 时也可以考虑这种生成独立图形的方法，因为直接在 \LaTeX 源文件中使用绘图命令，编译时间会比较长。使用 \texttt{pst-pdf} 宏包时的编译命令较繁琐，用两个命令生成 EPS，第三个命令才得到 PDF。如果使用 \texttt{xdvipdfmx}，可以改用 \texttt{preview} 宏包 (见 \autoref{exa:preview}) ，这样直接生成 PDF，而且文件体积较小。每个 \texttt{preview} 环境中的内容也会自成一页。
+使用 \texttt{dvips} 或 \texttt{xdvipdfmx} 时也可以考虑这种生成独立图形的方法，因为直接在 \LaTeX 源文件中使用绘图命令，编译时间会比较长。使用 \texttt{pst\-pdf} 宏包时的编译命令较繁琐，用两个命令生成 EPS，第三个命令才得到 PDF。如果使用 \texttt{xdvipdfmx}，可以改用 \texttt{preview} 宏包 (见 \autoref{exa:preview}) ，这样直接生成 PDF，而且文件体积较小。每个 \texttt{preview} 环境中的内容也会自成一页。
 
 \section{基本图形对象}
 \subsection{点和直线}

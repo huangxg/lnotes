@@ -65,7 +65,7 @@ PGF 绘图命令的语法和 \MP 有点类似。在 \autoref{exa:pgf_line} 中�
 \label{exa:pgf_line}
 \end{example}
 
-操作都需要一个起始点参数，比如第一行代码第一个 \texttt{--} 操作的起始点是(0,0)；第二行 \texttt{cycle} 的起始点是(5,0)；第四行 \texttt{rectangle} 的起始点是(15,0)，也就是矩形的一个顶点，(19,2)是其对角顶点。
+操作都需要一个起始点参数，比如第1行代码第一个 \texttt{--} 操作的起始点是(0,0)；第2行 \texttt{cycle} 的起始点是(5,0)；第4行 \texttt{rectangle} 的起始点是(15,0)，也就是矩形的一个顶点，(19,2)是其对角顶点。
 
 \subsection{圆、椭圆、弧}
 
@@ -85,7 +85,7 @@ PGF 绘图命令的语法和 \MP 有点类似。在 \autoref{exa:pgf_line} 中�
 \vspace{-10pt}
 \subsection{曲线}
 
-我们把直线的 \texttt{--} 换成 \texttt{..}，就得到贝塞尔曲线，它需要至少一个控制点 (\autoref{exa:pgf_curve} 第一行) 。抛物线用 \texttt{parabola}，代码第六行的(5,1)是它的起始点，(7.414,2)是终止点，\texttt{bend (6,0)}指定了顶点。
+我们把直线的 \texttt{--} 换成 \texttt{..}，就得到贝塞尔曲线，它需要至少一个控制点 (\autoref{exa:pgf_curve} 第1行) 。抛物线用 \texttt{parabola}，代码第6行的(5,1)是它的起始点，(7.414,2)是终止点，\texttt{bend (6,0)}指定了顶点。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=6]{pgf.pdf}}
@@ -257,7 +257,7 @@ PGF 中的节点 (node) 可以是简单的标签，也可以有各种形状的�
 
 \subsection{流程图}
 
-除了上述属性，节点还可以有名字、位置等属性。在 \autoref{exa:pgf_transform} 中，我们先画了三个有名字和边框的节点，也就是文本框；然后用两跳箭头连线把文本框连接起来，注意连接时要引用文本框的名字；接着在连线上加了两个没有名字和边框的标签。
+除了上述属性，节点还可以有名字、位置等属性。在 \autoref{exa:pgf_flowchart} 中，我们先画了三个有名字和边框的节点，也就是文本框；然后用两跳箭头连线把文本框连接起来，注意连接时要引用文本框的名字；接着在连线上加了两个没有名字和边框的标签。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=15]{pgf.pdf}}
@@ -311,7 +311,7 @@ PGF 中的节点 (node) 可以是简单的标签，也可以有各种形状的�
 
 \subsection{预定义节点形状}
 
-PGF中节点的基本形状只有矩形和圆形，\texttt{shapes.geometric} 库预定义了其他一些形状，比如正多边形 (regular polygon), 等腰三角形 (isosceles triangle), 菱形 (diamond), 梯形 (trapezium), 半圆 (semicircle), 扇形 (circular sector), 星形 (star), 圆柱 (cylinder) 等形状。如要使用某库的功能，需要先引用它，其引用方法类似于宏包的引用，见 \autoref{exa:pgf_shape} 代码第一行。
+PGF中节点的基本形状只有矩形和圆形，\texttt{shapes.geometric} 库预定义了其他一些形状，比如正多边形 (regular polygon), 等腰三角形 (isosceles triangle), 菱形 (diamond), 梯形 (trapezium), 半圆 (semicircle), 扇形 (circular sector), 星形 (star), 圆柱 (cylinder) 等形状。如要使用某库的功能，需要先引用它，其引用方法类似于宏包的引用，见 \autoref{exa:pgf_shape} 代码第1行。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=18]{pgf.pdf}}
@@ -328,7 +328,7 @@ PGF中节点的基本形状只有矩形和圆形，\texttt{shapes.geometric} 库
 \label{exa:pgf_shape}
 \end{example}
 
-\autoref{exa:pgf_polygon} 中代码第一行指出每个节点都是正多边形，没有这个声明的话每个节点都要重复拼写 \texttt{regular polygon}。
+\autoref{exa:pgf_polygon} 中代码第1行指出每个节点都是正多边形，没有这个声明的话每个节点都要重复拼写 \texttt{regular polygon}。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=19]{pgf.pdf}}
@@ -371,7 +371,7 @@ PGF中节点的基本形状只有矩形和圆形，\texttt{shapes.geometric} 库
 
 PGF 有强大的数据绘图 (plot) 功能，支持多种绘图方法：直接给点，读取外部数据文件，函数绘图，调用 Gnuplot。其中函数绘图可以调用 PGF 数学引擎，进行基本算术和20多种函数的运算。
 
-\autoref{exa:pgf_plot} 是一个简单的指数函数，其中标注使用了 \LaTeX 数学公式，\texttt{domain} 选项用来设置值域。
+\autoref{exa:pgf_plot} 是一个简单的指数函数，其中标注使用了 \LaTeX 数学公式，\texttt{do\-main} 选项用来设置值域。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=21]{pgf.pdf}}

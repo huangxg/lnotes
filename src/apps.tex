@@ -292,7 +292,7 @@ Am having serious trouble with Tom. Need your help at once
 
 说完信瓤儿咱们再说说信封，Boris Veytsman\indexVeytsman{} \footnote{乌克兰敖德萨大学 (Odessa University) 理论物理1987年硕士，1990年博士。1992--2001在宾州州立从事科研教学工作，现任国际电话电报公司 (ITT Corporation) 主任工程师，兼任乔治梅森大学 (George Mason University) 客座教授。} 的 \texttt{envlab} 宏包 \citep{Veytsman_envlab} 可以配合 \texttt{letter} 文档类制作信封和标签。
 
-\autoref{exa:letter_env} 是美国常用的10号信封。此例代码引入文档类时使用了 12pt 的字号选项，因为一般信封上的字要大一点。第二行用 \texttt{envlab} 宏包的选项设置了信封尺寸，这样生成的 PDF 页面尺寸取决于用户 \TeX 发行包的缺省纸张设置或者文档类的纸张选项；信封内容倒是会出现在信封尺寸范围内，而且在页面上居中。如果打印机进纸槽上有专门的信封入口，打印本身是不成问题。为此我们在第三行又用 \texttt{geometry} 宏包设置了页面尺寸。
+\autoref{exa:letter_env} 是美国常用的10号信封。此例代码引入文档类时使用了 12pt 的字号选项，因为一般信封上的字要大一点。第2行用 \texttt{envlab} 宏包的选项设置了信封尺寸，这样生成的 PDF 页面尺寸取决于用户 \TeX 发行包的缺省纸张设置或者文档类的纸张选项；信封内容倒是会出现在信封尺寸范围内，而且在页面上居中。如果打印机进纸槽上有专门的信封入口，打印本身是不成问题。为此我们在第3行又用 \texttt{geometry} 宏包设置了页面尺寸。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{
@@ -536,7 +536,7 @@ Cassandra, HBase, MongoDB}
 \label{exa:go_bigpigmouth}
 \end{example}
 
-代码第二、三行用 \verb|\black| 和 \verb|\white| 命令排出大猪嘴的基本形状。第四行中的命令多了个显示手数的参数，这三步棋是一本道，下面白的应法有两种。\verb|\copytogoban| 命令用来保存分支前的形状。第六行是一个分支，其后的 \verb|\showgoban| 命令用来输出棋盘。\verb|\usegoban| 命令重用了之前保存的形状，第十行是另一个分支，最后一行输出另一个棋盘。
+代码第2, 3行用 \verb|\black| 和 \verb|\white| 命令排出大猪嘴的基本形状。第四行中的命令多了个显示手数的参数，这三步棋是一本道，下面白的应法有两种。\verb|\copytogoban| 命令用来保存分支前的形状。第6行是一个分支，其后的 \verb|\showgoban| 命令用来输出棋盘。\verb|\usegoban| 命令重用了之前保存的形状，第10行是另一个分支，最后一行输出另一个棋盘。
 
 该宏包还有设置棋盘路数，棋子和字体尺寸，打印特殊符号等其他功能，感兴趣的读者可以自行查阅其手册。
 

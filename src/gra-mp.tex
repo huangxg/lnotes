@@ -138,7 +138,7 @@ endfig;
 \label{exa:mp_curve}
 \end{example}
 
-\MP 的曲线用三次贝塞尔算法实现，我们还可以在曲线上使用方向 (direction) 、张力 (tension) 和曲率 (curl) 等控制。\autoref{exa:mp_curve} 中左列三图未加任何控制 (代码第四、七、十行) ，下排后两图使用了方向控制 (代码第五、六行) ，中排后两图使用了张力 (代码第八、九行) ，上排后两图使用了曲率 (代码第11、12行) 。
+\MP 的曲线用三次贝塞尔算法实现，我们还可以在曲线上使用方向 (direction) 、张力 (tension) 和曲率 (curl) 等控制。\autoref{exa:mp_curve} 中左列三图未加任何控制 (代码第4, 7, 10行) ，下排后两图使用了方向控制 (代码第5, 6行) ，中排后两图使用了张力 (代码第8, 9行) ，上排后两图使用了曲率 (代码第11、12行) 。
 
 \section{图形控制}
 \subsection{线型}
@@ -204,7 +204,7 @@ endfig;
 \label{exa:mp_color}
 \end{example}
 
-封闭路径可以用 \texttt{fill} 命令来填充。\autoref{exa:mp_fill} 中第三、四行代码定义了一个 \texttt{path} 变量，以便后面重用。另一个命令 \texttt{filldraw} 可以看作是 \texttt{fill+draw}，它除了填充外还会把路径用指定的画笔画一遍。然而不幸的是画边缘和填充内部只能用同一种颜色，所以它的用处不大。
+封闭路径包围的部分可以用 \texttt{fill} 命令来填充。\autoref{exa:mp_fill} 中第3, 4行代码定义了一个 \texttt{path} 变量，以便后面重用。另一个命令 \texttt{filldraw} 可以看作是 \texttt{fill+draw}，它除了填充外还会把路径用指定的画笔画一遍。然而不幸的是画边缘和填充内部只能用同一种颜色，所以它的用处不大。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{fill.mps}}
@@ -249,6 +249,7 @@ draw p scaled u reflectedabout ((0,0),(2u,0))
 draw p xscaled 2u yscaled u shifted (16u,0);
 endfig;
 \end{FBTDemo}
+\vspace{1em}
 \caption{\MP 图形变换}
 \label{exa:mp_transform}
 \end{example}
@@ -269,7 +270,7 @@ endfig;
 \end{tabular}
 \end{table}
 
-我们也可以用一对 \texttt{btex} 和 \texttt{etex} 来嵌入一些 \TeX 内容，比如数学标注 (\autoref{exa:mp_label} 代码第14、18、19行) 。\texttt{mpost} 会把 \TeX 内容存到一个临时文件，调用 \texttt{tex} 编译它生成 DVI； \texttt{mpost} 把 DVI 转换为\MP 内容存到一个 \texttt{.mpx} 文件中，然后再把它嵌入输出的 MPS。
+我们也可以用一对 \texttt{btex} 和 \texttt{etex} 来嵌入一些 \TeX 内容，比如数学标注 (\autoref{exa:mp_label} 代码第14, 18, 19行) 。\texttt{mpost} 会把 \TeX 内容存到一个临时文件，调用 \texttt{tex} 编译它生成 DVI； \texttt{mpost} 把 DVI 转换为\MP 内容存到一个 \texttt{.mpx} 文件中，然后再把它嵌入输出的 MPS。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{label.mps}}
@@ -294,13 +295,14 @@ label.bot (btex $x$ etex, (22u,0));
 label.lft (btex $y$ etex, (16u,4u));
 endfig;
 \end{FBTDemo}
+\vspace{1em}
 \caption{\MP 标注}
 \label{exa:mp_label}
 \end{example}
 
 \MP 中也可以嵌入复杂的 \LaTeX 代码，比如字体和语言等的设置。这时需要在源文件头尾加两对 \texttt{verbatimtex} 和 \texttt{etex} 命令，分别包含前置和后置处理代码，原图形代码放在这两对命令之间。可惜\MP 不支持嵌入 \XeLaTeX 代码，所以其文字标注不能使用后者的字体功能。
 
-MPS缺省不嵌入字体，当它包含文字时，GSview 就不能正常查看；但是把这种MPS插入文档生成的PDF还是正常的，因为驱动会自行处理字体。我们可以强制 MPS 嵌入字体，一种方法是在源文件头部加一行语句 (\autoref{exa:mp_label} 代码第一行) ，另一种方法是在编译时加一个参数，
+MPS缺省不嵌入字体，当它包含文字时，GSview 就不能正常查看；但是把这种MPS插入文档生成的PDF还是正常的，因为驱动会自行处理字体。我们可以强制 MPS 嵌入字体，一种方法是在源文件头部加一行语句 (\autoref{exa:mp_label} 代码第1行) ，另一种方法是在编译时加一个参数，
 
 \begin{Code}[]
 mpost \prologues:=3; input fig.mp
