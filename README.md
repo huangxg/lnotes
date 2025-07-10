@@ -1,4 +1,4 @@
-# LaTeX Notes v2.136
+# LaTeX Notes v2.146
 雷太赫排版系统简介 An introduction to TeX/LaTeX typesetting system
 
 ## 内容纲要 topics

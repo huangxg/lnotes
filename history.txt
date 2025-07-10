@@ -1,3 +1,15 @@
+2025-07-09 2.146
+- 第8页引擎小节，更新TeX版本 by Hongdong Ji
+- 160页第二段，mlabel应为\label by Hongdong Ji
+- 165页第一段，添加个“中”字 by Hongdong Ji
+- B.1节第一段，多了个“和”字 by Hongdong Ji
+- 174页第一段，movable拼写错误 by Hongdong Ji
+- 174页脚注1，大英博物馆应为大英图书馆 by Hongdong Ji
+- 176页脚注，“驼”应为“驮” by Hongdong Ji
+- B.3节列表第三项，行首顿号 by Hongdong Ji
+- B.3.4节第一段，热敏印刷技术出现于1930年代 by Hongdong Ji
+- B.4节第二段，漏了一个“年”字 by Hongdong Ji
+
 2025-07-07 2.136
 - 6.2.3节最后一段，代码行号中文和阿拉伯数字混用 by Hongdong Ji
 - 6.3.3节第三段，封闭路径填充部分文字略作调整 by Hongdong Ji
