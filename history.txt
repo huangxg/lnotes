@@ -1,3 +1,12 @@
+2025-07-20 2.153
+- 第5页脚注10，增加 Weinberger 的出生年份 by Hongdong Ji
+- 23页第二段，多了“可以”两字 by Hongdong Ji
+- 5.2.1节第一段，“出现的”应为“出现得” by Hongdong Ji
+- 68页例5.3的说明，文字略作调整 by Hongdong Ji
+- 70页第二段，多了个“就”字 by Hongdong Ji
+- 70页第二段，代码行号错误 by Hongdong Ji
+- 5.3.1节第三段，文字溢出 by Hongdong Ji
+
 2025-07-09 2.146
 - 第8页引擎小节，更新TeX版本 by Hongdong Ji
 - 160页第二段，mlabel应为\label by Hongdong Ji

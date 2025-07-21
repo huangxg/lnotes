@@ -235,7 +235,7 @@ ps2pdf -dEPSCrop fig.eps fig.pdf
 
 \subsection{范围框}
 
-由于历史原因，\texttt{latex} 编译程序不能提取 JPEG, PNG 等点阵图形的尺寸信息，所以它在处理这些图形文件时需要范围框 (bounding box) 。\texttt{pdflatex} 和 \texttt{xelatex} 的用户可以跳过本小节，因为它们出现的比较晚，有机会了解这些图形格式。
+由于历史原因，\texttt{latex} 编译程序不能提取 JPEG, PNG 等点阵图形的尺寸信息，所以它在处理这些图形文件时需要范围框 (bounding box) 。\texttt{pdflatex} 和 \texttt{xelatex} 的用户可以跳过本小节，因为它们出现得比较晚，有机会了解这些图形格式。
 
 上文提到尺寸对矢量图形而言意义不大，然而EPS是一种嵌入图形格式，有个缺省尺寸还是比较方便，这就是它的范围框。因为 EPS 最先被 \LaTeX 支持，范围框的概念就被沿用了下来。
 
@@ -307,7 +307,7 @@ ebb fig.png
   \item \XeTeX 目前不支持裁剪，用户只好自己先行处理。
 \end{itemize}
   
-插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅因为同时使用了宽度和高度选项而产生了变形。
+插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅因为同时使用了宽度和高度选项，纵横比发生变化。
 
 插图的旋转操作见 \autoref{exa:graph_rotate}，其中前三幅图的旋转中心在左下角，后三幅的在图中心。
 
@@ -345,7 +345,7 @@ ebb fig.png
 
 插图通常需要占据大块空间，所以在文字处理软件中用户经常需要调整插图的位置。\texttt{figure} 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动环境 (float) ，下一章里还会介绍表格浮动环境。
 
-在 \autoref{exa:figure} 中，\texttt{htbp} 选项用来指定插图的理想位置，这几个字母分别代表 here, top, bottom, float page，也就是就这里、页顶、页尾、浮动页 (专门放浮动环境的单独页面) 。
+在 \autoref{exa:figure} 中，\texttt{htbp} 选项用来指定插图的理想位置，这几个字母分别代表 here, top, bottom, float page，也就是这里、页顶、页尾、浮动页 (专门放浮动环境的单独页面) 。
 
 \begin{example}[h]
 \begin{Code}[numbers=left]
@@ -379,7 +379,7 @@ ebb fig.png
 
 如果想要两幅并排的插图各有自己的标题，可以在 \texttt{figure} 环境中使用两个 \texttt{minipage} 环境，每个里面插入一幅图 (见 \autoref{exa:fig_titles}) 。不用 \texttt{minipage} 的话，因为插图标题的缺省宽度是整个行宽；两幅插图就会上下排列。
 
-\verb|\caption| 命令会把环绕它的 \texttt{minipage} 环境“变成” \texttt{figure} 环境。代码第2, 4, 11行有三个 \verb|\centering| 命令，第一个使得两个 \texttt{minipage} 整体居中，后两个分别使得 \texttt{minipage} 中的内容居中。第14行的 \verb|\hspace| 命令用来调整两个 \texttt{minipage} 之间的距离。
+\verb|\caption| 命令会把环绕它的 \texttt{minipage} 环境“变成” \texttt{figure} 环境。代码第2, 4, 10行有三个 \verb|\centering| 命令，第一个使得两个 \texttt{minipage} 整体居中，后两个分别使得 \texttt{minipage} 中的内容居中。第8行的 \verb|\hspace| 命令用来调整两个 \texttt{minipage} 之间的距离。
 
 \LoadCode[numbers=left]{texlet/fig-titles-esc}
 
@@ -435,7 +435,7 @@ RGB 模型认为色彩世界原本是无任何光线的黑色，如果把红、�
 \end{minipage}
 \end{figure}
 
-在24位真彩模型中，三原色各使用一个8位，取值从0到255。比如红、绿、蓝、黑、白分别为：(255,0,0), (0,255,0), (0,0,255), (0,0,0), (255,255,255) 。如果使用 HTML 中常用的16进制表示，就是FF0000, 00FF00, 0000FF, 000000, FFFFFF。
+在24位真彩模型中，三原色各使用一个8位，取值从0到255。比如红、绿、蓝、黑、白分别为：(255,0,0), (0,255,0), (0,0,255), (0,0,0), (255,\allowbreak255,\allowbreak255) 。如果使用 HTML 中常用的16进制表示，就是FF0000, 00FF00, 0000FF, 000000, FFFFFF。
 
 RGB 模型用的是笛卡尔坐标，色彩的变化对人眼来说不够连续，人们就提出把它的坐标系改为圆柱坐标，这就是 HSL 和 HSV 模型。基于这种模型，人们可以用色轮选色（\autoref{fig:colorwheel}），并美其名曰色轮常转。
 
