@@ -29,24 +29,29 @@ mtex.cmd    视窗命令行脚本，编译部分或整个项目
     2) MikTeX -> Maintainence -> Settings -> General -> Refresh FNDB 或在命令行下执行 initexmf --update-fndb.
 
 3. 编译方法
+    新增的 mktex.cmd 取代了 mtex.cmd. 前者基于跨平台编译工具 latexmk, 后者基于MikTeX独有的 texify. 目前 mtex.cmd 还可以使用，但是主文件 lnote2.tex 中的这一行需要调整
+
+        \graphicspath{{../graph/}{../img/}} % mktex.cmd
+        \graphicspath{{graph/}{img/}}       % mtex.cmd
+
 3.1 编译
     编译全部
-        mtex -build all
+        mktex -build all
 
     编译图形
-        mtex -build graph
+        mktex -build graph
 
     编译主文档
-        mtex -build main
+        mktex -build main
 
     删除全部临时文件
-        mtex -clean all
+        mktex -clean all
     
     删除图形临时文件
-        mtex -clean graph
+        mktex -clean graph
     
     删除主文档临时文件
-        mtex -clean main                
+        mktex -clean main                
 
 3.2 排错
     编译时可能会遇到下面的错误信息。

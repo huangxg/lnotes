@@ -37,7 +37,8 @@
 \usepackage[svgnames, table]{xcolor}% put before pstricks, textpos, tikz
 
 \DeclareGraphicsRule{.mps}{eps}{.mps}{}
-\graphicspath{{graph/}{img/}}
+% \graphicspath{{graph/}{img/}} mtex.cm works in project root, while the new mktex.cmd works in /src.
+\graphicspath{{../graph/}{../img/}}
 
 % **************************************
 % Table

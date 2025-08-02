@@ -1,3 +1,6 @@
+2025-02-02
+- 增加编译脚本 mktex.cmd, 它基于跨平台的编译工具 latexmk. lnotes2.pdf 本身内容没有变化，所以版本号不变
+
 2025-07-20 2.153
 - 第5页脚注10，增加 Weinberger 的出生年份 by Hongdong Ji
 - 23页第二段，多了“可以”两字 by Hongdong Ji
