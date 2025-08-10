@@ -22,7 +22,6 @@ mtex.cmd    视窗命令行脚本，编译部分或整个项目
 2.2 字体
     源码中不包含字体，读者请自行准备，酌情修改 src/lang.tex 文件中字体配置。
     
-
 2.3 Simpsons Package https://ctan.org/tex-archive/usergrps/uktug/baskervi/4_4/
     最新版 MikTeX 能够自动下载该宏包；或者也可用以下方法，
     1) 下载 simpsons.sty，放到 MIKTEX-ROOT/tex/latex/simpsons目录.

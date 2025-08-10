@@ -13,7 +13,8 @@ if "%1" == "-build" goto BUILD
 
 :USAGE
 echo.
-echo TeX Manager (mktex)
+echo TeX Maker 0.1 (2025-08-02) by Alpha Huang
+echo Manage workflow of LaTeX Notes 2.
 echo.
 echo Usage: mktex [ACTION] [TARGET]
 echo.

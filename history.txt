@@ -1,4 +1,13 @@
-2025-02-02
+2025-08-09 2.161
+- 80页第三段，多了一个“在”字 by Hongdong Ji
+- 82页第一段，多了一个“把”字 by Hongdong Ji
+- 8.5.2节第一段，“两跳”应为“两条” by Hongdong Ji
+- 12.4节第二段，“第四行”改为“第4行” by Hongdong Ji
+- 原版跋第三段，“华山”改为“华山派”，“望其颈背”应为“望其项背” by Hongdong Ji
+- 插图和布局两章中，“数字 x 数字”改为“数字 × 数字” by Hongdong Ji
+- 例9.2, 9.3, 9.4, 源码中的TexMakerX应为TeXnicCenter by Hongdong Ji
+
+2025-08-02
 - 增加编译脚本 mktex.cmd, 它基于跨平台的编译工具 latexmk. lnotes2.pdf 本身内容没有变化，所以版本号不变
 
 2025-07-20 2.153
@@ -7,7 +16,7 @@
 - 5.2.1节第一段，“出现的”应为“出现得” by Hongdong Ji
 - 68页例5.3的说明，文字略作调整 by Hongdong Ji
 - 70页第二段，多了个“就”字 by Hongdong Ji
-- 70页第二段，代码行号错误 by Hongdong Ji
+- 71页第二段，代码行号错误 by Hongdong Ji
 - 5.3.1节第三段，文字溢出 by Hongdong Ji
 
 2025-07-09 2.146

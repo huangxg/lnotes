@@ -38,7 +38,7 @@ mpost fig(.mp)
 
 编译后会得到“fig.1, fig.2, $\cdots$”等文件，每个文件的后缀就是相应的图形起始声明中的编号。此编号在一个源文件中应保持唯一，否则后生成的文件就会覆盖前面的。
 
-数字文件名后缀不便于管理，\MP 为此提供了一个变量来设置输出文件名。我们可以把下面代码加到源文件头部，编译输出的文件名就会是“fig-01.mps, fig-02.mps, $\cdots$”；或者在在每个图形前面声明各自的名字。
+数字文件名后缀不便于管理，\MP 为此提供了一个变量来设置输出文件名。我们可以把下面代码加到源文件头部，编译输出的文件名就会是“fig-01.mps, fig-02.mps, $\cdots$”；或者在每个图形前面声明各自的名字。
 
 \begin{Code}[]
 outputtemplate "%j-%2c.mps";   %`加在源文件头部`
@@ -94,11 +94,12 @@ draw unitsquare scaled 2u shifted (12u,-u);
 draw unitsquare xscaled 4u yscaled 2u shifted (15u,-u);
 endfig;
 \end{FBTDemo}
+\vspace{1em}
 \caption{\MP 预定义形状}
 \label{exa:mp_predefined}
 \end{example}
 
-\texttt{fullcircle} 命令以原点为圆心画一个单位圆，类似的预定义形状还有 \texttt{halfcircle, quartercircle, unitsquare} 等。注意单位正方形的参考点在左下而不在其中心。在 \autoref{exa:mp_predefined} 中，我们使用了不同方向的缩放系数 \texttt{xscaled} 和 \texttt{yscaled}，把把圆形和正方形变为椭圆和长方形。
+\texttt{fullcircle} 命令以原点为圆心画一个单位圆，类似的预定义形状还有 \texttt{halfcircle, quartercircle, unitsquare} 等。注意单位正方形的参考点在左下而不在其中心。在 \autoref{exa:mp_predefined} 中，我们使用了不同方向的缩放系数 \texttt{xscaled} 和 \texttt{yscaled}，把圆形和正方形变为椭圆和长方形。
 
 \subsection{曲线}
 

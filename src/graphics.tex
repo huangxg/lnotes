@@ -53,7 +53,7 @@ A picture says more than a thousand words.
 
 点阵图形的像素是一种相对尺寸，其实际尺寸等于像素除以分辨率 (resolution) ，最常用的分辨率单位是像素/英寸 (pixels per inch，PPI) 。在古时候PPI也常和点/英寸 (dots per inch, DPI) 混用；现在人们倾向于认为 PPI 是图形的分辨率单位，而 DPI 是硬件设备 (比如显示器或打印机) 输出的分辨率单位。通常横向和纵向分辨率相同，可以写成一个数字。
 
-比如有一幅100 x 150像素的点阵图形 (\autoref{fig:default_size}) ，其分辨率为100 PPI。在输出时，它的缺省尺寸就是 1in x 1.5in。如果我们将它强制输出为 2in x 3in (\autoref{fig:force_size}) ，那么其实际分辨率就降为 50 PPI。
+比如有一幅100 x 150像素的点阵图形 (\autoref{fig:default_size}) ，其分辨率为100 PPI。在输出时，它的缺省尺寸就是 1in × 1.5in。如果我们将它强制输出为 2in × 3in (\autoref{fig:force_size}) ，那么其实际分辨率就降为 50 PPI。
 
 \begin{figure}[htbp]
 \centering
@@ -85,13 +85,13 @@ A picture says more than a thousand words.
 点阵图形尺寸相关的基本编辑操作有以下几种：裁剪 (crop) 、改尺寸 (resize) 、改分辨率。
 
 \begin{enumerate}
-\item 裁剪时像素自然会变少，分辨率不变，缺省输出尺寸也就变小。\autoref{fig:default_size} 其实就是从一幅 2048 x 1536 像素的大图裁剪、缩小而来，因为原图太大，\autoref{fig:original} 把它强制输出为 4in x 3in。
+\item 裁剪时像素自然会变少，分辨率不变，缺省输出尺寸也就变小。\autoref{fig:default_size} 其实就是从一幅 2048 x 1536 像素的大图裁剪、缩小而来，因为原图太大，\autoref{fig:original} 把它强制输出为 4in × 3in。
 
-\item 改尺寸时像素改变，分辨率不变，缺省输出尺寸相应改变，这个过程需要重新采样。比如把 \autoref{fig:default_size} resize 到 200 x 300 像素，分辨率还是 100 PPI，那么缺省输出尺寸就变成 2in x 3in (\autoref{fig:resize}) 。
+\item 改尺寸时像素改变，分辨率不变，缺省输出尺寸相应改变，这个过程需要重新采样。比如把 \autoref{fig:default_size} resize 到 200 x 300 像素，分辨率还是 100 PPI，那么缺省输出尺寸就变成 2in × 3in (\autoref{fig:resize}) 。
 
-\item 单纯更改图形文件分辨率时，像素不变，缺省输出尺寸相应改变。把 \autoref{fig:default_size} 分辨率设为 200 PPI，像素还是 100 x 150，那么缺省输出尺寸就变成 0.5in x 0.75in (\autoref{fig:density}) 。
+\item 单纯更改图形文件分辨率时，像素不变，缺省输出尺寸相应改变。把 \autoref{fig:default_size} 分辨率设为 200 PPI，像素还是 100 x 150，那么缺省输出尺寸就变成 0.5in × 0.75in (\autoref{fig:density}) 。
 
-\item 改尺寸和改分辨率可以结合使用。把 \autoref{fig:default_size} 的尺寸改为 200 x 300 像素，分辨率改为 200 PPI，缺省输出尺寸就还是 1in x 1.5in (\autoref{fig:resample}) 。
+\item 改尺寸和改分辨率可以结合使用。把 \autoref{fig:default_size} 的尺寸改为 200 x 300 像素，分辨率改为 200 PPI，缺省输出尺寸就还是 1in × 1.5in (\autoref{fig:resample}) 。
 \end{enumerate}
 
 \begin{figure}[htbp]
