@@ -1,3 +1,12 @@
+2025-08-17 2.168
+- 第8页关于TAOCP的脚注，4B已经出版 by Hongdong Ji
+- 第8页倒数第二段，“主导地方”应为“主导地位” by Hongdong Ji
+- 2.2.1节第一段，“用于多行内容”前加“一般”两字 by Hongdong Ji
+- 2.2.2节第一段，“第七章”应为“第十章” by Hongdong Ji
+- 28页脚注7, “第六章表格”应为“第九章” by Hongdong Ji
+- 2.9节第二段，多了一个“后”字 by Hongdong Ji
+- 42页第五段，文字溢出版心 by Hongdong Ji
+
 2025-08-09 2.161
 - 80页第三段，多了一个“在”字 by Hongdong Ji
 - 82页第一段，多了一个“把”字 by Hongdong Ji
@@ -134,7 +143,7 @@
 - 更新软件列表
 - 代码缩进改为两个空格
 - 一些顿号换为英文逗号
-- 采用 git by 李峰
+- 采用 git by Felix Lee
 - 2.5.2节和附录B, identfirst -> indentfirst by Wang Chenlin
 - 5.3.1节 CMYK 四分色模型的描述 by Naitree Zhu
 - 加入友人评论、序言。

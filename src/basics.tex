@@ -45,14 +45,14 @@ Transcript written on hello_world.log.
 \subsection{语法}
 
 \LaTeX 源文件的语句可以分为三种：命令 (command) 、数据和注释 (comment) 。
-命令又分为普通命令和环境 (environment) 。普通命令以 \verb|\| 起始，大多只有一行；而环境包含一对起始声明和结尾声明，用于多行内容的场合。命令和环境可以互相嵌套。数据就是普通内容。注释语句以 \verb|%| 起始，它在编译过程中被忽略。
+命令又分为普通命令和环境 (environment) 。普通命令以 \verb|\| 起始，大多只有一行；而环境包含一对起始声明和结尾声明，一般用于多行内容的场合。命令和环境可以互相嵌套。数据就是普通内容。注释语句以 \verb|%| 起始，它在编译过程中被忽略。
 
 比如在 \autoref{exa:helloworld} 中，第1行是注释，第2行是普通命令；第
 3, 5行是环境的起始和结尾声明；第4行是数据。
 
 \subsection{物理结构}
 
-\LaTeX 文档的结构可以分为物理结构和逻辑结构。前者指的是源文件的组织形式，包括序言 (preamble) 和正文两部分；后者则是最终输出文档的结构，包括标题、目录、章节等。这里只简要介绍一些基本概念，在第七章还会展开详谈。
+\LaTeX 文档的结构可以分为物理结构和逻辑结构。前者指的是源文件的组织形式，包括序言 (preamble) 和正文两部分；后者则是最终输出文档的结构，包括标题、目录、章节等。这里只简要介绍一些基本概念，在第十章还会展开详谈。
 
 序言用来完成一些设置，比如指定文档类型，引入宏包，定义命令、环境等；文档的实际内容则放在正文部分。它们的基本用法如下：
 
@@ -453,7 +453,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 
 边注可以使用 \verb|\marginpar| 命令。单面排版时，边注缺省排在页面右边空白处；双面排版时，边注在外侧，也就是左页的左边或右页的右边；双栏页面的边注排在最近的页边。如要切换边注的方向，可以使用 \verb|\reversemarginpar| 和 \verb|\normalmarginpar| 命令。
 
-\verb|\marginpar| 命令使用浮动体 (float) \footnote{浮动体详见第五章插图和第六章表格。} 来生成边注，所以不能在其他浮动体或脚注内嵌套。 \texttt{marginnote} 宏包的 \verb|\marginnote| 命令不使用浮动体，因而没有这个缺陷。
+\verb|\marginpar| 命令使用浮动体 (float) \footnote{浮动体详见第五章插图和第九章表格。} 来生成边注，所以不能在其他浮动体或脚注内嵌套。 \texttt{marginnote} 宏包的 \verb|\marginnote| 命令不使用浮动体，因而没有这个缺陷。
 
 \begin{example}[h]
 \marginnote{正常边注}
@@ -636,7 +636,7 @@ Timothy van Zandt\indexVanZandt{} \footnote{宾州大学经济系1985年学士�
 \label{exa:ref}
 \end{example}
 
-文档中新增标签后后，第一次编译时会得到类似下面的警告信息。因为第一次编译只会扫描出有标签的地方，第二次编译才能得到正确结果。
+文档中新增标签后，第一次编译时会得到类似下面的警告信息。因为第一次编译只会扫描出有标签的地方，第二次编译才能得到正确结果。
 
 \begin{Code}[]
 LaTeX Warning: There were undefined references.
