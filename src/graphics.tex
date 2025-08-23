@@ -53,7 +53,7 @@ A picture says more than a thousand words.
 
 点阵图形的像素是一种相对尺寸，其实际尺寸等于像素除以分辨率 (resolution) ，最常用的分辨率单位是像素/英寸 (pixels per inch，PPI) 。在古时候PPI也常和点/英寸 (dots per inch, DPI) 混用；现在人们倾向于认为 PPI 是图形的分辨率单位，而 DPI 是硬件设备 (比如显示器或打印机) 输出的分辨率单位。通常横向和纵向分辨率相同，可以写成一个数字。
 
-比如有一幅100 x 150像素的点阵图形 (\autoref{fig:default_size}) ，其分辨率为100 PPI。在输出时，它的缺省尺寸就是 1in × 1.5in。如果我们将它强制输出为 2in × 3in (\autoref{fig:force_size}) ，那么其实际分辨率就降为 50 PPI。
+比如有一幅100 × 150像素的点阵图形 (\autoref{fig:default_size}) ，其分辨率为100 PPI。在输出时，它的缺省尺寸就是 1in × 1.5in。如果我们将它强制输出为 2in × 3in (\autoref{fig:force_size}) ，那么其实际分辨率就降为 50 PPI。
 
 \begin{figure}[htbp]
 \centering
@@ -87,11 +87,11 @@ A picture says more than a thousand words.
 \begin{enumerate}
 \item 裁剪时像素自然会变少，分辨率不变，缺省输出尺寸也就变小。\autoref{fig:default_size} 其实就是从一幅 2048 x 1536 像素的大图裁剪、缩小而来，因为原图太大，\autoref{fig:original} 把它强制输出为 4in × 3in。
 
-\item 改尺寸时像素改变，分辨率不变，缺省输出尺寸相应改变，这个过程需要重新采样。比如把 \autoref{fig:default_size} resize 到 200 x 300 像素，分辨率还是 100 PPI，那么缺省输出尺寸就变成 2in × 3in (\autoref{fig:resize}) 。
+\item 改尺寸时像素改变，分辨率不变，缺省输出尺寸相应改变，这个过程需要重新采样。比如把 \autoref{fig:default_size} resize 到 200 × 300 像素，分辨率还是 100 PPI，那么缺省输出尺寸就变成 2in × 3in (\autoref{fig:resize}) 。
 
-\item 单纯更改图形文件分辨率时，像素不变，缺省输出尺寸相应改变。把 \autoref{fig:default_size} 分辨率设为 200 PPI，像素还是 100 x 150，那么缺省输出尺寸就变成 0.5in × 0.75in (\autoref{fig:density}) 。
+\item 单纯更改图形文件分辨率时，像素不变，缺省输出尺寸相应改变。把 \autoref{fig:default_size} 分辨率设为 200 PPI，像素还是 100 × 150，那么缺省输出尺寸就变成 0.5in × 0.75in (\autoref{fig:density}) 。
 
-\item 改尺寸和改分辨率可以结合使用。把 \autoref{fig:default_size} 的尺寸改为 200 x 300 像素，分辨率改为 200 PPI，缺省输出尺寸就还是 1in × 1.5in (\autoref{fig:resample}) 。
+\item 改尺寸和改分辨率可以结合使用。把 \autoref{fig:default_size} 的尺寸改为 200 × 300 像素，分辨率改为 200 PPI，缺省输出尺寸就还是 1in × 1.5in (\autoref{fig:resample}) 。
 \end{enumerate}
 
 \begin{figure}[htbp]
@@ -169,7 +169,7 @@ convert fig.bmp fig.png
 
 Windows 有个用来转换分区格式的同名程序。所以我们在 Windows 下使用 ImageMagick 时，需要写全路径，或者在 \texttt{PATH} 环境变量里把 ImageMagick 的路径放到 \texttt{system32} 前面。
 
-图形尺寸相关操作命令如 \autoref{exa:im_size} 所示。第1行命令裁剪并且转换格式，截取从 (10,10) 开始 300 x 200 像素的图像，原点在左上；第2行裁剪并缩放；第3行缩放到 300 x 200 像素范围内，保持长宽比；第4行强制缩放到给定尺寸，不考虑长宽比；第5行把分辨率改为 300 PPI；第6行把分辨率改为 300 PPI，像素增加，缺省输出尺寸维持不变。
+图形尺寸相关操作命令如 \autoref{exa:im_size} 所示。第1行命令裁剪并且转换格式，截取从 (10,10) 开始 300 × 200 像素的图像，原点在左上；第2行裁剪并缩放；第3行缩放到 300 × 200 像素范围内，保持长宽比；第4行强制缩放到给定尺寸，不考虑长宽比；第5行把分辨率改为 300 PPI；第6行把分辨率改为 300 PPI，像素增加，缺省输出尺寸维持不变。
 
 \begin{example}[h]
 \begin{Code}[numbers=left]
@@ -264,7 +264,7 @@ ebb fig.png
 
 \subsection{基本命令}
 
-上文提到 Knuth 留下了后门 \verb|\special|，但是直接用它来插入图形不够含蓄优雅，于是 \LaTeX{} v2.09 推出了\texttt{epsf} 和 \texttt{psfig} 宏包。之后 David P. Carlisle (1961--)\indexCarlisle{} \footnote{1985年曼彻斯特大学数学博士，剑桥博士后，1998年加入数字算法公司 (Numerical Algorithms Group) 。} 和 Sebastian P. Rahtz\indexRahtz{} \footnote{1970年代牛津大学希腊语学士，考古学硕士。1980年代南安普敦大学人类学讲师，后跳到 CERN、爱思维尔出版公司 (Elsevier) ，现任牛津大学信息主管。TUG 和 CTAN 的重要成员。} 推出了面向 \LaTeXe 的 \texttt{graphics} 和 \texttt{graphicx} 宏包；后者基于前者，语法更简单，功能更强大，所以一般推荐用它。
+上文提到 Knuth 留下了后门 \verb|\special|，但是直接用它来插入图形不够含蓄优雅，于是 \LaTeX{} v2.09 推出了\texttt{epsf} 和 \texttt{psfig} 宏包。之后 David P. Carlisle (1961--)\indexCarlisle{} \footnote{1985年曼彻斯特大学数学博士，剑桥博士后，1998年加入数字算法公司 (Numerical Algorithms Group) 。} 和 Sebastian P. Rahtz (1955--2016)\indexRahtz{} \footnote{1970年代牛津大学希腊语学士，考古学硕士。1980年代南安普敦大学人类学讲师，后跳到 CERN、爱思维尔出版公司 (Elsevier) ，曾任牛津大学信息主管。TUG 和 CTAN 的重要成员。} 推出了面向 \LaTeXe 的 \texttt{graphics} 和 \texttt{graphicx} 宏包；后者基于前者，语法更简单，功能更强大，所以一般推荐用它。
 
 插图命令基本用法如下，
 
@@ -273,7 +273,7 @@ ebb fig.png
 \includegraphics[bb=0 0 300 200]{fig.png}
 \end{Code}
 
-引用 \texttt{graphicx} 宏包时可加驱动选项，使用 \texttt{latex} 时缺省驱动是 \texttt{dvips}，\texttt{dvipdfm(x)} 用 \texttt{dvipdfm}；\texttt{pdflatex} 和 \texttt{xelatex} 分别用 \texttt{pdftex} 和 \texttt{xetex}，但是它们知道驱动就是自己，其实不用加该选项。
+引用 \texttt{graphicx} 宏包时可加驱动选项，使用 \texttt{latex} 时，缺省驱动是 \texttt{dvips}，\texttt{dvipdfm(x)} 用 \texttt{dvipdfm}；\texttt{pdflatex} 和 \texttt{xelatex} 则分别使用 \texttt{pdftex} 和 \texttt{xetex}，但是它们知道驱动就是自己，其实不用加该选项。
 
 使用 \texttt{latex} 时，如果事先没有生成 \texttt{.bb} 文件的话，需要或加范围框参数。\texttt{pdflatex} 和 \texttt{xelatex} 不要该参数，加上反而可能误事。
 
@@ -307,7 +307,7 @@ ebb fig.png
   \item \XeTeX 目前不支持裁剪，用户只好自己先行处理。
 \end{itemize}
   
-插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅因为同时使用了宽度和高度选项，纵横比发生变化。
+插图的缩放操作见 \autoref{exa:graph_zoom}，其中第三幅同时使用了宽度和高度选项且未保持纵横比，因而产生变形。而第四幅使用了保持纵横比选项，图形没有变形。
 
 插图的旋转操作见 \autoref{exa:graph_rotate}，其中前三幅图的旋转中心在左下角，后三幅的在图中心。
 
@@ -467,7 +467,7 @@ CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种
 \begin{example}[h]
 \begin{Code}[]
 \definecolor{myred}{RGB}{255,0,0}
-\definecolor{mygreen}{HTML}{00FF00}
+\definecolor{mygreen}{HTML}{008000}
 \definecolor{myblue}{rgb}{0,0,1}
 \end{Code}
 \caption{自定义颜色}

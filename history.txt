@@ -1,3 +1,12 @@
+2025-08-23 2.173
+- 52页例4.13对应的正文中，\smallmatrix命令应为smallmatrix环境 by Hongdong Ji
+- 第五章插图中，多处“数字 x 数字”改为“数字 × 数字” by Hongdong Ji
+- 5.2.2节第一段，添加Rahtz生卒年份 by Hongdong Ji
+- 67页第一段，文字溢出版心 by Hongdong Ji
+- 68页例5.3对应的正文中，关于纵横比的说明略作调整 by Hongdong Ji
+- 72页例5.8, 右图标题“反复”折行了 by Hongdong Ji
+- 76页例5.12, 两种绿色有色差 by Hongdong Ji
+
 2025-08-17 2.168
 - 第8页关于TAOCP的脚注，4B已经出版 by Hongdong Ji
 - 第8页倒数第二段，“主导地方”应为“主导地位” by Hongdong Ji
