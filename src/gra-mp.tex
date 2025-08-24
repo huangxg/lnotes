@@ -9,7 +9,7 @@
 
 \section{准备工作}
 
-\MP 的缺省长度单位是 bp，我们也可以使用 \autoref{tab:unit} 中的其它单位。也可以定义一个缩放系数，把坐标都转换为它的倍数，以后想缩放图形时只要修改这个系数即可。注意变量赋值符号是 \texttt{:=}，而 \texttt{=} 则用于方程式。一个变量在同一源文件中只须定义一次，在其后的图形中都可以使用。
+\MP 的缺省长度单位是 bp，我们也可以使用 \autoref{tab:unit} 中的其它单位。也可以定义一个缩放系数，把坐标都转换为它的倍数，以后想缩放图形时只要修改这个系数即可。注意变量赋值符号是 \texttt{:=}，而 \texttt{=} 则用于方程式。一个变量在同一源文件中只需定义一次，在其后的图形中都可以使用。
 
 一个 \MP 源文件 (.mp) 可以包含多个图形，如 \autoref{exa:mp_src} 所示。代码中每行语句以分号结尾，注释以百分号起始。绘图命令包含在一对起始和结尾声明之间。文件结尾也要有一个结尾声明。
 
@@ -57,7 +57,7 @@ outputtemplate "flowchart.mps" %`加在每个图形前面`
 
 \MP 的缺省画笔直径为0.5bp，拿它画点，直径就是0.5bp；拿它画线，宽度也是0.5bp。我们可以用 \texttt{withpen} 选项为单个绘图命令设置画笔，也可以用 \texttt{pickup} 命令为之后所有的绘图命令设置画笔。
 
-在 \autoref{exa:mp_line} 中，\texttt{draw} 命令把几个点以直线段连接起来。\texttt{drawdot} 命令在指定坐标画点，为了使它醒目些我们可以换了支粗一点的画笔。
+在 \autoref{exa:mp_line} 中，\texttt{draw} 命令把几个点以直线段连接起来。\texttt{drawdot} 命令在指定坐标画点，为了使它醒目些我们刻意换了支粗一点的画笔。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{line.mps}}
@@ -77,7 +77,7 @@ endfig;
 \label{exa:mp_line}
 \end{example}
 
-几段直线或曲线可以构成一条路径 (path) ，在路径末尾加个 \texttt{cycle} 命令就构成封闭路径 (closed path) 。上例中两个三角形看起来都是封闭的，其实后面的才是真正的封闭路径。
+几条直线段或曲线段可以构成一条路径 (path) ，在路径末尾加个 \texttt{cycle} 命令就构成封闭路径 (closed path) 。上例中两个三角形看起来都是封闭的，其实后面的才是真正的封闭路径。
 
 \subsection{预定义形状}
 

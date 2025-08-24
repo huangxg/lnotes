@@ -1,3 +1,18 @@
+2025-08-24 2.186
+- 79页6.1节第一段，"只须"改为“只需” by Hongdong Ji
+- 81页第一段，“可以”应为“刻意” by Hongdong Ji
+- 81页第二段，“直线”应为“直线段” by Hongdong Ji
+- 91页第一段，文字溢出版心 by Hongdong Ji
+- 101页倒数第一段，“绘图指令”应为“绘图命令” by Hongdong Ji
+- 107页8.5.1节，“下例”改为 “例8.13” by Hongdong Ji
+- 108页第一段，多了一个“在”字 by Hongdong Ji
+- 116页，“何处是归程”后面应该用问号 by Hongdong Ji
+- 121页下面代码中，“英文词典”改为“英语词典” by Hongdong Ji
+- 146页倒数第一段，文字溢出版心 by Hongdong Ji
+- 152页第一段，"PowerPoint" 拼错 by Hongdong Ji
+- 176页B.1.1第一段，雕版历史略作调整 by Hongdong Ji
+- 180页第二段，添加Rubel生卒年份 by Hongdong Ji
+
 2025-08-23 2.173
 - 52页例4.13对应的正文中，\smallmatrix命令应为smallmatrix环境 by Hongdong Ji
 - 第五章插图中，多处“数字 x 数字”改为“数字 × 数字” by Hongdong Ji

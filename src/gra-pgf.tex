@@ -19,7 +19,7 @@ PGF 的缺省长度单位是1cm，我们也可以改用其它单位。注意这�
 \pgfsetyvec{\pgfpoint{0}{10pt}}
 \end{Code}
 
-TikZ 提供 \verb|\tikz| 命令和 \texttt{tikzpicture} 环境，具体绘图指令可以放在 \verb|\tikz| 后面，也可以放在 \texttt{tikzpicture} 中间。两者效果相同，用户可以任意选择。为了节省空间，本节的示例将省略部分环境代码。
+TikZ 提供 \verb|\tikz| 命令和 \texttt{tikzpicture} 环境，具体绘图命令可以放在 \verb|\tikz| 后面，也可以放在 \texttt{tikzpicture} 中间。两者效果相同，用户可以任意选择。为了节省空间，本节的示例将省略部分环境代码。
 
 \begin{Code}[]
 \tikz ...   %绘图命令
@@ -241,7 +241,7 @@ PGF 比 \MP 和 PSTricks 多了一个有趣的概念：样式 (style) ，它像�
 \section{示意图}
 \subsection{节点}
 
-PGF 中的节点 (node) 可以是简单的标签，也可以有各种形状的边框，还可以有各种复杂的属性。比如下例中的 \texttt{box} 样式，它的边框是矩形，有圆角；它有最小宽度、高度、文字和边框的距离，边框和填充颜色等属性。
+PGF 中的节点 (node) 可以是简单的标签，也可以有各种形状的边框，还可以有各种复杂的属性。比如 \autoref{exa:pgf_box} 中的 \texttt{box} 样式，它的边框是矩形，有圆角；它有最小宽度、高度、文字和边框的距离，边框和填充颜色等属性。
 
 \begin{example}[htbp]
 \begin{Code}[numbers=left]
@@ -273,7 +273,7 @@ PGF 中的节点 (node) 可以是简单的标签，也可以有各种形状的�
 \label{exa:pgf_flowchart}
 \end{example}
 
-\autoref{exa:pgf_flowchart} 中的节点都使用了绝对位置，我们还可以使用更灵活一点的相对位置。在 \autoref{exa:pgf_better_flowchart} 中，我们把 xdv 节点设在在 tex 节点右边 70pt 处 (前面定义的基本长度单位是 10pt) ，而 pdf 节点又在 xdv 节点右边 70pt 处。
+\autoref{exa:pgf_flowchart} 中的节点都使用了绝对位置，我们还可以使用更灵活一点的相对位置。在 \autoref{exa:pgf_better_flowchart} 中，我们把 xdv 节点设在 tex 节点右边 70pt 处 (前面定义的基本长度单位是 10pt) ，而 pdf 节点又在 xdv 节点右边 70pt 处。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=16]{pgf.pdf}}

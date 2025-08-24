@@ -213,7 +213,7 @@ lshort 里有张类似的图流传甚广，包老师为了操练一把20年前�
 
 \texttt{fancyhdr} 宏包将每章起始页的样式设为 \texttt{plain}，若想去掉页脚中间的页码，可以重定义 \texttt{plain} 样式。代码第7--10行清空了 \texttt{plain} 页的页眉和页脚，还去掉了页眉下方的横线。
 
-第11行重定义了章标记，它传给 \verb|\markboth| 命令的参数是章的名称，这样章名就会出现在左标记里。章名最初是从哪里来的呢？它是用 \verb|\chapter{章名}| 命令定义的。章名从 \verb|\chapter{}| 传到 \verb|\chaptermark|，再传到 \verb|\markboth|，最后到了 \verb|\leftmark| 那里。它这样一路走来，不畏艰险，踏平坎坷，战胜妖魔，最终修成正果。
+第11行重定义了章标记，它传给 \verb|\markboth| 命令的参数是章的名称，这样章名就会出现在左标记里。章名最初是从哪里来的呢？它是用 \verb|\chapter{章名}| 命令定义的。章名从 \verb|\chapter| 传到 \verb|\chaptermark|，再传到 \verb|\markboth|，最后到了 \verb|\leftmark| 那里。它这样一路走来，不畏艰险，踏平坎坷，战胜妖魔，最终修成正果。
 
 类似地，第12行重定义了节标记，它传给 \verb|\markright| 命令的参数是节的名称，这样节名就会出现在右标记里。
 
