@@ -1,3 +1,9 @@
+2025-08-25 2.190
+- 17页2.1节，hello world例子统一将文件名改为hello-world.* by Hongdong Ji
+- 145页，Lamport 应加入索引 by Hongdong Ji
+- 159页例12.12, 代码第12行末尾漏掉句点 by Hongdong Ji
+- 194页，European Commission项漏了中文译名 by Hongdong Ji
+
 2025-08-24 2.186
 - 79页6.1节第一段，"只须"改为“只需” by Hongdong Ji
 - 81页第一段，“可以”应为“刻意” by Hongdong Ji

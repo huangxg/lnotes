@@ -10,7 +10,7 @@
 在编辑器中将 \autoref{exa:helloworld} 中的代码保存为 \verb|hello-world.tex|，这就是一份最简单的 \LaTeX 源文件。然后我们可以用 \texttt{xelatex} 程序编译源文件生成 PDF，它知道输入的是 \LaTeX 源文件，所以这里的 \texttt{.tex} 后缀可以省略。以后类似情况都用括号标出，不再特意声明。
 
 \begin{Code}[]
-xelatex hello_world(.tex)
+xelatex hello-world(.tex)
 \end{Code}
 
 如果系统显示类似下面的错误信息，请检查源文件中是否有拼写错误。\texttt{.log} 文件里有更详细的编译信息。
@@ -21,14 +21,14 @@ xelatex hello_world(.tex)
 ! Emergency stop.
 ...
 No pages of output.
-Transcript written on hello_world.log.
+Transcript written on hello-world.log.
 \end{Code}
 
 如果编译成功，系统会报出类似下面的信息：
 
 \begin{Code}[]
-Output written on hello_world.pdf (1 page).
-Transcript written on hello_world.log.
+Output written on hello-world.pdf (1 page).
+Transcript written on hello-world.log.
 \end{Code}
 
 \TeX 系统针对不同格式和引擎的组合，提供了一系列的命令行程序，完成不同的编译和转换功能。比如源文件是 plain \TeX 格式时，可以分别用 \texttt{tex, pdftex, xetex} 程序调用 \TeX, pdfTeX, \XeTeX 引擎；源文件是 \LaTeX 格式时，相应的程序则是 \texttt{latex, pdflatex, xelatex} \footnote{现在的发行包大多以pdfTeX为缺省引擎，所以 \texttt{latex} 命令缺省调用的其实是 pdfTeX，而不是 \TeX 。}。选择编译和转换程序时可以参考 \autoref{fig:compile}，一般有直接方法可用时，不必非要排个转折亲使用间接方法。
