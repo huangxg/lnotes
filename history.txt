@@ -1,3 +1,15 @@
+2025-08-28 2.200
+- 13页1.3节，文中Linux的全称应该是GNU/Linux by Felix Lee
+- 59,60页，多处“数字 x 数字”改为“数字 × 数字” by Hongdong Ji
+- 76页例5.11和5.12，调整彩色代码 by Hongdong Ji
+- 76页倒数第二段，文字溢出版心 by Hongdong Ji
+- 文中多处，“其它”改为“其他” by Hongdong Ji
+- 82页第一段，添加“分别”两字 by Hongdong Ji
+- 82页6.2.3节第一段，直线改为直线段 by Hongdong Ji
+- 83页6.3.3节第一段，RGB和CMYK改为大写 by Hongdong Ji
+- 90页7.1节第一段，“左下”改为“左下角” by Hongdong Ji
+- 102页第一段，“7.1小节”应为“7.1节” by Hongdong Ji
+
 2025-08-25 2.190
 - 17页2.1节，hello world例子统一将文件名改为hello-world.* by Hongdong Ji
 - 145页，Lamport 应加入索引 by Hongdong Ji
@@ -87,7 +99,7 @@
 - 2.2.3节最后一段，插图和表格目录的生成，文字略作调整 by Hongdong Ji
 - 2.3.1节第二段，文字溢出版心 by Hongdong Ji
 - 2.3.1节第四段，hyphen拼写错误 by Hongdong Ji
-- 表2.4，第三行第二列与其它行没对齐 by Hongdong Ji
+- 表2.4，第三行第二列与其他行没对齐 by Hongdong Ji
 - 2.5.1节，文字溢出版心 by Hongdong Ji
 - 例2.17，左边代码中的注释行花括号斜体 by Hongdong Ji
 - 3.4节第一段，多了一个“的”字 by Hongdong Ji

@@ -24,7 +24,7 @@ PSTricks 是一个基于 PostScript 的宏包，有了它就可以直接在 \LaT
 \section{准备工作}
 \label{sec:pst_setup}
 
-PSTricks 中缺省长度单位是 1cm，我们也可以设置自己的单位。绘图命令一般要放在 \texttt{pspicture} 环境里，其参数是一个矩形的左下角和右上角，如果左下从原点开始可以省略该点坐标。这样 \LaTeX 就会给它预留空间，注意这个矩形要能容纳所有图形对象。
+PSTricks 中缺省长度单位是 1cm，我们也可以设置自己的单位。绘图命令一般要放在 \texttt{pspicture} 环境里，其参数是一个矩形的左下角和右上角，如果左下角从原点开始可以省略该点坐标。这样 \LaTeX 就会给它预留空间，注意这个矩形要能容纳所有图形对象。
 
 \begin{Code}[]
 \psset{unit=10pt}
@@ -152,7 +152,7 @@ ps2pdf fig.eps fig.pdf
 \label{exa:pst_curve}
 \end{example}
 
-\verb|\pscurve| 命令把一系列点用平滑曲线连接起来；\verb|\psecurve| 命令不显示曲线的两个端点；\verb|\psccurve| 命令则把曲线封闭起来。\verb|showpoints| 参数用来指示是否显示曲线的构成点，它也可用于其它绘图命令。
+\verb|\pscurve| 命令把一系列点用平滑曲线连接起来；\verb|\psecurve| 命令不显示曲线的两个端点；\verb|\psccurve| 命令则把曲线封闭起来。\verb|showpoints| 参数用来指示是否显示曲线的构成点，它也可用于其他绘图命令。
 
 贝塞尔曲线用 \verb|\psbezier| 命令，其参数就是曲线的控制点。抛物线用 \verb|\psparabola| 命令，它有两个参数，一个是抛物线通过的某点，另一个是抛物线的顶点。
 

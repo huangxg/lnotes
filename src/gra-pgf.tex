@@ -12,7 +12,7 @@ PGF 和 Beamer 的作者都是 Till Tantau (1975--)\indexTantau{} \footnote{柏�
 \usepackage{tikz}
 \end{Code}
 
-PGF 的缺省长度单位是1cm，我们也可以改用其它单位。注意这样预定义的长度单位有时会失效，这可能是 PGF 的 bug。
+PGF 的缺省长度单位是1cm，我们也可以改用其他单位。注意这样预定义的长度单位有时会失效，这可能是 PGF 的 bug。
 
 \begin{Code}[]
 \pgfsetxvec{\pgfpoint{10pt}{0}}
@@ -28,7 +28,7 @@ TikZ 提供 \verb|\tikz| 命令和 \texttt{tikzpicture} 环境，具体绘图命
 \end{tikzpicture}
 \end{Code}
 
-\ref{sec:pst_setup} 小节提到，为了节省编译时间，我们可以用 \texttt{preview} 宏包生成独立的图形文件。对于 PGF 我们也可以如法炮制，虽然这样做不是必须的。
+\ref{sec:pst_setup} 节提到，为了节省编译时间，我们可以用 \texttt{preview} 宏包生成独立的图形文件。对于 PGF 我们也可以如法炮制，虽然这样做不是必须的。
 
 \begin{example}[htbp]
 \begin{Code}[]
@@ -175,7 +175,7 @@ PGF可以使用 \verb|xcolor| 宏包的色彩功能。颜色和填充的用法�
 
 \subsection{渐变和阴影}
 
-\verb|\shade| 命令可以产生渐变和阴影效果，缺省是从上到下，灰色渐变为白色。我们也可以使用其它方向和颜色的渐变（\autoref{exa:pgf_shade}）。
+\verb|\shade| 命令可以产生渐变和阴影效果，缺省是从上到下，灰色渐变为白色。我们也可以使用其他方向和颜色的渐变（\autoref{exa:pgf_shade}）。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=12]{pgf.pdf}}

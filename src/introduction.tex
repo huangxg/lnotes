@@ -167,7 +167,7 @@ Knuth 在软件工程方面也独树一帜。一般认为，编程语言大致�
 
 Knuth 最初设计的 \TeX 只能用于施乐图形打印机 (Xerox graphic printer, XGP) ，这台打印机本身还需要一台 PDP-6 为它服务。1979年，David R. Fuchs\indexFuchs{} \footnote{普林斯顿毕业后，1978年进入斯坦福攻读电脑博士。他不是 Knuth 的学生，但是完成过一些 \TeX 的开发任务。在 Adobe 工作过一段时间，后混入娱乐圈，电影 \emph{Red Diaper Baby} 和 \emph{Haiku Tunnel} 的制片人。} 提出把 \TeX 的输出改为设备无关的格式，也就是 DVI 。
 
-DVI 和其他页面描述语言的主要区别是，它不能嵌入字体和图形。所以它只能称作准页面描述语言，用户需要用驱动程序 (driver) 把它转换为其它格式，比如 PostScript 或 PDF 等。
+DVI 和其他页面描述语言的主要区别是，它不能嵌入字体和图形。所以它只能称作准页面描述语言，用户需要用驱动程序 (driver) 把它转换为其他格式，比如 PostScript 或 PDF 等。
 
 1985年斯坦福电脑博士生 Tomas Rokicki\indexRokicki{} \footnote{1985年毕业于得克萨斯农机大学后，来到斯坦福念博士。博士毕业后加入惠普，1999年离开创业。} 在 Fuchs 和 Knuth 的帮助下开发了\texttt{dvips}，它把 DVI 转为 PostScript。后来维护它的是 TeX 用户组 (TeX Users Group, TUG)\indexTUG{} 的 Karl Berry\indexBerry{} \footnote{1980年代中期就读于马萨诸塞大学。毕业后跟着 Stallman 在 FSF 混，之后混迹于因特里弗 (Interleaf)、哈佛、直觉公司 (Intuit) 等地，2003年起任 TUG 总统。} 等人。
 
@@ -230,9 +230,9 @@ Hàn 回越南期间，上网不便，其他一些人参与了 pdfTeX 的开发�
 
 初学者面对上述那些引擎、格式、宏包、驱动等概念可能手足无措，所幸是有好事者把这些东东连同一些实用程序 (utilities) ，遵照 \TeX 的规范打包集成在一起，形成一个发行版 (distribution) 或者说实现 (implementation)。
 
-与此类似的例子有 Java 和 Linux，比如 Sun, IBM, BEA \footnote{1995年Sun的几位员工另立门户成立了 BEA，2008年被 Oracle 收购，2009年 Oracle 又收购了 Sun。包子曰：天下大势，分久必合。}等公司都有自己的 Java 虚拟机，它们都被称作 Java 的实现；而 Linux 有Red Hat/Fedora, Ubuntu, SUSE 等发行版。
+与此类似的例子有 Java 和 GNU/Linux (以下简称 Linux)，比如 Sun, IBM, BEA \footnote{1995年Sun的几位员工另立门户成立了 BEA，2008年被 Oracle 收购，2009年 Oracle 又收购了 Sun。包子曰：天下大势，分久必合。}等公司都有自己的 Java 虚拟机，它们都被称作 Java 的实现；而 Linux 有Debian, Ubuntu, Fedora, openSUSE 等发行版。
 
-发行版的基本作用是提供 \TeX 后台处理机制和命令行程序，用户还需要前台编辑器来编辑源文件。有的发行版也会附带一个编辑器，但是未必符合用户的口味。常用的 \TeX 发行版和编辑器见 \autoref{tab:texsoft}。在使用 \TeX 的过程中可能还需要其它一些软件，包老师会在相关章节中分别介绍。
+发行版的基本作用是提供 \TeX 后台处理机制和命令行程序，用户还需要前台编辑器来编辑源文件。有的发行版也会附带一个编辑器，但是未必符合用户的口味。常用的 \TeX 发行版和编辑器见 \autoref{tab:texsoft}。在使用 \TeX 的过程中可能还需要其他一些软件，包老师会在相关章节中分别介绍。
 
 \begin{table}[htbp]
 \caption{\TeX 发行版与编辑器}

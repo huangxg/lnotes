@@ -72,7 +72,7 @@ A picture says more than a thousand words.
 \end{minipage}
 \end{figure}
 
-假设输出分辨率是 100 DPI，像素和输出点就一一对应；如果输出分辨率是 300 DPI，每个像素实际输出为3 x 3个点；如果输出分辨率是 50 DPI，每2 x 2个像素才享受到一个输出点的待遇。
+假设输出分辨率是 100 DPI，像素和输出点就一一对应；如果输出分辨率是 300 DPI，每个像素实际输出为3 × 3个点；如果输出分辨率是 50 DPI，每2 × 2个像素才享受到一个输出点的待遇。
 
 当图形分辨率和输出分辨率不一致时，就会有一个重新采样 (resampling) 的过程；从高分辨率到低分辨率叫下采样 (downsampling) ，反之叫上采样 (upsampling) 。重新采样的插值 (interpolation) 算法有很多，其中常用的有最近像素 (nearest neighbor) 、双线性 (bilinear) 、双三次 (bicubic) 、兰索斯 (Lanczos) 等。前两种速度快，但是效果差；后两种效果好，但是速度慢。追求完美的雷人自然要选择 Lanczos。
 
@@ -85,7 +85,7 @@ A picture says more than a thousand words.
 点阵图形尺寸相关的基本编辑操作有以下几种：裁剪 (crop) 、改尺寸 (resize) 、改分辨率。
 
 \begin{enumerate}
-\item 裁剪时像素自然会变少，分辨率不变，缺省输出尺寸也就变小。\autoref{fig:default_size} 其实就是从一幅 2048 x 1536 像素的大图裁剪、缩小而来，因为原图太大，\autoref{fig:original} 把它强制输出为 4in × 3in。
+\item 裁剪时像素自然会变少，分辨率不变，缺省输出尺寸也就变小。\autoref{fig:default_size} 其实就是从一幅 2048 × 1536 像素的大图裁剪、缩小而来，因为原图太大，\autoref{fig:original} 把它强制输出为 4in × 3in。
 
 \item 改尺寸时像素改变，分辨率不变，缺省输出尺寸相应改变，这个过程需要重新采样。比如把 \autoref{fig:default_size} resize 到 200 × 300 像素，分辨率还是 100 PPI，那么缺省输出尺寸就变成 2in × 3in (\autoref{fig:resize}) 。
 
@@ -467,7 +467,7 @@ CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种
 \begin{example}[h]
 \begin{Code}[]
 \definecolor{myred}{RGB}{255,0,0}
-\definecolor{mygreen}{HTML}{008000}
+\definecolor{mygreen}{HTML}{00FF00}
 \definecolor{myblue}{rgb}{0,0,1}
 \end{Code}
 \caption{自定义颜色}
@@ -490,7 +490,7 @@ CMYK 模型认为纸张原本是白色或浅色背景的，在上面印刷某种
 
 \subsubsection{彩色盒子}
 
-\verb|\colorbox| 命令可以生成有彩色背景的盒子，它的语法和 \verb|\textcolor| 类似。\verb|\fcolorbox| 命令又给彩色盒子加了边框，它的第一个参数是边框的颜色。\autoref{exa:colorbox} 中使用了包老师喜欢的几种颜色，它们都来自 \texttt{svgnames}。
+\verb|\colorbox| 命令可以生成有彩色背景的盒子，其语法和 \verb|\textcolor| 类似。\verb|\fcolorbox| 命令又给彩色盒子加了边框，它的第一个参数是边框的颜色。\autoref{exa:colorbox} 中使用了包老师喜欢的几种颜色，它们都来自 \texttt{svgnames}。
 
 \begin{example}[h]
 \begin{BTDemo}[numbers=left]

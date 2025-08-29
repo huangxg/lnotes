@@ -9,7 +9,7 @@
 
 \section{准备工作}
 
-\MP 的缺省长度单位是 bp，我们也可以使用 \autoref{tab:unit} 中的其它单位。也可以定义一个缩放系数，把坐标都转换为它的倍数，以后想缩放图形时只要修改这个系数即可。注意变量赋值符号是 \texttt{:=}，而 \texttt{=} 则用于方程式。一个变量在同一源文件中只需定义一次，在其后的图形中都可以使用。
+\MP 的缺省长度单位是 bp，我们也可以使用 \autoref{tab:unit} 中的其他单位。也可以定义一个缩放系数，把坐标都转换为它的倍数，以后想缩放图形时只要修改这个系数即可。注意变量赋值符号是 \texttt{:=}，而 \texttt{=} 则用于方程式。一个变量在同一源文件中只需定义一次，在其后的图形中都可以使用。
 
 一个 \MP 源文件 (.mp) 可以包含多个图形，如 \autoref{exa:mp_src} 所示。代码中每行语句以分号结尾，注释以百分号起始。绘图命令包含在一对起始和结尾声明之间。文件结尾也要有一个结尾声明。
 
@@ -99,11 +99,11 @@ endfig;
 \label{exa:mp_predefined}
 \end{example}
 
-\texttt{fullcircle} 命令以原点为圆心画一个单位圆，类似的预定义形状还有 \texttt{halfcircle, quartercircle, unitsquare} 等。注意单位正方形的参考点在左下而不在其中心。在 \autoref{exa:mp_predefined} 中，我们使用了不同方向的缩放系数 \texttt{xscaled} 和 \texttt{yscaled}，把圆形和正方形变为椭圆和长方形。
+\texttt{fullcircle} 命令以原点为圆心画一个单位圆，类似的预定义形状还有 \texttt{halfcircle, quartercircle, unitsquare} 等。注意单位正方形的参考点在左下而不在其中心。在 \autoref{exa:mp_predefined} 中，我们使用了不同方向的缩放系数 \texttt{xscaled} 和 \texttt{yscaled}，把圆形和正方形分别变为椭圆和长方形。
 
 \subsection{曲线}
 
-如果把画直线时坐标点之间的 \texttt{--} 换成 \texttt{..}，我们就得到一条曲线。直线和曲线共用一些点时，它们也可以混在一条语句里画。
+如果把画直线段时坐标点之间的 \texttt{--} 换成 \texttt{..}，我们就得到一条曲线。直线段和曲线共用一些点时，它们也可以混在一条语句里画。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{curve.mps}}
@@ -181,7 +181,7 @@ endfig;
 
 \subsection{彩色和填充}
 
-\MP 不能使用 \texttt{xcolor} 宏包，它只支持 rgb 和 cmyk 色彩模式，预定义了黑、白、红、绿、蓝等颜色。自定义颜色的方法如下，
+\MP 不能使用 \texttt{xcolor} 宏包，它只支持 RGB 和 CMYK 色彩模式，预定义了黑、白、红、绿、蓝等颜色。自定义颜色的方法如下，
 
 \begin{Code}[]
 color c[];
@@ -316,7 +316,7 @@ mpost \prologues:=3; input fig.mp
 
 numeric 类型变量的精度是1/65536，它的绝对值不能超过4096，在计算过程中数值可以达到32768。这样的规定也应归功于当年的电脑硬件，不过对于科技文档插图而言，4096一般还是够用的。
 
-除了缺省的 numeric，其它变量在使用之前都需要用数据类型来显式声明。相同类型的变量可以在一行语句中声明，但是带下标的变量不能放在同一行 (这个规定很蹊跷) 。
+除了缺省的 numeric，其他变量在使用之前都需要用数据类型来显式声明。相同类型的变量可以在一行语句中声明，但是带下标的变量不能放在同一行 (这个规定很蹊跷) 。
 
 \begin{Code}
 numeric x,y,z;    %正确
@@ -363,7 +363,7 @@ endfig;
 \label{exa:mp_loop}
 \end{example}
 
-循环语句缺省步长是1，我们也可以改用其它步长。\texttt{upto} 其实就是 \texttt{step 1 until} 的简写方式。
+循环语句缺省步长是1，我们也可以改用其他步长。\texttt{upto} 其实就是 \texttt{step 1 until} 的简写方式。
 
 \begin{Code}[]
 for x=1 step .5 until 3: 
