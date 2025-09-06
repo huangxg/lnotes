@@ -1,3 +1,13 @@
+2025-09-06 2.208
+- 第4页其他页面描述语言，1.1.3节应为“小节” by Hongdong Ji
+- 39页3.3节第一段，2.3.2节应为“小节” by Hongdong Ji
+- 41页第四段，2.3.1节应为“小节” by Hongdong Ji
+- 45页4.1节第二段，4.4.1节应为“小节” by Hongdong Ji
+- 65页第三段，4.1.3节应为“小节” by Hongdong Ji
+- 93页7.2.1小节第一段，\dot和\dots应为\psdot和\psdots by Hongdong Ji
+- 98页7.3.4小节第一段，\psset应为\psset by Hongdong Ji
+- 109页例8.16, "PlainTex"应为"Plain Tex" by Hongdong Ji
+
 2025-08-28 2.200
 - 13页1.3节，文中Linux的全称应该是GNU/Linux by Felix Lee
 - 59,60页，多处“数字 x 数字”改为“数字 × 数字” by Hongdong Ji

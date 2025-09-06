@@ -82,7 +82,7 @@ ps2pdf fig.eps fig.pdf
 \section{基本图形对象}
 \subsection{点和直线}
 
-\verb|\dot| 命令画一个点，\verb|\dots| 命令画多个点。因为点是有直径的，我们需要把\texttt{pspicture} 的尺寸设稍大一点。\verb|\psline| 命令把多个点用直线段连接起来，线段之间的连接缺省为尖角，也可以设置为圆角。
+\verb|\psdot| 命令画一个点，\verb|\psdots| 命令画多个点。因为点是有直径的，我们需要把\texttt{pspicture} 的尺寸设稍大一点。\verb|\psline| 命令把多个点用直线段连接起来，线段之间的连接缺省为尖角，也可以设置为圆角。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{pst.pdf}}
@@ -258,7 +258,7 @@ PSTricks 预定义了 black, darkgray, gray, lightgray, white 等灰度颜色，
 
 \subsection{全局设置}
 
-前文提到过用 \verb|\pseset| 命令设置长度单位，它还可以用来设置线宽、线型、颜色等全局参数。
+前文提到过用 \verb|\psset| 命令设置长度单位，它还可以用来设置线宽、线型、颜色等全局参数。
 
 \begin{Code}[]
 \psset{linewidth=1pt, linestyle=dashed, linecolor=Silver, 
