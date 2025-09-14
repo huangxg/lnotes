@@ -158,10 +158,10 @@ article和report可以有摘要，book里没有。摘要环境用法如下：
 
 文档中可以输入的文字符号大致可以分为：普通字符、控制符、特殊符号、预定义字符串、注音符号等。
 
-普通字符可以直接输入，而有些字符 (例如\# \$ \% \^{} \& \_ \{ \} \~{} 等) 被用作特殊的控制符，输入时多数需要在前面加个反斜杠 \verb|\| 来转义。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
+普通字符可以直接输入，而有些字符 (例如\~{} \# \$ \% \^{} \& \_ \{ \} 等) 被用作特殊的控制符，输入时多数需要在前面加个反斜杠 \verb|\| 来转义。而 \verb|\|本身则要用 \verb|\textbackslash| 命令来输入，因为 \verb|\\| 被用作换行指令\footnote{为什么不用 C 语言的 \verb|\n| 呢，也许因为 \TeX 的编程语言是 Pascal。}。
 
 \begin{Code}[]
-\# \$ \^ \& \_ \{ \} \~ \textbackslash \%
+\~ \# \$ \% \^ \& \_ \{ \} \textbackslash
 \end{Code}
 
 \autoref{tab:symbols} 给出一些特殊符号和预定义字符串的输入方法；其中 \verb|\XeTeX|, \verb|\XeLaTeX| 命令需要 \texttt{metalogo} 宏包，\verb|\MF|, \verb|\MP| 命令需要 \texttt{mflogo} 宏包，\verb|\AmS| 命令需要 \texttt{texnames} 宏包。\autoref{tab:accent} 列出一些注音符号。更多的符号见 Scott Pakin\indexPakin{} \footnote{UIUC 计算机系 1995年硕士，2001年博士。现供职于洛斯阿莫斯国家实验室 (Los Alamos National Laboratory) 。} 的符号列表\citep{Pakin_comprehensive}。

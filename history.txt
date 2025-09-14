@@ -1,3 +1,16 @@
+2025-09-14 2.219
+- 第6页倒数第三段，“扩展标记语言”应为“可扩展标记语言” by Hongdong Ji
+- 9-11页，Knuth 应加入索引 by Hongdong Ji
+- 21页2.3.1小节第二段，调整特殊字符顺序 by Hongdong Ji
+- 46页4.2.1小节，部分希腊字母和拉丁字母相同，加入解释，并调整了表4.2 by Hongdong Ji
+- 49页4.2.5小节第一段，略调整关于箭头长度的描述 by Hongdong Ji
+- 50页4.2.7小节第一段，文字溢出版心 by Hongdong Ji
+- 60页第二段，文字略作调整 by Hongdong Ji
+- 68页例5.3改名为插图缩放，69页例5.4改名为插图旋转，和正文一致 by Hongdong Ji
+- 139页11.1.1小节第二段，“x”应为“×” by Hongdong Ji
+- 185页B.3.3小节倒数第二段，“x”应为“×” by Hongdong Ji
+- 186页，冲电气应加入索引 by Hongdong Ji
+
 2025-09-06 2.208
 - 第4页其他页面描述语言，1.1.3节应为“小节” by Hongdong Ji
 - 39页3.3节第一段，2.3.2节应为“小节” by Hongdong Ji

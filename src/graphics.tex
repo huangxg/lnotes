@@ -78,7 +78,7 @@ A picture says more than a thousand words.
 
 一般而言，高分辨率图形配合高分辨率输出设备会产生高质量效果，低分辨率图形配合低分辨率设备会产生低质量效果；高分辨率图形遇到低分辨率设备会形成浪费；低分辨率图形遇到高分辨率设备呢，得看插值效果，但是最好嫑高估机器的智能。雷人追求的是高质量文档，所以输出设备的分辨率大家暂时就甭操心了。
 
-当输出尺寸一定时，图形分辨率越高需要的像素就越多，图形文件体积就越大。那么点阵图形的分辨率多少比较合适呢？一般认为在屏幕上阅读需要 72 PPI，考虑到放大 150 PPI 应该够了，而高质量打印需要 300 PPI。
+当输出尺寸一定时，图形分辨率越高需要的像素就越多，图形文件体积就越大。那么点阵图形的分辨率多少比较合适呢？一般认为在屏幕上阅读需要 72 PPI；考虑到放大显示，150 PPI 应该够了；而高质量打印需要 300 PPI。
 
 假设我们要在 \LaTeX 文档中嵌入一幅图形，如果是通栏，宽度就是4.8--5.4in (文档缺省宽度取决于字体大小) 。那么如果仅用于屏幕阅读，原始图形的宽度 400px 足够了；如要放大阅读或输出打印则分别需要 800px 和 1600px。
 
@@ -313,13 +313,13 @@ ebb fig.png
 
 \begin{example}[htbp]
 \LoadFBTDemo[]{texlet/fig-zoom}
-\caption{图形缩放}
+\caption{插图缩放}
 \label{exa:graph_zoom}
 \end{example}
 
 \begin{example}[htbp]
 \LoadFBTDemo[numbers=left]{texlet/fig-rotate}
-\caption{图形旋转}
+\caption{插图旋转}
 \label{exa:graph_rotate}
 \end{example}
 
@@ -327,7 +327,7 @@ ebb fig.png
 
 若想省略文件后缀或路径名，可以使用 \autoref{exa:filename} 中的命令。其中第1行指定后缀列表让编译程序自行查找；第2行指出未知后缀的都是 EPS；后三行设置缺省搜索路径，分别使用了绝对路径、相对路径、多个路径。注意文件名和路径名都不能有空格；路径名分隔符最好用正斜杠 \verb|/|，这样可以在多种操作系统上通用；路径名要用 \verb|/| 结尾。
 
-\begin{example}[h]
+\begin{example}[htbp]
 \begin{Code}[numbers=left]
 \DeclareGraphicsExtensions{.eps,.mps,.pdf,.jpg,.png}
 \DeclareGraphicsRule{*}{eps}{*}{}
@@ -409,7 +409,7 @@ ebb fig.png
 \label{exa:better_subfig}
 \end{example}
 
-想了解更多子图功能请参考 \texttt{subfig} 宏包手册\citep{Cochran_subfig}，更多 \LaTeX 插图功能，请参考 Keith Reckdahl\indexReckdahl 的 epslatex\citep{Reckdahl_epslatex}。
+想了解更多子图功能请参考 \texttt{subfig} 宏包手册\citep{Cochran_subfig}，更多 \LaTeX 插图功能，请参考 Keith Reckdahl\indexReckdahl{} 的 epslatex\citep{Reckdahl_epslatex}。
 
 \section{矢量绘图}
 \label{sec:draft}

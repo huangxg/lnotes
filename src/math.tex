@@ -60,7 +60,7 @@ Einstein's $E=mc^2$
 
 \subsection{希腊字母}
 
-英文字母在数学模式下可以直接输入，希腊字母则需要用 \autoref{tab:greek} 中的命令输入，注意大写希腊字母的命令首字母也是大写。
+英文字母在数学模式下可以直接输入，希腊字母通常需要用 \autoref{tab:greek} 中的命令输入，注意大写希腊字母的命令首字母也是大写。小写的 omicron 和拉丁字母o相同，所以没有专门的命令；多个大写的希腊字母与相应的拉丁字母相同，也没有专门命令。
 
 \begin{table}[htbp]
 \caption{希腊字母}
@@ -69,27 +69,28 @@ Einstein's $E=mc^2$
 \begin{tabular}{llllllll}
   \toprule
   $\alpha$      & \verb|\alpha|      & $\theta$    & \verb|\theta|    & 
-    $o$         & \verb|o|        & $\tau$     & \verb|\tau| \\
+    $\pi$       & \verb|\pi|         & $\phi$      & \verb|\phi|      \\
   $\beta$       & \verb|\beta|       & $\vartheta$ & \verb|\vartheta| & 
-    $\pi$       & \verb|\pi|      & $\upsilon$ & \verb|\upsilon| \\
+    $\varpi$    & \verb|\varpi|      & $\varphi$   & \verb|\varphi|   \\
   $\gamma$      & \verb|\gamma|      & $\iota$     & \verb|\iota|     & 
-    $\varpi$    & \verb|\varpi|   & $\phi$     & \verb|\phi| \\
+    $\rho$      & \verb|\rho|        & $\chi$      & \verb|\chi|      \\
   $\delta$      & \verb|\delta|      & $\kappa$    & \verb|\kappa|    & 
-    $\rho$      & \verb|\rho|     & $\varphi$  & \verb|\varphi| \\
+    $\varrho$   & \verb|\varrho|     & $\psi$      & \verb|\psi|      \\
   $\epsilon$    & \verb|\epsilon|    & $\lambda$   & \verb|\lambda|   & 
-    $\varrho$   & \verb|\varrho|  & $\chi$     & \verb|\chi| \\
+    $\sigma$    & \verb|\sigma|      & $\omega$    & \verb|\omega|    \\
   $\varepsilon$ & \verb|\varepsilon| & $\mu$       & \verb|\mu|       & 
-    $\sigma$    & \verb|\sigma|   & $\psi$     & \verb|\psi| \\
+    $\varsigma$ & \verb|\varsigma|   &             &                  \\
   $\zeta$       & \verb|\zeta|       & $\nu$       & \verb|\nu|       & 
-    $\varsigma$ & \verb|\varsigma|   & $\omega$   & \verb|\omega| \\
+    $\tau$      & \verb|\tau|        &             &                  \\
   $\eta$        & \verb|\eta|        & $\xi$       & \verb|\xi|       & 
-    &                 &            & \\
+    $\upsilon$  & \verb|\upsilon|    &             &                  \\
+  \midrule
   $\Gamma$      & \verb|\Gamma|      & $\Lambda$   & \verb|\Lambda|   & 
-    $\Sigma$    & \verb|\Sigma|   & $\Psi$     & \verb|\Psi| \\
+    $\Sigma$    & \verb|\Sigma|      & $\Psi$      & \verb|\Psi| \\
   $\Delta$      & \verb|\Delta|      & $\Xi$       & \verb|\Xi|       & 
-    $\Upsilon$  & \verb|\Upsilon| & $\Omega$   & \verb|\Omega| \\
+    $\Upsilon$  & \verb|\Upsilon|    & $\Omega$    & \verb|\Omega| \\
   $\Theta$      & \verb|\Theta|      & $\Pi$       & \verb|\Pi|       & 
-    $\Phi$      & \verb|\Phi|     &            & \\
+    $\Phi$      & \verb|\Phi|        &             & \\
   \bottomrule
 \end{tabular}
 \end{table}
@@ -170,7 +171,7 @@ $ \frac{1}{2} \dfrac{1}{2} $
 
 \subsection{箭头}
 
-\autoref{tab:arrow} 给出了一些箭头的输入方法。\verb|\xleftarrow| 和 \verb|\xrightarrow| 命令生成的箭头可以根据内容自动调整长度（见 \autoref{exa:xarrow}）。
+\autoref{tab:arrow} 给出了一些箭头的输入方法。\verb|\xleftarrow| 和 \verb|\xrightarrow| 命令生成的箭头可以根据箭头上下方内容的长短自动调整长度（见 \autoref{exa:xarrow}）。
 
 \begin{table}[htbp]
 \caption{箭头}
@@ -245,7 +246,7 @@ $ \frac{1}{2} \dfrac{1}{2} $
 
 \subsection{分隔符}
 
-各种括号用 \verb|() [] \{\} \langle\rangle| 等符号或命令表示；花括号通常用来输入命令和环境的参数，所以在数学公式中它们前面要加 \verb|\|。因为 \LaTeX 中 \verb+|+ 和 \verb+\|+ 的应用过于随意，\texttt{amsmath} 宏包推荐用 \verb|\lvert\rvert| 和 \verb|\lVert\rVert| 取而代之。
+各种括号用 \verb|() [] \{\} \langle\rangle| 等符号或命令表示；花括号通常用来输入命令和环境的参数，所以在数学公式中它们前面要加 \verb|\|。因为 \LaTeX 中 \verb+|+ 和 \verb+\|+ 的应用过于随意，\texttt{amsmath} 宏包推荐用 \verb|\lvert|, \verb|\rvert|, \verb|\lVert|, \verb|\rVert| 取而代之。
 
 我们可以在上述分隔符前面加 \verb|\big \Big \bigg \Bigg| 等命令来调整其大小。\LaTeX 原有的方法是在分隔符前面加 \verb|\left \right| 来自动调整大小，但是效果不佳，所以\texttt{amsmath} 不推荐用这种方法。
 
@@ -335,7 +336,7 @@ a&b\\c&d \end{smallmatrix} ) $.
 
 \section{多行公式}
 
-有时一个公式太长一行放不下，或几个公式需要写成一组，这时我们就要用到\texttt{amsmath} 提供的一些多行公式环境。
+有时一个公式太长一行放不下，或几个公式需要写成一组，这时我们就要用到\texttt{amsmath}提供的一些多行公式环境。
 
 \subsection{长公式}
 \label{sec:longeq}

@@ -116,7 +116,7 @@ GML 把结构、内容、格式分开，这样作者就可以专心写作。另�
 
 1993年，HTML成为互联网工程任务组 (Internet Engineering Task Force, IETF)\indexIETF{} 的建议标准。1995年IETF发布了HTML 2.0。1997年，HTML 3.2成为W3C推荐标准，同年升级到4.0，次年升级到4.01。
 
-HTML擅长表现布局、外观，但是缺乏对内容数据的关怀，所以人们从1990年代中期就开始寻求面向数据交换的新格式。1998年W3C发布了在SGML基础上简化来的扩展标记语言 (Extensible Markup Language, XML) ，2004年升级为XML 1.1。
+HTML擅长表现布局、外观，但是缺乏对内容数据的关怀，所以人们从1990年代中期就开始寻求面向数据交换的新格式。1998年W3C发布了在SGML基础上简化来的可扩展标记语言 (Extensible Markup Language, XML) ，2004年升级为XML 1.1。
 
 从那时起，基于XML的新名词儿如雨后春笋不断涌现。其中和排版关系比较大的是1998年 W3C 发布的数学标记语言 (mathematical markup language, MathML) ，2003年升级为 MathML 2.0, 2010年 3.0。
 
@@ -149,7 +149,7 @@ Knuth 在软件工程方面也独树一帜。一般认为，编程语言大致�
 
 包子曰：于我心有戚戚焉。包老师写的东西往往注释连篇累牍，八卦亦真亦幻，正文不知所云。突然有一天，正文不见了，剩下的都是八卦，老包便已登堂入室，或可荣膺 Nobel Zhuangbility Prize。
 
-1981年，Knuth 提出了 WEB 编程系统，它把程序分成编程和文档两部分，编程部分采用 Pascal，文档部分则用 \TeX。1987年普林斯顿的 Silvio Levy (1959--)\indexLevy{} \footnote{1979年巴西理论数学与应用数学研究所 (IMPA) 硕士。普林斯顿数学系1985年博士，1986年博士后。1988年加入明尼苏达大学几何中心，1995年跳到陈省身创立的数学科学研究所 (Mathematical Sciences Research Institute, MSRI) 。} 提出 CWEB，把编程部分换成 C 语言。
+1981年，Knuth\indexKnuth{} 提出了 WEB 编程系统，它把程序分成编程和文档两部分，编程部分采用 Pascal，文档部分则用 \TeX。1987年普林斯顿的 Silvio Levy (1959--)\indexLevy{} \footnote{1979年巴西理论数学与应用数学研究所 (IMPA) 硕士。普林斯顿数学系1985年博士，1986年博士后。1988年加入明尼苏达大学几何中心，1995年跳到陈省身创立的数学科学研究所 (Mathematical Sciences Research Institute, MSRI) 。} 提出 CWEB，把编程部分换成 C 语言。
 
 \subsubsection{格式}
 
@@ -165,17 +165,17 @@ Knuth 在软件工程方面也独树一帜。一般认为，编程语言大致�
 
 \subsubsection{驱动}
 
-Knuth 最初设计的 \TeX 只能用于施乐图形打印机 (Xerox graphic printer, XGP) ，这台打印机本身还需要一台 PDP-6 为它服务。1979年，David R. Fuchs\indexFuchs{} \footnote{普林斯顿毕业后，1978年进入斯坦福攻读电脑博士。他不是 Knuth 的学生，但是完成过一些 \TeX 的开发任务。在 Adobe 工作过一段时间，后混入娱乐圈，电影 \emph{Red Diaper Baby} 和 \emph{Haiku Tunnel} 的制片人。} 提出把 \TeX 的输出改为设备无关的格式，也就是 DVI 。
+Knuth\indexKnuth{} 最初设计的 \TeX 只能用于施乐图形打印机 (Xerox graphic printer, XGP) ，这台打印机本身还需要一台 PDP-6 为它服务。1979年，David R. Fuchs\indexFuchs{} \footnote{普林斯顿毕业后，1978年进入斯坦福攻读电脑博士。他不是 Knuth 的学生，但是完成过一些 \TeX 的开发任务。在 Adobe 工作过一段时间，后混入娱乐圈，电影 \emph{Red Diaper Baby} 和 \emph{Haiku Tunnel} 的制片人。} 提出把 \TeX 的输出改为设备无关的格式，也就是 DVI 。
 
 DVI 和其他页面描述语言的主要区别是，它不能嵌入字体和图形。所以它只能称作准页面描述语言，用户需要用驱动程序 (driver) 把它转换为其他格式，比如 PostScript 或 PDF 等。
 
 1985年斯坦福电脑博士生 Tomas Rokicki\indexRokicki{} \footnote{1985年毕业于得克萨斯农机大学后，来到斯坦福念博士。博士毕业后加入惠普，1999年离开创业。} 在 Fuchs 和 Knuth 的帮助下开发了\texttt{dvips}，它把 DVI 转为 PostScript。后来维护它的是 TeX 用户组 (TeX Users Group, TUG)\indexTUG{} 的 Karl Berry\indexBerry{} \footnote{1980年代中期就读于马萨诸塞大学。毕业后跟着 Stallman 在 FSF 混，之后混迹于因特里弗 (Interleaf)、哈佛、直觉公司 (Intuit) 等地，2003年起任 TUG 总统。} 等人。
 
-1996年，俄罗斯高能物理研究所 (Institute for High Energy Physics) 的 Sergey Lesenko\indexLesenko 发布了\texttt{dvipdf}，它把 DVI 转为 PDF 。后来凯特林大学 (Kettering University) 的 Mark A. Wicks\indexWicks 开发的 \texttt{dvipdfm} 可以更好地处理字体、图形，它在2001年之后基本停止开发。\texttt{dvipdfm} 只能处理单字节字符，后来日本的平田俊作 (Shunsaku Hirata)\indexHirata{} 和韩国的赵珍焕 (Jin-Hwan Cho, 1968--)\indexCho{}\footnote{1999年数学博士，大阪市立大学 (Osaka City University) 博士后。2001年韩国高等研究院 (Korea Institute for Advanced Study) 研究员，2004年水原大学 (University of Suwon) 讲师。} 分别把它扩展为 \texttt{dvipdfm-jpn} 和 \texttt{dvipdfm-kor}，2002年两者被合并为 \texttt{dvipdfmx}。它在字体、编码、图形方面都更优秀。
+1996年，俄罗斯高能物理研究所 (Institute for High Energy Physics) 的 Sergey Lesenko\indexLesenko{} 发布了\texttt{dvipdf}，它把 DVI 转为 PDF 。后来凯特林大学 (Kettering University) 的 Mark A. Wicks\indexWicks 开发的 \texttt{dvipdfm} 可以更好地处理字体、图形，它在2001年之后基本停止开发。\texttt{dvipdfm} 只能处理单字节字符，后来日本的平田俊作 (Shunsaku Hirata)\indexHirata{} 和韩国的赵珍焕 (Jin-Hwan Cho, 1968--)\indexCho{}\footnote{1999年数学博士，大阪市立大学 (Osaka City University) 博士后。2001年韩国高等研究院 (Korea Institute for Advanced Study) 研究员，2004年水原大学 (University of Suwon) 讲师。} 分别把它扩展为 \texttt{dvipdfm-jpn} 和 \texttt{dvipdfm-kor}，2002年两者被合并为 \texttt{dvipdfmx}。它在字体、编码、图形方面都更优秀。
 
 \subsubsection{革命}
 
-1990年代初，Knuth 亲切召见 Jiří Zlatuška (1957--)\indexZlatuska{} \footnote{捷克马萨里克大学 (Masaryk University) 电脑教授。}和 Philip Taylor (1947--)\indexTaylor{} \footnote{16岁起在英国邮局总局 (General Post Office, GPO) 当技工，业余就读于几家技校。1970年跳到莫林斯烟草机械 (Molins Tobacco Machinery) ，1972年到伦敦大学，先后任程序员、网管、研究员等职。曾任英国 TeX 用户组主席。} 等人，探讨怎样改进扩展 \TeX ，但是 Knuth 坚持只有他才能改动 \TeX。1992年这两位就纠集人马，在一位匿名赞助者的支持下搞了个新项目 new typesetting system (NTS) ，企图改朝换代。他们不喜欢文学编程，就派 Karel Skoupý 把 \TeX 逆向工程，还想换用Java。
+1990年代初，Knuth\indexKnuth{} 亲切召见 Jiří Zlatuška (1957--)\indexZlatuska{} \footnote{捷克马萨里克大学 (Masaryk University) 电脑教授。}和 Philip Taylor (1947--)\indexTaylor{} \footnote{16岁起在英国邮局总局 (General Post Office, GPO) 当技工，业余就读于几家技校。1970年跳到莫林斯烟草机械 (Molins Tobacco Machinery) ，1972年到伦敦大学，先后任程序员、网管、研究员等职。曾任英国 TeX 用户组主席。} 等人，探讨怎样改进扩展 \TeX ，但是 Knuth 坚持只有他才能改动 \TeX。1992年这两位就纠集人马，在一位匿名赞助者的支持下搞了个新项目 new typesetting system (NTS) ，企图改朝换代。他们不喜欢文学编程，就派 Karel Skoupý 把 \TeX 逆向工程，还想换用Java。
 
 这次农民起义运动由于其历史局限性，缺乏马克思主义的世界观、方法论和一般原理的引导，同时遭到统治阶级的镇压，最终失败了。但是它留下了革命的火种：$\varepsilon$-\TeX ，把 \TeX 支持的字符从256个扩充到32768个。
 
