@@ -271,7 +271,7 @@ endfig;
 \end{tabular}
 \end{table}
 
-我们也可以用一对 \texttt{btex} 和 \texttt{etex} 来嵌入一些 \TeX 内容，比如数学标注 (\autoref{exa:mp_label} 代码第14, 18, 19行) 。\texttt{mpost} 会把 \TeX 内容存到一个临时文件，调用 \texttt{tex} 编译它生成 DVI； \texttt{mpost} 把 DVI 转换为\MP 内容存到一个 \texttt{.mpx} 文件中，然后再把它嵌入输出的 MPS。
+我们也可以用一对 \texttt{btex} 和 \texttt{etex} 来嵌入一些 \TeX 内容，比如数学标注 (\autoref{exa:mp_label} 代码第14, 18, 19行) 。\texttt{mpost} 会把 \TeX 内容存到一个临时文件，调用 \texttt{tex} 编译它生成 DVI；\texttt{mpost} 把 DVI 转换为\MP 内容存到一个 \texttt{.mpx} 文件中，然后再把它嵌入输出的 MPS。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics{label.mps}}
