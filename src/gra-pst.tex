@@ -33,7 +33,7 @@ PSTricks 中缺省长度单位是 1cm，我们也可以设置自己的单位。�
 \end{pspicture}
 \end{Code}
 
-另外需要注意的是，嵌入 \LaTeX 的PSTricks生成的是PostScript，\texttt{dvips} 认得自家人，\texttt{xdvipdfmx} 也可以处理。\texttt{dvipdfm} 和 \texttt{pdflatex} 则不能；如果使用后两种驱动，需要先行生成EPS或PDF。
+另外需要注意的是，嵌入 \LaTeX 的 PSTricks 命令生成的是PostScript，\texttt{dvips} 认得自家人，\texttt{xdvipdfmx} 也可以处理。\texttt{dvipdfm} 和 \texttt{pdflatex} 则不能；如果使用后两种驱动，需要先行生成EPS或PDF。
 
  \texttt{pst-eps} 宏包能够在线处理 PSTricks 代码并生成 EPS，这样用户就可以在同一 \LaTeX 源文件中插入该 EPS。然而 \texttt{dvipdfmx} 不能正确处理 \texttt{pst-eps} 生成的 EPS，它和 \verb|\rput|, \verb|\uput|, \verb|\psaxes| 等命令都不兼容。
 
@@ -120,7 +120,7 @@ ps2pdf fig.eps fig.pdf
 
 \subsection{圆、椭圆、圆弧、扇形}
 
-圆形用 \verb|\pscircle| 命令，参数是圆心和半径。椭圆用 \verb|\psellipse| 命令，参数是中心、长径、短径。注意这两个命令的半径参数用不同的括号，可能是作者的笔误。圆弧用 \verb|\psarc| 命令，其参数是圆心、半径、起止角度，逆时针作图。\verb|\psarcn| 类似，只是顺时针作图。扇形用 \verb|\pswedge| 命令。
+圆形用 \verb|\pscircle| 命令，参数是圆心和半径。椭圆用 \verb|\psellipse| 命令，参数是中心、长径、短径。注意这两个命令的半径参数用不同的括号，可能是作者的笔误。圆弧用 \verb|\psarc| 命令，其参数是圆心、半径、起止角度，角度方向是逆时针。\verb|\psarcn| 类似，只是角度方向是顺时针。扇形用 \verb|\pswedge| 命令。
 
 \begin{example}[htbp]
 \begin{FBTDemo}[numbers=left]{\includegraphics[page=3]{pst.pdf}}
@@ -304,7 +304,7 @@ PSTricks 预定义了 black, darkgray, gray, lightgray, white 等灰度颜色，
 \label{exa:pst_transform}
 \end{example}
 
-如果要进行全局坐标变换，可以考虑使用 \verb|translate|, \verb|scale|, \verb|rotate|, \verb|swapaxes| 等命令。
+如果需要全局坐标变换，可以考虑 \verb|\translate|, \verb|\scale|, \verb|\rotate|, \verb|\swapaxes| 等命令。
 
 \section{标注}
 

@@ -1,3 +1,8 @@
+2025-09-24 2.223
+- 92页第一段，文字溢出版心 by Hongdong Ji
+- 94页7.2.3小节，文字溢出版心 by Hongdong Ji
+- 99页第一段，四个命令前应有反斜杠 by Hongdong Ji
+
 2025-09-14 2.220
 - 52页4.4节第一段，amsmath两边间距不对称。文章多处有类似问题 by Hongdong Ji
 
